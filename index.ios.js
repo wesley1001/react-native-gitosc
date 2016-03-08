@@ -3,32 +3,28 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
 
-class OSCGit extends Component {
+const React = require("react-native");
+const LoginComponent = require("./components/LoginComponent");
+
+const {
+    AppRegistry,
+    StyleSheet,
+    TabBarIOS,
+    Text,
+    View,
+    NavigatorIOS,
+    ActivityIndicatorIOS,
+    } = React;
+
+
+const OSCGit = React.createClass({
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <LoginComponent />
     );
   }
-}
+});
 
 const styles = StyleSheet.create({
   container: {
