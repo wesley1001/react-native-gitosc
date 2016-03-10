@@ -98,7 +98,7 @@ const OnBoardComponent = React.createClass({
         <View style={[styles.container, {top: top}]}>
           <Image
             style={styles.welcomeImage}
-            source={require('../AppIcons/ios/iTunesArtwork.png')}/>
+            source={require('../icons/ios/iTunesArtwork.png')}/>
           <View style={styles.loginContainer}>
             <TextInput
               autoCapitalize={'none'}
@@ -107,7 +107,7 @@ const OnBoardComponent = React.createClass({
               returnKeyType={'done'}
               onChangeText={this.onNameChange}
               onSubmitEditing={this.submitOnBoard}
-              placeholder={'Github username (NOT EMAIL!)'}
+              placeholder={'osc username (NOT EMAIL!)'}
             />
             <TouchableHighlight
               style={styles.go}

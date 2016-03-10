@@ -23,7 +23,7 @@ const LoginState = {
 
 const OSCGit = React.createClass({
   getInitialState() {
-    return {loginState: LoginState.pending}
+    return {loginState: LoginState.unOnBoard}
   },
 
   componentWillMount() {
