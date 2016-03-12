@@ -5,6 +5,7 @@ const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
 const DXRNUtils = require('../common/DXRNUtils');
+const Utils = require('../common/Utils');
 const OSCService = require('../service/OSCService');
 
 const {
@@ -24,10 +25,10 @@ const LoginComponent = React.createClass({
     },
     getInitialState() {
         return {
-            username:"",
-            password:"",
+            username:"rplees.i.ly@gmail.com",
+            password:"**",
             logining:false,
-            loginErr:"",
+            loginError:"",
         }
     },
 
@@ -43,27 +44,42 @@ const LoginComponent = React.createClass({
         DXRNUtils.trackClick('clickUserLogin', {name: 'login页面用户登录'});
         if (this.state.logining) return;
         if(this.state.username.length == 0 || this.state.password.length == 0) {
-            this.setState({logining: false, loginErr: "Please input valid word."});
+            this.setState({logining: false, loginError: "Please input valid word."});
             return;
         }
-
-        OSCService.login(this.state.username, this.state.password)
-        .then(body => {
-            console.log("fff:" + body);
-            this.setState({
-                logining: false,
-                loginError: "",
-            });
-        }).catch(err => {
-            this.setState({
-                logining: false,
-                loginError: err,
-            });
-        });
 
         this.setState({
             logining: true,
             loginError: null,
+        });
+
+        OSCService.login(this.state.username, this.state.password)
+        .then(user => {
+            console.log("login :" + Utils.ObjUtils.toString(user));
+            this.setState({
+                logining: false,
+                loginError: "",
+            });
+
+            this.props.navigator && this.props.navigator.pop();
+            this.props.didLogin && this.props.didLogin();
+
+            let nextPromise = this.props.nextPromise && this.props.nextPromise();
+            return nextPromise;
+        }).catch(err => {
+            console.log('login error', err.message);
+
+            this.setState({
+                logining: false,
+                loginError: err.message,
+            });
+
+            console.log('login state' + this.state.loginError);
+        }).done(() => {
+            console.log('login done');
+            this.setState({
+                logining: false,
+            });
         });
     },
 
@@ -79,8 +95,8 @@ const LoginComponent = React.createClass({
             }
         }
 
-        if(this.state.loginErr) {
-            introComponent = <Text style = {[styles.introText, {color:Colors.red}]}>{this.state.loginErr}</Text>;
+        if(this.state.loginError) {
+            introComponent = <Text style = {[styles.introText, {color:Colors.red}]}>{this.state.loginError}</Text>;
         } else {
             introComponent =  <Text style = {styles.introText}>Sign in to Git OSC</Text>;
         }

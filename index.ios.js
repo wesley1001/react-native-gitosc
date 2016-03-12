@@ -7,8 +7,10 @@
 const React = require("react-native");
 const LoginComponent = require("./components/LoginComponent");
 const OnBoardComponent = require("./components/OnBoardComponent");
+const RootTab = require("./components/RootTab");
 const CommonComponents = require("./common/CommonComponents");
 const OSCService = require("./service/OSCService");
+const L = require('./common/Log');
 
 const {
     AppRegistry,
@@ -23,16 +25,23 @@ const LoginState = {
 
 const OSCGit = React.createClass({
   getInitialState() {
-    return {loginState: LoginState.unOnBoard}
+    return {loginState: LoginState.pending}
   },
 
   componentWillMount() {
+    OSCService.getUserFromCache()
+        .then(u => {
+          let state = OSCService.isOnBoard() ? LoginState.onBoard : LoginState.unOnBoard;
+          this.setState({loginState: state});
+        })
+
     OSCService.addListener('didLogout', () => {
       this.setState({
-        userState: LoginState.unOnBoard,
+        loginState: LoginState.unOnBoard,
       });
     });
   },
+
   componentDidMount() {
 
   },
@@ -40,23 +49,33 @@ const OSCGit = React.createClass({
   componentWillUnmount: function() {
     OSCService.removeListener('didLogout');
   },
-  didOnBoard(){
 
+  didOnBoard(o, needLogin){
+    let lst = o == null ? LoginState.unOnBoard : LoginState.onBoard;
+    if (needLogin) lst = LoginState.needLogin;
+    this.setState({
+      loginState: lst,
+    });
   },
+
   render() {
     let cp;
+    //L.info("render:{}", this.state.loginState)
     switch (this.state.loginState) {
       case LoginState.pending:
-          cp = CommonComponents.renderLoadingView();
-            break;
+        cp = CommonComponents.renderLoadingView();
+        break;
       case LoginState.onBoard:
-        //TODO main
+        cp = <RootTab />
         break;
       case LoginState.unOnBoard:
-        cp = <OnBoardComponent didOnBoard={this.didOnBoard} />;
+        cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
         break;
       case LoginState.needLogin:
-        cp = <LoginComponent />;
+        cp = <LoginComponent didLogin={() => {
+                    this.setState({loginState: LoginState.onBoard});
+                    }}
+        />;
         break;
     }
     return cp;

@@ -39,25 +39,23 @@ const OnBoardComponent = React.createClass({
       loadingError: null,
       loading: true,
     });
-    //GHService.onboard(this.state.username)
-    //  .then(value => {
-    //    this.setState({
-    //      loading: false,
-    //    })
-    //
-    //    this.props.didOnboard && this.props.didOnboard(value);
-    //  })
-    //  .catch(err => {
-    //    this.setState({
-    //      loadingError: err,
-    //      loading: false,
-    //    });
-    //
-    //    const needLogin = err.message.indexOf('rate') != -1;
-    //    if (needLogin) {
-    //      this.props.didOnBoard && this.props.didOnBoard(null, needLogin);
-    //    }
-    //  })
+
+    OSCService.onBoard(this.state.username)
+        .then(o => {
+          this.setState({
+            loading: false,
+          })
+
+          this.props.didOnBoard && this.props.didOnBoard(o);
+        })
+        .catch(err => {
+          this.setState({
+            loadingError: err,
+            loading: false,
+          });
+
+          this.props.didOnBoard && this.props.didOnBoard(null, true);
+        });
   },
 
   onNameChange(text) {
