@@ -30,6 +30,17 @@ class OSCService extends EventEmitter {
     constructor() {
         super();
     }
+
+    getExploreLatestProjectPath(page = 1) {
+        return PROJECTS + "latest?page=" + page;
+    }
+    getExploreFeaturedProjectPath(page = 1) {
+        return PROJECTS + "featured?page=" + page;
+    }
+    getExplorePopularProjectPath(page = 1) {
+        return PROJECTS + "popular?page=" + page;
+    }
+
     onBoard(name) {
         Object.assign(GLOBAL_USER, {name:name, username: name});
         this.__saveUser2Disk();
@@ -66,7 +77,31 @@ class OSCService extends EventEmitter {
             }
         });
     }
+    fetchPromise(path) {
+        return fetch(path, {
+            headers: this.tokenHeader(),
+        }).then(response => {
+            const isValid = response.status < 400;
+            const json = JSON.parse(response._bodyInit);
 
+            if (isValid) {
+                return json;
+            } else {
+                throw new Error(json.message, response.status);
+            }
+        });
+    }
+    tokenHeader() {
+        let tHeader = {
+            'User-Agent': config.userAgent,
+            'Accept': 'application/json; charset=utf-8'
+        }
+        if (this.isLogined()) {
+            tHeader.token =  GLOBAL_USER.private_token;
+        }
+        console.log('token header is: ' + JSON.stringify(tHeader));
+        return tHeader;
+    }
     getUserFromCache() {
         //AsyncStorage.removeItem("_osc_user_");
         return AsyncStorage.getItem("_osc_user_")

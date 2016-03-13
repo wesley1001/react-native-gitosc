@@ -6,10 +6,11 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
-    "react-native": "^0.21.0",
     "base-64": "^0.1.0",
     "events": "~1.1.0",
+    "react-native": "^0.21.0",
     "react-native-code-push": "~1.7.3-beta",
+    "react-native-gifted-listview": "0.0.12",
     "react-native-scrollable-tab-view": "~0.3.4",
     "react-native-vector-icons": "^1.1.1"
   }

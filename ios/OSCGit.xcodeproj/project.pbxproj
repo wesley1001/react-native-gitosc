@@ -22,6 +22,16 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		BA2620A61C9537E30024645B /* NSString+GFAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = BA26209B1C9537E30024645B /* NSString+GFAdditions.m */; };
+		BA2620A71C9537E30024645B /* GFWebResourceCache.m in Sources */ = {isa = PBXBuildFile; fileRef = BA26209E1C9537E30024645B /* GFWebResourceCache.m */; };
+		BA2620A81C9537E30024645B /* GFWebResourceInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620A01C9537E30024645B /* GFWebResourceInterceptor.m */; };
+		BA2620A91C9537E30024645B /* GFWebResourceInterceptorSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620A31C9537E30024645B /* GFWebResourceInterceptorSettings.m */; };
+		BA2620AA1C9537E30024645B /* GFWebResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620A51C9537E30024645B /* GFWebResourceURLProtocol.m */; };
+		BA2620C31C95380D0024645B /* DXFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620B81C95380D0024645B /* DXFileManager.m */; };
+		BA2620C41C95380D0024645B /* DXRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620BA1C95380D0024645B /* DXRefreshControl.m */; };
+		BA2620C51C95380D0024645B /* DXRNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620BC1C95380D0024645B /* DXRNUtils.m */; };
+		BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C01C95380D0024645B /* GFDiskCacheManager.m */; };
+		BA2620C81C95380E0024645B /* DXTextCategoryMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C21C95380D0024645B /* DXTextCategoryMenu.m */; };
 		BAAF95C51C946507009653C5 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C41C9464DB009653C5 /* libRNVectorIcons.a */; };
 		BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C61C94655E009653C5 /* libz.tbd */; };
 		BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95B01C945045009653C5 /* libCodePush.a */; };
@@ -154,6 +164,27 @@
 		3A9FC790A8002C47695D60B6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		BA26209A1C9537E30024645B /* NSString+GFAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GFAdditions.h"; sourceTree = "<group>"; };
+		BA26209B1C9537E30024645B /* NSString+GFAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GFAdditions.m"; sourceTree = "<group>"; };
+		BA26209D1C9537E30024645B /* GFWebResourceCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFWebResourceCache.h; sourceTree = "<group>"; };
+		BA26209E1C9537E30024645B /* GFWebResourceCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFWebResourceCache.m; sourceTree = "<group>"; };
+		BA26209F1C9537E30024645B /* GFWebResourceInterceptor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFWebResourceInterceptor.h; sourceTree = "<group>"; };
+		BA2620A01C9537E30024645B /* GFWebResourceInterceptor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFWebResourceInterceptor.m; sourceTree = "<group>"; };
+		BA2620A11C9537E30024645B /* GFWebResourceInterceptorSettings+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GFWebResourceInterceptorSettings+Internal.h"; sourceTree = "<group>"; };
+		BA2620A21C9537E30024645B /* GFWebResourceInterceptorSettings.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFWebResourceInterceptorSettings.h; sourceTree = "<group>"; };
+		BA2620A31C9537E30024645B /* GFWebResourceInterceptorSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFWebResourceInterceptorSettings.m; sourceTree = "<group>"; };
+		BA2620A41C9537E30024645B /* GFWebResourceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFWebResourceURLProtocol.h; sourceTree = "<group>"; };
+		BA2620A51C9537E30024645B /* GFWebResourceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFWebResourceURLProtocol.m; sourceTree = "<group>"; };
+		BA2620B71C95380D0024645B /* DXFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXFileManager.h; path = OSCGit/Classes/DXFileManager.h; sourceTree = "<group>"; };
+		BA2620B81C95380D0024645B /* DXFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXFileManager.m; path = OSCGit/Classes/DXFileManager.m; sourceTree = "<group>"; };
+		BA2620B91C95380D0024645B /* DXRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRefreshControl.h; path = OSCGit/Classes/DXRefreshControl.h; sourceTree = "<group>"; };
+		BA2620BA1C95380D0024645B /* DXRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRefreshControl.m; path = OSCGit/Classes/DXRefreshControl.m; sourceTree = "<group>"; };
+		BA2620BB1C95380D0024645B /* DXRNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRNUtils.h; path = OSCGit/Classes/DXRNUtils.h; sourceTree = "<group>"; };
+		BA2620BC1C95380D0024645B /* DXRNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRNUtils.m; path = OSCGit/Classes/DXRNUtils.m; sourceTree = "<group>"; };
+		BA2620BF1C95380D0024645B /* GFDiskCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFDiskCacheManager.h; path = OSCGit/Classes/GFDiskCacheManager.h; sourceTree = "<group>"; };
+		BA2620C01C95380D0024645B /* GFDiskCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GFDiskCacheManager.m; path = OSCGit/Classes/GFDiskCacheManager.m; sourceTree = "<group>"; };
+		BA2620C11C95380D0024645B /* DXTextCategoryMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXTextCategoryMenu.h; path = OSCGit/Classes/NavigationCategory/DXTextCategoryMenu.h; sourceTree = "<group>"; };
+		BA2620C21C95380D0024645B /* DXTextCategoryMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXTextCategoryMenu.m; path = OSCGit/Classes/NavigationCategory/DXTextCategoryMenu.m; sourceTree = "<group>"; };
 		BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95C61C94655E009653C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -285,6 +316,9 @@
 		13B07FAE1A68108700A75B9A /* OSCGit */ = {
 			isa = PBXGroup;
 			children = (
+				BA2620C91C9538150024645B /* BridgeNativeClass */,
+				BA2620991C9537E30024645B /* Additions */,
+				BA26209C1C9537E30024645B /* H5 */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
@@ -372,6 +406,50 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BA2620991C9537E30024645B /* Additions */ = {
+			isa = PBXGroup;
+			children = (
+				BA26209A1C9537E30024645B /* NSString+GFAdditions.h */,
+				BA26209B1C9537E30024645B /* NSString+GFAdditions.m */,
+			);
+			name = Additions;
+			path = OSCGit/Classes/Additions;
+			sourceTree = "<group>";
+		};
+		BA26209C1C9537E30024645B /* H5 */ = {
+			isa = PBXGroup;
+			children = (
+				BA26209D1C9537E30024645B /* GFWebResourceCache.h */,
+				BA26209E1C9537E30024645B /* GFWebResourceCache.m */,
+				BA26209F1C9537E30024645B /* GFWebResourceInterceptor.h */,
+				BA2620A01C9537E30024645B /* GFWebResourceInterceptor.m */,
+				BA2620A11C9537E30024645B /* GFWebResourceInterceptorSettings+Internal.h */,
+				BA2620A21C9537E30024645B /* GFWebResourceInterceptorSettings.h */,
+				BA2620A31C9537E30024645B /* GFWebResourceInterceptorSettings.m */,
+				BA2620A41C9537E30024645B /* GFWebResourceURLProtocol.h */,
+				BA2620A51C9537E30024645B /* GFWebResourceURLProtocol.m */,
+			);
+			name = H5;
+			path = OSCGit/Classes/H5;
+			sourceTree = "<group>";
+		};
+		BA2620C91C9538150024645B /* BridgeNativeClass */ = {
+			isa = PBXGroup;
+			children = (
+				BA2620B71C95380D0024645B /* DXFileManager.h */,
+				BA2620B81C95380D0024645B /* DXFileManager.m */,
+				BA2620B91C95380D0024645B /* DXRefreshControl.h */,
+				BA2620BA1C95380D0024645B /* DXRefreshControl.m */,
+				BA2620BB1C95380D0024645B /* DXRNUtils.h */,
+				BA2620BC1C95380D0024645B /* DXRNUtils.m */,
+				BA2620BF1C95380D0024645B /* GFDiskCacheManager.h */,
+				BA2620C01C95380D0024645B /* GFDiskCacheManager.m */,
+				BA2620C11C95380D0024645B /* DXTextCategoryMenu.h */,
+				BA2620C21C95380D0024645B /* DXTextCategoryMenu.m */,
+			);
+			name = BridgeNativeClass;
+			sourceTree = "<group>";
+		};
 		BAAF95AC1C945044009653C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -457,6 +535,9 @@
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 8DZUJHTK67;
 					};
 				};
 			};
@@ -718,7 +799,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA2620A61C9537E30024645B /* NSString+GFAdditions.m in Sources */,
+				BA2620C31C95380D0024645B /* DXFileManager.m in Sources */,
+				BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				BA2620A81C9537E30024645B /* GFWebResourceInterceptor.m in Sources */,
+				BA2620A71C9537E30024645B /* GFWebResourceCache.m in Sources */,
+				BA2620AA1C9537E30024645B /* GFWebResourceURLProtocol.m in Sources */,
+				BA2620C41C95380D0024645B /* DXRefreshControl.m in Sources */,
+				BA2620C81C95380E0024645B /* DXTextCategoryMenu.m in Sources */,
+				BA2620C51C95380D0024645B /* DXRNUtils.m in Sources */,
+				BA2620A91C9537E30024645B /* GFWebResourceInterceptorSettings.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -788,6 +879,8 @@
 			baseConfigurationReference = 3A9FC790A8002C47695D60B6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEAD_CODE_STRIPPING = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -799,6 +892,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rp.lee.OSCGit;
 				PRODUCT_NAME = OSCGit;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -807,6 +901,8 @@
 			baseConfigurationReference = E9821749E33B566664D546B1 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: qianmin@joinclub.cn (34NW9MHTBW)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: qianmin@joinclub.cn (34NW9MHTBW)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -817,6 +913,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.rp.lee.OSCGit;
 				PRODUCT_NAME = OSCGit;
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

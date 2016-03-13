@@ -10,7 +10,9 @@ const L = require('../common/Log');
 const Icon = require('react-native-vector-icons/Ionicons');
 const OSCService = require('../service/OSCService');
 
-const TABIDS = ['feed', 'watching', 'trend', 'personal'];
+const Routes = require('../components/Routes');
+
+const TABIDS = ['project'];
 const {
     NavigatorIOS,
     Text,
@@ -37,11 +39,11 @@ const RootTab = React.createClass({
                           selectedTab: v,
                         });
                       }} >
-                <Text> </Text>
+                {Routes.navigator(v)}
             </Icon.TabBarItem>
         );
 
-        return ( <TabBarIOS> {cp}  </TabBarIOS> )
+        return <TabBarIOS>{ cp }</TabBarIOS>
     }
 });
 module.exports = RootTab;

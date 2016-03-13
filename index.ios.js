@@ -66,7 +66,7 @@ const OSCGit = React.createClass({
         cp = CommonComponents.renderLoadingView();
         break;
       case LoginState.onBoard:
-        cp = <RootTab />
+        cp = <RootTab />;
         break;
       case LoginState.unOnBoard:
         cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
