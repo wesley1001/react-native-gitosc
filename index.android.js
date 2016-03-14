@@ -3,13 +3,14 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-import React, {
-  AppRegistry,
-  Component,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+const React = require("react-native");
+const {
+    AppRegistry,
+    Component,
+    StyleSheet,
+    Text,
+    View,
+    } = React;
 
 class OSCGit extends Component {
   render() {

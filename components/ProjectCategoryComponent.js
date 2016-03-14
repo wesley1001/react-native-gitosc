@@ -8,9 +8,9 @@ const DXRNUtils = require('../common/DXRNUtils');
 const OSCService = require('../service/OSCService');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
 const RepoCell = require('../components/RepoCell');
+const RepoCell2 = require('../components/RepoCell2');
 
 const {
-    StyleSheet,
     View,
     Text,
     } = React;
@@ -29,18 +29,14 @@ const ProjectCategoryComponent = React.createClass({
 
     renderRow(rowData, sectionID, rowID, highlightRow) {
         return (
-            <RepoCell key={rowID} repo={rowData} navigator={this.props.navigator}/>
+            <RepoCell2 key={rowID} repo={rowData} navigator={this.props.navigator}/>
         )
-    },
-
-    reloadPromise(page, callback) {
-        return OSCService.fetchPromise(this.reloadPath(page));
     },
 
     render() {
         return (
             <OSCRefreshListView renderRow={this.renderRow}
-                                reloadPromise={this.reloadPromise}
+                                reloadPromise={(page) => OSCService.fetchPromise(this.reloadPath(page))}
             />
         );
     },

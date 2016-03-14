@@ -49,16 +49,11 @@ const OSCRefreshListView = React.createClass({
             if (this.props.renderErrorPlaceholder) {
                 return this.props.renderErrorPlaceholder(error);
             } else {
-                return (
-                    <ErrorPlaceholder
-                        title={error.message}
-                        desc={'Oops, tap to reload'}
-                        onPress={() => {
-                  L.info("ErrorPlaceholder onPress 事件.{}", this.refs[LISTVIEW_REF]);
-                  this.setState({lastError: {isReloadError: false, error: ""}});
-                  //this.refs[LISTVIEW_REF].handleRefresh();
-                }}/>
-                );
+                return
+                    CommonComponents.errorPlaceholder(error.message, 'Oops, tap to reload', () => {
+                        L.info("ErrorPlaceholder onPress 事件.{}", this.refs[LISTVIEW_REF]);
+                        this.setState({lastError: {isReloadError: false, error: ""}});
+                    });
             }
         }
 

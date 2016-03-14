@@ -5,14 +5,12 @@ const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
 const DXRNUtils = require('../common/DXRNUtils');
-const Utils = require('../common/Utils');
 const OSCService = require('../service/OSCService');
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 const ProjectCategoryComponent = require('./ProjectCategoryComponent');
 
 const {
     View,
-    Text,
     } = React;
 
 const ProjectComponent = React.createClass({
@@ -24,9 +22,9 @@ const ProjectComponent = React.createClass({
         return (
             <View style={{backgroundColor: Colors.white, paddingTop: paddingTop, flex:1}}>
                 <ScrollableTabView>
-                    <ProjectCategoryComponent tabLabel="推荐" category="featured"/>
-                    <ProjectCategoryComponent tabLabel="热门" category="popular" />
-                    <ProjectCategoryComponent tabLabel="最新更新" category="latest" />
+                    <ProjectCategoryComponent tabLabel="推荐" category="featured" navigator={this.props.navigator}/>
+                    <ProjectCategoryComponent tabLabel="热门" category="popular" navigator={this.props.navigator}/>
+                    <ProjectCategoryComponent tabLabel="最新更新" category="latest" navigator={this.props.navigator}/>
                 </ScrollableTabView>
             </View>
         );

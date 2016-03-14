@@ -33,7 +33,7 @@ const RepoCell = React.createClass({
     return (
       <TouchableHighlight
         onPress={this.openTargetRepo}
-        underlayColor={'lightGray'}>
+        underlayColor={Colors.lineGray}>
         <View style={styles.cellContentView}>
           <View style={styles.cellLeft}>
             <View style={styles.cellLeftRepo}>
@@ -42,16 +42,10 @@ const RepoCell = React.createClass({
                 name={repoIcon}
                 style={styles.cellLeftRepoIcon}
                 color='gray'/>
-              <Text style={styles.cellLeftRepoName}>{repo.owner.name}/</Text><Text style={styles.cellLeftRepoName}>{repo.name}</Text>
+              <Text style={styles.cellLeftRepoName}>{repo.path_with_namespace}</Text>
             </View>
 
-            <View style={{flexDirection: 'row',flex:1}}>
-            <Image
-                style={{width:40,height:40,borderRadius:8}}
-                source={{uri: repo.owner.new_portrait}}
-            />
             <Text style={styles.cellLeftRepoDesc}>{repo.description}</Text>
-            </View>
           </View>
           <View style={styles.cellRight}>
             <Text style={[styles.cellRightText, {color: "orange"}]}>{repo.stars_count}</Text>
@@ -100,7 +94,6 @@ const styles = StyleSheet.create({
   },
   cellLeftRepoDesc: {
     color: 'gray',
-    width: 260,
     fontSize: 13,
     marginLeft: 5,
     marginTop: 5,

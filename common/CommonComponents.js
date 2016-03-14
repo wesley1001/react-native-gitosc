@@ -2,6 +2,7 @@ const React = require('react-native');
 const Colors = require('./Colors');
 const CommonStyles = require('./CommonStyles');
 const Platform = require('Platform');
+const ErrorPlacehoderComponent = require('./ErrorPlacehoderComponent');
 
 const {
   StyleSheet,
@@ -28,17 +29,17 @@ class CommonComponents {
     }
   }
 
-  static renderPlaceholder(text, image, onPress) {
+  static errorPlaceholder(title,
+                          desc,
+                          onPress) {
     return (
-      <View>
-      </View>
+      <ErrorPlacehoderComponent title={title} desc={desc} onPress={onPress} />
     )
   }
 
   static renderSepLine() {
     return (
-      <View style={CommonStyles.sepLine}>
-      </View>
+      <View style={CommonStyles.sepLine} />
     )
   }
 }

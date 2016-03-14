@@ -12,7 +12,6 @@ const User = require('../entity/User');
 
 const {
     AsyncStorage,
-    Navigator,
     } = React;
 
 const HTTP = "http://";
@@ -39,6 +38,9 @@ class OSCService extends EventEmitter {
     }
     getExplorePopularProjectPath(page = 1) {
         return PROJECTS + "popular?page=" + page;
+    }
+    getProjectPath(id) {
+        return PROJECTS + id;
     }
 
     onBoard(name) {
