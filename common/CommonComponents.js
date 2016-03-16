@@ -42,6 +42,7 @@ class CommonComponents {
       <View style={CommonStyles.sepLine} />
     )
   }
+
 }
 
 module.exports = CommonComponents;

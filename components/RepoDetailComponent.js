@@ -22,27 +22,16 @@ const {
     } = React;
 
 const RepoDetailComponent = React.createClass({
-    onFollow(){},
     star() {},
     watch() {},
     render() {
-        L.info("RepoDetailComponent.render.");
         var repo = this.props.repo;
-
-        let followBackgroundColor = '#5ca941';
-        let followContentColor = 'white';
-        let followAction = 'Follow';
-        if (1===1) {
-            followBackgroundColor = '#CECECE';
-            followContentColor = Colors.black;
-            followAction = 'Unfollow';
-        }
 
         let star_lab = "[ " + repo.stars_count +" stars ]";
         let watch_lab = "[ " + repo.watches_count +" watches ]";
         let owner_lab = "拥有者 " + repo.owner.username;
-        return(
 
+        return(
             <ScrollView style={{padding: 5,flexDirection: "column", flex: 1,marginTop:64}}>
                 <View style={{flexDirection: "column", justifyContent: "flex-start"}}>
                     <View style={{flexDirection: "row", justifyContent: "flex-start", alignItems:"center"}}>
@@ -50,28 +39,97 @@ const RepoDetailComponent = React.createClass({
                         <Text style={{fontSize:16, fontWeight:'bold',color:Colors.black, marginLeft:10,}}>{repo.owner.name}</Text>
                     </View>
 
-                    <Text style={{marginTop:5,fontSize:14, fontWeight:'bold',color:Colors.backGray}}>更新于
-                        <Text style={{fontSize:12, color:Colors.backGray}}>{repo.last_push_at}</Text>
+                    <Text style={{marginTop:5,fontSize:12, fontWeight:'bold',color:Colors.backGray}}>更新于
+                        <Text style={{fontSize:11, color:Colors.backGray}}>{repo.last_push_at}</Text>
                     </Text>
                     <View style = {{marginTop:5}}>{CommonComponents.renderSepLine()}</View>
                     <Text style={{marginTop:5, fontSize:14, color:Colors.black}} numberOfLines={0}>
                         {repo.description}
                     </Text>
+
                     <View style = {{marginTop:5}}>{CommonComponents.renderSepLine()}</View>
-                    <View style={{flexDirection: 'row',
-                                padding: 5,
+                    <View style={{marginTop:5,flexDirection: 'row',
                                 justifyContent: 'space-between',
                                 paddingBottom: 0}}>
 
-                        <View style={{width:150,flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
-                            <Icon.Button color={Colors.black} name="ios-clock-outline" backgroundColor={Colors.green} onPress={this.watch}>        Star               </Icon.Button>
-                            <Text style={{height:20, fontSize:13}}>{star_lab}</Text>
+                        <View style={{flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
+                            <Icon.Button style={{width:150, justifyContent:"center"}} color={Colors.black} name="ios-star-outline" backgroundColor={Colors.green} onPress={this.watch}>Star</Icon.Button>
+                            <Text style={{height:20,margin:5, fontSize:13}}>{star_lab}</Text>
                         </View>
                         <View style={{width:150,flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
-                        <Icon.Button color={Colors.black} name="ios-person-outline" backgroundColor={Colors.green} onPress={this.watch}>        Watch           </Icon.Button>
-                            <Text style={{height:20, fontSize:13}}>{watch_lab}</Text>
+                            <Icon.Button style={{width:150, justifyContent:"center"}} color={Colors.black} name="happy-outline" backgroundColor={Colors.green} onPress={this.watch}>Watch</Icon.Button>
+                            <Text style={{height:20, margin:5, fontSize:13}}>{watch_lab}</Text>
                         </View>
                     </View>
+
+
+                    <View style={{marginTop:5,padding: 10,flexDirection:"column",backgroundColor:Colors.lineGray,borderRadius:8}}>
+                        <View style={{flexDirection:"row"}}>
+
+                            <View style={styles.user}>
+                                <Icon
+                                    name={"ios-time"}
+                                    size={20}
+                                    style={styles.arrow}
+                                    color={Colors.blue}/>
+                                <View style={styles.nameInfo}>
+                                    <Text style={styles.name}>
+                                        {new Date(repo.last_push_at).format("yyyy-MM-dd")}
+                                    </Text>
+                                </View>
+                            </View>
+
+                            <View style={{flex: 1}}></View>
+
+                            <View style={styles.user}>
+                                <Icon
+                                    name={"fork"}
+                                    size={20}
+                                    style={styles.arrow}
+                                    color={Colors.blue}/>
+                                <View style={styles.nameInfo}>
+                                    <Text style={styles.name}>
+                                        {repo.forks_count}
+                                    </Text>
+                                </View>
+                            </View>
+
+                        </View>
+
+                        <View style={{flexDirection:"row"}}>
+
+                            <View style={styles.user}>
+                                <Icon
+                                    name={repo.public?"ios-unlocked" : "ios-locked"}
+                                    size={20}
+                                    style={styles.arrow}
+                                    color={Colors.blue}/>
+                                <View style={styles.nameInfo}>
+                                    <Text style={styles.name}>
+                                        {repo.public?"Public":"Private"}
+                                    </Text>
+                                </View>
+                            </View>
+
+                            <View style={{flex: 1}}></View>
+
+                            <View style={styles.user}>
+                                <Icon
+                                    name={"ios-pricetag"}
+                                    size={20}
+                                    style={styles.arrow}
+                                    color={Colors.blue}/>
+                                <View style={styles.nameInfo}>
+                                    <Text style={styles.name}>
+                                        {repo.language}
+                                    </Text>
+                                </View>
+                            </View>
+
+                        </View>
+                    </View>
+
+
                     <View style={{flexDirection: 'column',
                                 padding: 5,
                                 paddingBottom: 0}}>
@@ -81,22 +139,22 @@ const RepoDetailComponent = React.createClass({
                             settingName={owner_lab}
                             />
                         <SettingsCell
-                            iconName={'ios-compose'}
+                            iconName={'document-text'}
                             iconColor={Colors.blue}
                             settingName={"readme"}
                         />
                         <SettingsCell
-                            iconName={'university'}
+                            iconName={'code'}
                             iconColor={Colors.blue}
                             settingName={"代码"}
                         />
                         <SettingsCell
-                            iconName={'share'}
+                            iconName={'question'}
                             iconColor={Colors.blue}
                             settingName={"问题"}
                         />
                         <SettingsCell
-                            iconName={'rocket'}
+                            iconName={'quote'}
                             iconColor={Colors.blue}
                             settingName={"提交"}
                         />
@@ -104,6 +162,32 @@ const RepoDetailComponent = React.createClass({
                 </View>
             </ScrollView>
         );
+    }
+});
+
+var styles = StyleSheet.create({
+    user: {
+        padding: 8,
+        paddingLeft: 10,
+        paddingRight: 5,
+        flexDirection: 'row',
+        alignItems: 'center',
+        width:150,
+    },
+    nameInfo: {
+        flexDirection: 'column',
+        marginLeft: 0,
+        justifyContent: 'center',
+        flex: 1,
+    },
+    name: {
+        color: Colors.black,
+        fontSize: 14,
+    },
+    arrow: {
+        width: 20,
+        height: 20,
+        marginRight: 10,
     }
 });
 module.exports = RepoDetailComponent;
