@@ -78,9 +78,7 @@ const RepoDetailComponent = React.createClass({
                                     </Text>
                                 </View>
                             </View>
-
                             <View style={{flex: 1}}></View>
-
                             <View style={styles.user}>
                                 <Icon
                                     name={"fork"}
@@ -110,9 +108,7 @@ const RepoDetailComponent = React.createClass({
                                     </Text>
                                 </View>
                             </View>
-
                             <View style={{flex: 1}}></View>
-
                             <View style={styles.user}>
                                 <Icon
                                     name={"ios-pricetag"}
@@ -142,6 +138,13 @@ const RepoDetailComponent = React.createClass({
                             iconName={'document-text'}
                             iconColor={Colors.blue}
                             settingName={"readme"}
+                            onPress = {() => {
+                                let obj = {
+                                    html : 'https://git.oschina.net//' + repo.path_with_namespace + '/blob/master/README.md',
+                                    title:repo.name + " READNE.md"
+                                };
+                               this.props.navigator.push({id: 'web', obj: obj});
+                            }}
                         />
                         <SettingsCell
                             iconName={'code'}
@@ -149,7 +152,7 @@ const RepoDetailComponent = React.createClass({
                             settingName={"代码"}
                         />
                         <SettingsCell
-                            iconName={'question'}
+                            iconName={'ios-at'}
                             iconColor={Colors.blue}
                             settingName={"问题"}
                         />

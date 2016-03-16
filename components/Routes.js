@@ -13,6 +13,7 @@ const Platform = require('Platform');
 const ProjectComponent = require('../components/ProjectComponent');
 const RepoDetailComponent = require('../components/RepoDetailComponent');
 const LoginComponent = require('../components/LoginComponent');
+const WebComponent = require('../components/WebComponent');
 
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -65,6 +66,9 @@ const NavigationBarRouteMapper = {
                 break;
             case "repo_detail":
                 title = route.obj.path_with_namespace;
+                break;
+            case "web":
+                title = route.obj.title ? route.obj.title : "web";
                 break;
         }
         return (
@@ -124,9 +128,15 @@ const routes = {
                 cp = <RepoDetailComponent navigator={navigator} repo={route.obj} />
                 break;
             case "login":
-                return (
-                    <LoginComponent navigator={navigator} nextPromise={route.nextPromiseFunc} />
-                )
+                cp = <LoginComponent navigator={navigator} nextPromise={route.nextPromiseFunc} />
+                break;
+            case "web":
+                cp =   <WebComponent
+                        webURL={route.obj.html}
+                        param={route.obj}
+                        navigator={navigator}
+                        route={route}/>
+                break;
         }
 
         return cp;
