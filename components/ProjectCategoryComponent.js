@@ -19,11 +19,11 @@ const ProjectCategoryComponent = React.createClass({
     reloadPath(page = 1) {
         var p = this.props.category? this.props.category: "featured";
         if(p === "featured") {
-            return OSCService.getExploreFeaturedProjectPath(page);
+            return OSCService.getExploreFeaturedProject(page);
         } else if(p === "popular") {
-            return OSCService.getExplorePopularProjectPath(page);
+            return OSCService.getExplorePopularProject(page);
         } else if(p === "latest") {
-            return OSCService.getExploreLatestProjectPath(page);
+            return OSCService.getExploreLatestProject(page);
         }
     },
 
@@ -36,7 +36,7 @@ const ProjectCategoryComponent = React.createClass({
     render() {
         return (
             <OSCRefreshListView renderRow={this.renderRow}
-                                reloadPromise={(page) => OSCService.fetchPromise(this.reloadPath(page))}
+                                reloadPromise={(page) => this.reloadPath(page)}
             />
         );
     },

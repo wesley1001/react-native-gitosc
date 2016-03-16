@@ -22,18 +22,101 @@ const {
     } = React;
 
 const RepoDetailComponent = React.createClass({
-    star() {},
-    watch() {},
+    getInitialState() {
+        return {
+            isLoading:true,
+            isStar:false,
+            isWatch:false}
+    },
+    componentDidMount() {
+        this.setState({
+            isStar: this.props.repo.stared? true: false,
+            isWatch: this.props.repo.watched? true: false,
+        });
+
+        OSCService.getProject(this.props.repo.id)
+            .then(repo => {
+                this.setState({
+                    isStar: repo.stared? true: false,
+                    isWatch: repo.watched? true: false,
+                    isLoading:false,
+                });
+            }).catch(err => {
+                this.setState({ isLoading:false,});
+            });
+    },
+    star() {
+        var repo = this.props.repo;
+        var promise;
+        if(this.state.isStar) {
+            promise = (() => {
+                OSCService.unStarProject(repo.id)
+                    .then(json => {
+                        this.setState({isStar: false, isLoading:false,});
+                    })
+                    .catch(err => {
+                        this.setState({ isLoading:false,});
+                    });
+            });
+        } else {//star
+            promise = (() => {
+            OSCService.starProject(repo.id)
+                .then(json => {
+                    this.setState({isStar: true,isLoading:false,});
+                })
+                .catch(err => {
+                    this.setState({ isLoading:false,});
+                });
+            });
+        }
+
+        OSCService.checkNeedLoginWithPromise(promise, this.props.navigator);
+        this.setState({isLoading:true});
+    },
+    watch() {
+        var repo = this.props.repo;
+        var promise;
+        if(this.state.isWatch) {
+            promise = (() => {
+                OSCService.unWatchProject(repo.id)
+                    .then(json => {
+                        this.setState({
+                            isWatch: false,
+                            isLoading:false,
+                        });
+                    })
+                    .catch(err => {
+                        this.setState({ isLoading:false,});
+                    });
+            });
+        } else {//star
+            promise = (() => {
+                OSCService.watchProject(repo.id)
+                    .then(json => {
+                        this.setState({
+                            isWatch: true,
+                            isLoading:false,
+                        });
+                    })
+                    .catch(err => {
+                        this.setState({ isLoading:false,});
+                    });
+            });
+        }
+
+        OSCService.checkNeedLoginWithPromise(promise, this.props.navigator);
+        this.setState({isLoading:true});
+    },
     render() {
         var repo = this.props.repo;
-
-        let star_lab = "[ " + repo.stars_count +" stars ]";
-        let watch_lab = "[ " + repo.watches_count +" watches ]";
-        let owner_lab = "拥有者 " + repo.owner.username;
-
+        let cp;
+        if(this.state.isLoading) {
+            cp = CommonComponents.renderLoadingView();
+        }
         return(
             <ScrollView style={{padding: 5,flexDirection: "column", flex: 1,marginTop:64}}>
                 <View style={{flexDirection: "column", justifyContent: "flex-start"}}>
+                    {cp}
                     <View style={{flexDirection: "row", justifyContent: "flex-start", alignItems:"center"}}>
                         <Image style={{width: 40, height:40,marginTop:5, borderRadius:8, backgroundColor:Colors.backGray}} source={{uri: repo.owner.new_portrait}} />
                         <Text style={{fontSize:16, fontWeight:'bold',color:Colors.black, marginLeft:10,}}>{repo.owner.name}</Text>
@@ -53,12 +136,27 @@ const RepoDetailComponent = React.createClass({
                                 paddingBottom: 0}}>
 
                         <View style={{flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
-                            <Icon.Button style={{width:150, justifyContent:"center"}} color={Colors.black} name="ios-star-outline" backgroundColor={Colors.green} onPress={this.watch}>Star</Icon.Button>
-                            <Text style={{height:20,margin:5, fontSize:13}}>{star_lab}</Text>
+                            <Icon.Button style={{width:150, justifyContent:"center"}}
+                                         color={Colors.black} name="ios-star-outline"
+                                         backgroundColor={Colors.green}
+                                         onPress={this.star}>
+                                {this.state.isStar? "Unstar": "Star"}
+                            </Icon.Button>
+                            <Text style={{height:20,margin:5, fontSize:13}}>
+                                {"[ " + repo.stars_count +" stars ]"}
+                            </Text>
                         </View>
                         <View style={{width:150,flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
-                            <Icon.Button style={{width:150, justifyContent:"center"}} color={Colors.black} name="happy-outline" backgroundColor={Colors.green} onPress={this.watch}>Watch</Icon.Button>
-                            <Text style={{height:20, margin:5, fontSize:13}}>{watch_lab}</Text>
+                            <Icon.Button style={{width:150, justifyContent:"center"}}
+                                         color={Colors.black}
+                                         name="happy-outline"
+                                         backgroundColor={Colors.green}
+                                         onPress={this.watch}>
+                                {this.state.isWatch?"Unwatch": "Watch"}
+                            </Icon.Button>
+                            <Text style={{height:20, margin:5, fontSize:13}}>
+                                {"[ " + repo.watches_count +" watches ]"}
+                            </Text>
                         </View>
                     </View>
 
@@ -132,7 +230,7 @@ const RepoDetailComponent = React.createClass({
                         <SettingsCell
                             iconName={'ios-person'}
                             iconColor={Colors.blue}
-                            settingName={owner_lab}
+                            settingName={"拥有者 " + repo.owner.username}
                             />
                         <SettingsCell
                             iconName={'document-text'}

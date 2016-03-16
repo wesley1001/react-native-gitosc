@@ -9,9 +9,12 @@ const base64 = require('base-64');
 const Utils = require('../common/Utils');
 const L = require('../common/Log');
 const User = require('../entity/User');
-
+//const crypto = require('crypto');
+//const Buffer = require('Buffer');
 const {
     AsyncStorage,
+    Navigator,
+    Alert,
     } = React;
 
 const HTTP = "http://";
@@ -30,17 +33,30 @@ class OSCService extends EventEmitter {
         super();
     }
 
-    getExploreLatestProjectPath(page = 1) {
-        return PROJECTS + "latest?page=" + page;
+    starProject(projectId){
+        return this.fetchPromise(PROJECTS + projectId + "/star", "POST");
     }
-    getExploreFeaturedProjectPath(page = 1) {
-        return PROJECTS + "featured?page=" + page;
+    unStarProject(projectId){
+        return this.fetchPromise(PROJECTS + projectId + "/unstar", "POST");
     }
-    getExplorePopularProjectPath(page = 1) {
-        return PROJECTS + "popular?page=" + page;
+    watchProject(projectId){
+        return this.fetchPromise(PROJECTS + projectId + "/watch", "POST");
     }
-    getProjectPath(id) {
-        return PROJECTS + id;
+    unWatchProject(projectId){
+        return this.fetchPromise(PROJECTS + projectId + "/unwatch", "POST");
+    }
+
+    getExploreLatestProject(page = 1) {
+        return this.fetchPromise(PROJECTS + "latest?page=" + page);
+    }
+    getExploreFeaturedProject(page = 1) {
+        return this.fetchPromise(PROJECTS + "featured?page=" + page);
+    }
+    getExplorePopularProject(page = 1) {
+        return this.fetchPromise(PROJECTS + "popular?page=" + page);
+    }
+    getProject(id) {
+        return this.fetchPromise(PROJECTS + id);
     }
 
     onBoard(name) {
@@ -55,55 +71,44 @@ class OSCService extends EventEmitter {
         pwd = "qwe6583381";
         let param = {email: name, password: pwd};
         console.log(Utils.JsonUtils.encode(param));
-
-        let encoded = base64.encode(name.trim() + ':' + pwd.trim());
-
-        let loginUrl = BASE_URL + "session?" + Utils.JsonUtils.encode(param);
-        return fetch(loginUrl, {
-            method: 'POST',
-            headers: {
-                'authorization': 'Basic ' + encoded,
-                'user-agent': config.userAgent,
-                'content-type': 'application/json; charset=utf-8'
-            },
-        }).then(response => {
-            const isValid = response.status < 400;
-            const json = JSON.parse(response._bodyInit);
-
-            if (isValid) {
+        let path = BASE_URL + "session?" + Utils.JsonUtils.encode(param);
+        return this.fetchPromise(path, "POST")
+            .then(json => {
                 Object.assign(GLOBAL_USER, json);
                 this.__saveUser2Disk();
                 return GLOBAL_USER;
-            } else {
-                throw new Error(json.message, response.status);
-            }
-        });
+            });
     }
-    fetchPromise(path) {
+    fetchPromise(path, method="GET") {
+        if(this.isLogined()) {
+            let split = path.indexOf("?") > -1 ? "&": "?";
+            path += split + "private_token=" + GLOBAL_USER.private_token;
+        }
+
         return fetch(path, {
-            headers: this.tokenHeader(),
+            method: method,
+            headers: {
+                'User-Agent': config.userAgent,
+                'Accept': 'application/json; charset=utf-8'
+            },
         }).then(response => {
             const isValid = response.status < 400;
+            L.debug("请求地址:{}, 返回值:{},是否成功:{}-{}", path, response._bodyInit, response.status,isValid);
             const json = JSON.parse(response._bodyInit);
-
             if (isValid) {
                 return json;
             } else {
+                if(json.message.indexOf("Unauthorized") > -1) {
+                    Alert.alert(
+                        "Oops",
+                        '鉴权失败,请先重新登陆'
+                    );
+                }
                 throw new Error(json.message, response.status);
             }
         });
     }
-    tokenHeader() {
-        let tHeader = {
-            'User-Agent': config.userAgent,
-            'Accept': 'application/json; charset=utf-8'
-        }
-        if (this.isLogined()) {
-            tHeader.token =  GLOBAL_USER.private_token;
-        }
-        console.log('token header is: ' + JSON.stringify(tHeader));
-        return tHeader;
-    }
+
     getUserFromCache() {
         //AsyncStorage.removeItem("_osc_user_");
         return AsyncStorage.getItem("_osc_user_")
@@ -130,6 +135,19 @@ class OSCService extends EventEmitter {
     __saveUser2Disk() {
         L.info("__saveUser2Disk:{}", GLOBAL_USER)
         AsyncStorage.setItem("_osc_user_", JSON.stringify(GLOBAL_USER));
+    }
+
+    checkNeedLoginWithPromise(promiseFunc, navigator) {
+        if (!this.isLogined()) {
+            navigator.push({
+                id: 'login',
+                sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
+                title: 'Action need login',
+                nextPromiseFunc: promiseFunc,
+            });
+        } else {
+            return promiseFunc();
+        }
     }
 }
 
