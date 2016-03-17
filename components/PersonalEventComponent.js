@@ -2,10 +2,8 @@
  * Created by rplees on 3/8/16.
  */
 const React = require('react-native');
-const Platform = require('Platform');
 const Colors = require('../common/Colors');
 const L = require('../common/Log');
-const DXRNUtils = require('../common/DXRNUtils');
 const OSCService = require('../service/OSCService');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
 const RepoCell = require('../components/repo/RepoCell');
@@ -16,18 +14,9 @@ const {
     Text,
     } = React;
 
-const ProjectCategoryComponent = React.createClass({
+const PersonalEventComponent = React.createClass({
     reloadPath(page = 1) {
-        var p = this.props.category? this.props.category: "featured";
-        if(p === "featured") {
-            return OSCService.getExploreFeaturedProject(page);
-        } else if(p === "popular") {
-            return OSCService.getExplorePopularProject(page);
-        } else if(p === "latest") {
-            return OSCService.getExploreLatestProject(page);
-        } else {
-            L.error("ProjectCategoryComponent.reloadPath不支持的属性category:{}", this.props.category);
-        }
+        return OSCService.getPersonalEvents(this.props.uId, page);
     },
 
     renderRow(rowData, sectionID, rowID, highlightRow) {
@@ -45,4 +34,4 @@ const ProjectCategoryComponent = React.createClass({
     },
 });
 
-module.exports = ProjectCategoryComponent;
+module.exports = PersonalEventComponent;

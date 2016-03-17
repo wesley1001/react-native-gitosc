@@ -1,7 +1,7 @@
 const React = require('react-native');
 const CommonComponents = require('../../common/CommonComponents');
 const Icon = require('react-native-vector-icons/Ionicons');
-const Colors = require('../../common/Colors');
+const Colors = require('../common/Colors');
 
 const {
     View,
@@ -15,7 +15,7 @@ const {
 
 const ICON_SIZE = 12;
 
-const RepoCell2 = React.createClass({
+const EventCell = React.createClass({
   propTypes: {
     repo: React.PropTypes.object,
   },
@@ -36,16 +36,15 @@ const RepoCell2 = React.createClass({
     const user = repo.owner;
 
     if (user) {
-      this.props.navigator.push({id: 'personal', obj: user});
-      //const type = user.type;
-      //if (type == 'User') {
-      //
-      //} else {//TODO:不是用户类型的未实现
-      //  Alert.alert(
-      //      "Tips",
-      //      '不是用户类型的视图未实现'
-      //  );
-      //}
+      const type = user.type;
+      if (type == 'User') {
+        this.props.navigator.push({id: 'personal', obj: user});
+      } else {//TODO:不是用户类型的未实现
+        Alert.alert(
+            "Tips",
+            '不是用户类型的视图未实现'
+        );
+      }
     }
   },
 
@@ -53,7 +52,7 @@ const RepoCell2 = React.createClass({
     const repo = this.props.repo;
     return (
       <TouchableHighlight underlayColor={Colors.lineGray} onPress={this.onPressCell}>
-        <View style={styles.cellContentView}>
+        <View style={{flexDirection:"column", padding:5,}}>
           <View style={styles.cellUp}>
             <TouchableOpacity onPress={this.openAuthor}>
               <Image
@@ -89,71 +88,22 @@ const RepoCell2 = React.createClass({
 });
 
 var styles = StyleSheet.create({
-  /**
-   * RepoCell2
-   */
-  cellContentView: {
-    flexDirection: 'column',
-    flex: 1,
-    alignItems: 'stretch',
-  },
-  cellUp: {
-    padding: 10,
-    height: 40,
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    marginBottom: 15,
-  },
   avatar: {
     width: 40,
     height: 40,
     borderRadius: 8,
     backgroundColor: Colors.backGray
   },
-  username: {
-    marginLeft: 10,
-    color: '#4078C0',
-    fontSize: 15,
-  },
-  textActionContainer: {
-    margin: 10,
-    marginTop: 7,
-    marginBottom: 10,
-    marginLeft: 10,
-  },
-  createAt: {
-    marginLeft: 10,
-    marginTop: 2,
-    fontSize: 11,
-    color: '#BFBFBF',
-  },
-  textDesContainer: {
-    margin: 10,
-    marginTop: -5,
-    marginBottom: 10,
-    marginLeft: 25,
-    borderStyle: 'dashed',
-  },
-  leftAction: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    padding: 3,
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  rightAction: {
-    padding: 3,
-    backgroundColor: "white",
-  },
-  actionText: {
-    color: Colors.textGray,
+  text: {
+    color: Colors.blue,
     fontSize: 12,
-    fontWeight: 'bold',
+    alignSelf: 'center',
+  },
+  text_desc: {
+    color: Colors.backGray,
+    fontSize: 12,
     alignSelf: 'center',
   },
 });
 
-module.exports = RepoCell2;
+module.exports = EventCell;

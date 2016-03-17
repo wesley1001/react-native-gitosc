@@ -69,7 +69,8 @@ const OSCGit = React.createClass({
         cp = <RootTab />;
         break;
       case LoginState.unOnBoard:
-        cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
+        cp = <RootTab />;
+        //cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
         break;
       case LoginState.needLogin:
         cp = <LoginComponent didLogin={() => {

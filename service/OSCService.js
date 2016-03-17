@@ -32,6 +32,20 @@ class OSCService extends EventEmitter {
     constructor() {
         super();
     }
+    getPersonalProjects(uId, page) {
+        return this.fetchPromise(USER + uId + "/" + "projects?page=" + page);
+    }
+    getPersonalEvents(uId, page) {
+        return this.fetchPromise(EVENT + "user" + "/" + uId + "?page=" + page);
+    }
+
+    getPersonalStarProjects(uId, page) {
+        return this.fetchPromise(USER + uId + "/stared_projects?page=" + page);
+    }
+    getPersonalWatchProjects(uId, page) {
+        return this.fetchPromise(USER + uId + "/watched_projects?page=" + page);
+    }
+
 
     starProject(projectId){
         return this.fetchPromise(PROJECTS + projectId + "/star", "POST");
@@ -89,7 +103,9 @@ class OSCService extends EventEmitter {
         return path;
     }
     fetchPromise(path, method="GET") {
-        return fetch(this.packagePathWithToken(path), {
+        let url = this.packagePathWithToken(path);
+        L.debug("准备请求地址:{}", url);
+        return fetch(url, {
             method: method,
             headers: {
                 'User-Agent': config.userAgent,
@@ -157,3 +173,4 @@ class OSCService extends EventEmitter {
 
 const _OSCService = new OSCService();
 module.exports = _OSCService;
+module.exports.GLOBAL_USER = GLOBAL_USER;

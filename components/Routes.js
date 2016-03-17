@@ -14,6 +14,7 @@ const ProjectComponent = require('../components/ProjectComponent');
 const RepoDetailComponent = require('../components/repo/RepoDetailComponent');
 const LoginComponent = require('../components/LoginComponent');
 const WebComponent = require('../components/WebComponent');
+const PersonalComponent = require('../components/PersonalComponent');
 
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -71,6 +72,12 @@ const NavigationBarRouteMapper = {
     Title: function(route, navigator, index, navState) {
         let title = route.id;
         switch (route.id) {
+            case "personal":
+                title = "Me";
+                if(route.obj && route.obj.name) {
+                    title = route.obj.name;
+                }
+                break;
             case "project":
                 title = "Project";
                 break;
@@ -131,6 +138,9 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "personal":
+                cp = <PersonalComponent navigator={navigator} obj={route.obj} />
+                break;
             case "project":
                 cp = <ProjectComponent navigator={navigator}/>
                 break;

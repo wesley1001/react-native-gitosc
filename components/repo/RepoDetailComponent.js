@@ -48,26 +48,26 @@ const RepoDetailComponent = React.createClass({
     star() {
         if(this.state.isLoading) return;
         var repo = this.state.repo;
-        var funPromise;
-        if(repo.stared) {
-            funPromise = OSCService.unStarProject(repo.id);
-        } else {//star
-            funPromise = OSCService.starProject(repo.id);
-        }
 
         const promise = (() => {
-                funPromise
-                .then(json => {
-                    repo.stars_count = json.count;
-                    repo.stared = !repo.stared;
+            var funPromise;
+            if(repo.stared) {
+                funPromise = OSCService.unStarProject(repo.id);
+            } else {//star
+                funPromise = OSCService.starProject(repo.id);
+            }
+            funPromise
+            .then(json => {
+                repo.stars_count = json.count;
+                repo.stared = !repo.stared;
 
-                    this.setState({
-                        repo:repo,
-                        isLoading:false,});
-                })
-                .catch(err => {
-                    this.setState({ isLoading:false,});
-                });
+                this.setState({
+                    repo:repo,
+                    isLoading:false,});
+            })
+            .catch(err => {
+                this.setState({ isLoading:false,});
+            });
         });
 
         OSCService.checkNeedLoginWithPromise(promise, this.props.navigator);
@@ -76,14 +76,14 @@ const RepoDetailComponent = React.createClass({
     watch() {
         if(this.state.isLoading) return;
         var repo = this.state.repo;
-        var funPromise;
-        if(repo.watched) {
-            funPromise = OSCService.unWatchProject(repo.id);
-        } else {//star
-            funPromise = OSCService.watchProject(repo.id);
-        }
 
         const promise = (() => {
+                var funPromise;
+                if(repo.watched) {
+                    funPromise = OSCService.unWatchProject(repo.id);
+                } else {//star
+                    funPromise = OSCService.watchProject(repo.id);
+                }
                 funPromise
                 .then(json => {
                     repo.watches_count = json.count;
@@ -109,7 +109,7 @@ const RepoDetailComponent = React.createClass({
         }
         return(
             <View style={{backgroundColor: Colors.white,padding: 5,marginBottom: 49, paddingTop: 64, paddingBottom:10, flex:1}}>
-            <ScrollView style={{flexDirection: "column", flex:1,}}>
+            <ScrollView style={{flexDirection: "column", flex:1}}>
                 <View style={{flexDirection: "column", justifyContent: "flex-start"}}>
                     <View style={{flexDirection: "row", justifyContent: "flex-start", alignItems:"center"}}>
                         <Image style={{width: 40, height:40,marginTop:5, borderRadius:8, backgroundColor:Colors.backGray}} source={{uri: repo.owner.new_portrait}} />
@@ -125,7 +125,7 @@ const RepoDetailComponent = React.createClass({
                     </Text>
 
                     <View style = {{marginTop:5}}>{CommonComponents.renderSepLine()}</View>
-                    <View style={{marginTop:5,flexDirection: 'row',
+                    <View style={{margin:5,flexDirection: 'row',
                                 justifyContent: 'space-between',
                                 paddingBottom: 0}}>
 

@@ -28,18 +28,10 @@ const OSCRefreshListView = React.createClass({
             .then(data => {
                 let allLoaded = data && data.length < 1;
                 callback(data, {allLoaded: allLoaded});
-            }).catch(err => {
-            const needLogin = err.message.indexOf('rate') != -1;
-            if (needLogin) {
-                this.props.navigator.push({
-                    id: 'login',
-                    title: 'API rate need login',
-                    sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
-                });
-            }
-
-            this.setState({lastError: {isReloadError: true, error: err.message}});
-        });
+            })
+            .catch(err => {
+                this.setState({lastError: {isReloadError: true, error: err.message}});
+            });
     },
 
 

@@ -38,7 +38,7 @@ const Log = {
                 }
             }
         }
-        console.debug(m);
+        console.log(m);
     },
 
     warn(m){

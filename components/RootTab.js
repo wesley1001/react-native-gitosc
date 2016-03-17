@@ -5,7 +5,7 @@ const React = require('react-native');
 const Routes = require('../components/Routes');
 const Icon = require('react-native-vector-icons/Ionicons');
 
-const TabBarDic = ["project", "famous", "person"];
+const TabBarDic = ["project", "famous", "personal"];//
 const {
     TabBarIOS
     } = React;
@@ -30,7 +30,7 @@ const RootTab = React.createClass({
                 iconName = "ios-people-outline";
                 selectedIconName = "ios-people";
                 title = "Famous"
-            } else if(v === "person") {
+            } else if(v === "personal") {
                 iconName = "ios-person-outline";
                 selectedIconName = "ios-person";
                 title = "Me"
