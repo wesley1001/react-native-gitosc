@@ -3,6 +3,7 @@
  */
 
 const colors = {
+    lightGray:"#F0F0F0",
     lineGray: '#F0F0F0',
     green: '#80BD01',
     backGray: '#E5E5E5',

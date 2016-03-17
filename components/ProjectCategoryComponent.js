@@ -7,8 +7,8 @@ const Colors = require('../common/Colors');
 const DXRNUtils = require('../common/DXRNUtils');
 const OSCService = require('../service/OSCService');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
-const RepoCell = require('../components/RepoCell');
-const RepoCell2 = require('../components/RepoCell2');
+const RepoCell = require('../components/repo/RepoCell');
+const RepoCell2 = require('../components/repo/RepoCell2');
 
 const {
     View,

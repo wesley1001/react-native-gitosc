@@ -23,6 +23,7 @@ const LoginComponent = React.createClass({
         nextPromise: React.PropTypes.object.isRequired,
         didLogin: React.PropTypes.func,
     },
+
     getInitialState() {
         return {
             username:"rplees.i.ly@gmail.com",

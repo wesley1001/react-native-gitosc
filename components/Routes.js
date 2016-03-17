@@ -11,7 +11,7 @@ const Dimensions = require('Dimensions');
 const DXRNUtils = require('../common/DXRNUtils');
 const Platform = require('Platform');
 const ProjectComponent = require('../components/ProjectComponent');
-const RepoDetailComponent = require('../components/RepoDetailComponent');
+const RepoDetailComponent = require('../components/repo/RepoDetailComponent');
 const LoginComponent = require('../components/LoginComponent');
 const WebComponent = require('../components/WebComponent');
 
@@ -56,6 +56,16 @@ const NavigationBarRouteMapper = {
         );
     },
     RightButton: function(route, navigator, index, navState) {
+        if(route.id === "web") {
+            if(route.obj.t === "issues") {
+               return(
+                <TouchableOpacity>
+                    <Text style={[styles.navBarText, {marginRight: 10}]} onPress={route.obj.pressNewIssues.bind(null, navigator)}>
+                        New
+                    </Text>
+                </TouchableOpacity>)
+            }
+        }
         return null;
     },
     Title: function(route, navigator, index, navState) {
@@ -65,8 +75,8 @@ const NavigationBarRouteMapper = {
                 title = "Project";
                 break;
             case "repo_detail":
-                title = route.obj.path_with_namespace;
-                break;
+            title = route.obj.path_with_namespace;
+            break;
             case "web":
                 title = route.obj.title ? route.obj.title : "web";
                 break;

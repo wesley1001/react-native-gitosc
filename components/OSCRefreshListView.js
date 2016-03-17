@@ -69,7 +69,7 @@ const OSCRefreshListView = React.createClass({
 
 var styles = StyleSheet.create({
     listview: {
-        marginBottom: 49,
+
     },
 });
 

@@ -79,13 +79,17 @@ class OSCService extends EventEmitter {
                 return GLOBAL_USER;
             });
     }
-    fetchPromise(path, method="GET") {
+
+    packagePathWithToken(path) {
         if(this.isLogined()) {
             let split = path.indexOf("?") > -1 ? "&": "?";
             path += split + "private_token=" + GLOBAL_USER.private_token;
         }
 
-        return fetch(path, {
+        return path;
+    }
+    fetchPromise(path, method="GET") {
+        return fetch(this.packagePathWithToken(path), {
             method: method,
             headers: {
                 'User-Agent': config.userAgent,

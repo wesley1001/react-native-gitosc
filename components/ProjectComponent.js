@@ -20,7 +20,7 @@ const ProjectComponent = React.createClass({
             paddingTop = 0;
         }
         return (
-            <View style={{backgroundColor: Colors.white, paddingTop: paddingTop, flex:1}}>
+            <View style={{backgroundColor: Colors.white, paddingTop: paddingTop, flex:1, marginBottom: 49,}}>
                 <ScrollableTabView>
                     <ProjectCategoryComponent tabLabel="推荐" category="featured" navigator={this.props.navigator}/>
                     <ProjectCategoryComponent tabLabel="热门" category="popular" navigator={this.props.navigator}/>

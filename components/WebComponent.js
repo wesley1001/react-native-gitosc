@@ -17,7 +17,26 @@ const {
     ProgressBarAndroid,
     ActivityIndicatorIOS
     } = React;
-
+const hideJS = `
+  ;(function GHHide() {
+    var args = Array.prototype.slice.call(arguments);
+    for (var i = 0; i < args.length; i++) {
+      var className = args[i];
+      try {
+        document.getElementsByClassName(className)[0].style.display="none";
+      } catch (e){};
+    }
+  })('top',
+     'ui top attached tabular menu',
+     'breadcrumb blob-breadcrumb',
+     'discussion-block-header',
+     'discussion-reply-container',
+     'discussion-block-header',
+     'thread-subscription-status',
+     'clearfix',
+     'follow'
+     );
+`;
 
 const WebComponent = React.createClass({
     _debugTime: 0,
@@ -113,7 +132,7 @@ const WebComponent = React.createClass({
                     styles={{flex: 1}}
                     source={{uri: this.state.URL}}
                     onNavigationStateChange={this.onNavigationStateChange}
-                    //injectedJavaScript={hideJS}
+                    injectedJavaScript={hideJS}
                     automaticallyAdjustContentInsets={false}
                     contentInset={{top: topInset, left: 0, bottom: 49, right: 0}}
                     renderLoading={this.renderLoading}
@@ -153,13 +172,13 @@ const WebToolBar = React.createClass({
 
     render() {
         const backOpacity = this.props.backAble ? 0.5 : 1.0;
-        const backColor = this.props.backAble ? Colors.blue : 'lightGray';
+        const backColor = this.props.backAble ? Colors.blue : Colors.lightGray;
 
         const forwardOpacity = this.props.forwardAble ? 0.5 : 1.0;
-        const forwardColor = this.props.forwardAble ? Colors.blue : 'lightGray';
+        const forwardColor = this.props.forwardAble ? Colors.blue : Colors.lightGray;
 
         const refreshOpacity = this.props.refreshAble ? 0.5 : 1.0;
-        const refreshColor = this.props.refreshAble ? Colors.blue : 'lightGray';
+        const refreshColor = this.props.refreshAble ? Colors.blue : Colors.lightGray;
 
         let bottom = 49;
         if (Platform.OS === 'android') {
