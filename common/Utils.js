@@ -278,6 +278,10 @@ const DateUtils = {
 
     formatDate: function(dateTimeStamp, f){
         return new Date(dateTimeStamp).format(f);
+    },
+
+    formatDiff: function(dateTimeStamp){//FIXME:该函数是与当前时间比较,几个小时前\几天前格式化显示
+        return new Date(dateTimeStamp).format("yyyy-MM-dd");
     }
 }
 

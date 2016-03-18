@@ -10,6 +10,7 @@ const OSCService = require('../service/OSCService');
 const ScrollableTabView = require('react-native-scrollable-tab-view');
 const PersonalProjectComponent = require('./PersonalProjectComponent');
 const PersonalStarComponent = require('./PersonalStarComponent');
+const PersonalEventComponent = require('./PersonalEventComponent');
 const PersonalWatchComponent = require('./PersonalWatchComponent');
 
 const {
@@ -26,7 +27,6 @@ const PersonalComponent = React.createClass({
     componentWillMount() {
         if(!this.props.obj) {
             const promiseFunc = (() => {
-                //this.setState({user: OSCService.GLOBAL_USER});
                 OSCService.getUserFromCache()
                 .then((u) => {
                     this.setState({user: u});
@@ -48,6 +48,7 @@ const PersonalComponent = React.createClass({
             return (
                 <View style={{backgroundColor: Colors.white, paddingTop: paddingTop, flex:1, marginBottom: 49,}}>
                     <ScrollableTabView>
+                        <PersonalEventComponent tabLabel="动态" uId={this.state.user.id} navigator={this.props.navigator}/>
                         <PersonalProjectComponent tabLabel="项目" uId={this.state.user.id} navigator={this.props.navigator}/>
                         <PersonalStarComponent tabLabel="Star" uId={this.state.user.id} navigator={this.props.navigator}/>
                         <PersonalWatchComponent tabLabel="Watch" uId={this.state.user.id} navigator={this.props.navigator}/>

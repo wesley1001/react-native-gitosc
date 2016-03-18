@@ -39,6 +39,10 @@ class OSCService extends EventEmitter {
         return this.fetchPromise(EVENT + "user" + "/" + uId + "?page=" + page);
     }
 
+    getMyEvents(page) {
+        return this.fetchPromise(EVENT + "?page=" + page);
+    }
+
     getPersonalStarProjects(uId, page) {
         return this.fetchPromise(USER + uId + "/stared_projects?page=" + page);
     }

@@ -5,6 +5,7 @@ const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../../common/Colors');
 const L = require('../../common/Log');
+const Utils = require('../../common/Utils');
 const CommonComponents = require('../../common/CommonComponents');
 const SettingsCell = require('../../common/SettingsCell');
 const OSCService = require('../../service/OSCService');
@@ -117,7 +118,7 @@ const RepoDetailComponent = React.createClass({
                     </View>
 
                     <Text style={{marginTop:5,fontSize:12, fontWeight:'bold',color:Colors.backGray}}>更新于
-                        <Text style={{fontSize:11, color:Colors.backGray}}>{repo.last_push_at}</Text>
+                        <Text style={{fontSize:11, color:Colors.backGray}}>{Utils.DateUtils.formatDiff(repo.last_push_at)}</Text>
                     </Text>
                     <View style = {{marginTop:5}}>{CommonComponents.renderSepLine()}</View>
                     <Text style={{marginTop:5, fontSize:14, color:Colors.black}} numberOfLines={0}>
@@ -165,7 +166,7 @@ const RepoDetailComponent = React.createClass({
                                     color={Colors.blue}/>
                                 <View style={styles.nameInfo}>
                                     <Text style={styles.name}>
-                                        {new Date(repo.last_push_at).format("yyyy-MM-dd")}
+                                        {Utils.DateUtils.formatDiff(repo.last_push_at)}
                                     </Text>
                                 </View>
                             </View>
@@ -224,6 +225,9 @@ const RepoDetailComponent = React.createClass({
                             iconName={'ios-person'}
                             iconColor={Colors.blue}
                             settingName={"拥有者 " + repo.owner.username}
+                            onPress = {() => {
+                                this.props.navigator.push({id: 'personal', obj: repo.owner});
+                            }}
                             />
                         <SettingsCell
                             iconName={'document-text'}

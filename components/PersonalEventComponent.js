@@ -6,8 +6,7 @@ const Colors = require('../common/Colors');
 const L = require('../common/Log');
 const OSCService = require('../service/OSCService');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
-const RepoCell = require('../components/repo/RepoCell');
-const RepoCell2 = require('../components/repo/RepoCell2');
+const EventCell = require('../components/EventCell');
 
 const {
     View,
@@ -21,7 +20,7 @@ const PersonalEventComponent = React.createClass({
 
     renderRow(rowData, sectionID, rowID, highlightRow) {
         return (
-            <RepoCell2 key={rowID} repo={rowData} navigator={this.props.navigator}/>
+            <EventCell key={rowID} event={rowData} navigator={this.props.navigator}/>
         )
     },
 
