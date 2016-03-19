@@ -15,6 +15,7 @@ const RepoDetailComponent = require('../components/repo/RepoDetailComponent');
 const LoginComponent = require('../components/LoginComponent');
 const WebComponent = require('../components/WebComponent');
 const PersonalComponent = require('../components/PersonalComponent');
+const MyProfileComponent = require('../components/MyProfileComponent');
 
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -26,12 +27,34 @@ const {
     Text,
     TextInput,
     View,
+    Image,
     BackAndroid,
     } = React;
 
 const NavigationBarRouteMapper = {
     LeftButton: function(route, navigator, index, navState) {
+        L.debug("index:{}", index);
+
         if (index === 0 || route.id === 'login') {
+
+            if (route.id === "personal") {
+                if(!route.obj || OSCService.isSelf(route.obj.id)) {//自己的账号
+                    return (
+                        <TouchableOpacity underlayColor={Colors.lineGray}
+                                          style={{marginTop: 8,marginLeft:10}}
+                                          onPress={() => {
+                                            navigator.push({id: 'my_profile'});
+                                          }}>
+                            <Image
+                                source={{uri: OSCService.GLOBAL_USER.new_portrait}}
+                                style={{width: 30,
+                                        height: 30,
+                                        borderRadius: 12,}}
+                            />
+                        </TouchableOpacity>)
+                }
+            }
+
             return null;
         } else if(route.id == 'editprofile') {
             return (
@@ -60,11 +83,28 @@ const NavigationBarRouteMapper = {
         if(route.id === "web") {
             if(route.obj.t === "issues") {
                return(
-                <TouchableOpacity>
-                    <Text style={[styles.navBarText, {marginRight: 10}]} onPress={route.obj.pressNewIssues.bind(null, navigator)}>
-                        New
-                    </Text>
+                <TouchableOpacity underlayColor={Colors.lineGray} style={ {marginTop: 8,marginRight: 10}} onPress={route.obj.pressNewIssues.bind(null, navigator)}>
+                    <Icon
+                        name={'ios-plus'}
+                        size={30}
+                        color={Colors.blue}
+                    />
                 </TouchableOpacity>)
+            }
+        } else if(route.id === "personal") {
+            if(!route.obj || OSCService.isSelf(route.obj.id)) {//自己的账号
+                return(
+                    <TouchableOpacity underlayColor={Colors.lineGray}
+                                      style={{marginTop: 8,marginRight: 10}}
+                                      onPress={() => {
+                                        navigator.push({id: 'settings', obj: route.obj});
+                                      }}>
+                        <Icon
+                            name={'settings'}
+                            size={30}
+                            color={Colors.blue}
+                        />
+                    </TouchableOpacity>)
             }
         }
         return null;
@@ -72,6 +112,9 @@ const NavigationBarRouteMapper = {
     Title: function(route, navigator, index, navState) {
         let title = route.id;
         switch (route.id) {
+            case "my_profile":
+                title = "我的资料";
+                break;
             case "personal":
                 title = "Me";
                 if(route.obj && route.obj.name) {
@@ -138,6 +181,9 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "my_profile":
+                cp = <MyProfileComponent navigator={navigator}/>
+                break;
             case "personal":
                 cp = <PersonalComponent navigator={navigator} obj={route.obj} />
                 break;

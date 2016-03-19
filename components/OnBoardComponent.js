@@ -84,11 +84,7 @@ const OnBoardComponent = React.createClass({
     let loadingCp;
     let top = Platform.OS === 'android' ? 30 : 40;
     if (this.state.loading) {
-      if (Platform.OS === 'android') {
-        loadingCp = <ProgressBarAndroid styleAttr="Small"/>
-      } else if (Platform.OS === 'ios') {
-        loadingCp = <ActivityIndicatorIOS/>
-      }
+      loadingCp = CommonComponents.renderLoadingView();
     }
 
     return (

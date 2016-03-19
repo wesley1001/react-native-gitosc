@@ -36,6 +36,7 @@ const OSCGit = React.createClass({
         })
 
     OSCService.addListener('didLogout', () => {
+      console.log("didLogout listenered.");
       this.setState({
         loginState: LoginState.unOnBoard,
       });
@@ -47,6 +48,7 @@ const OSCGit = React.createClass({
   },
 
   componentWillUnmount: function() {
+    console.log("componentWillUnmount didLogout remove.");
     OSCService.removeListener('didLogout');
   },
 
@@ -69,8 +71,8 @@ const OSCGit = React.createClass({
         cp = <RootTab />;
         break;
       case LoginState.unOnBoard:
-        cp = <RootTab />;
-        //cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
+        //cp = <RootTab forceSelectedTab={0} />;
+        cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
         break;
       case LoginState.needLogin:
         cp = <LoginComponent didLogin={() => {

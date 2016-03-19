@@ -22,13 +22,7 @@ const RepoCell2 = React.createClass({
 
   onPressCell() {//打开项目详情
     let repo = this.props.repo;
-
-    if (repo) {
-      //repo.html = 'https://git.oschina.net//' + repo.path_with_namespace + '/blob/master/README.md';
-      //repo.title = repo.name;
-      //console.log('RepoCell2 repo', repo.html);
-      this.props.navigator.push({id: 'repo_detail', obj: repo});
-    }
+    this.props.navigator.push({id: 'repo_detail', obj: repo});
   },
 
   openAuthor() {

@@ -26,12 +26,17 @@ const PROJECTS = BASE_URL + "projects/";
 const USER = BASE_URL + "user/";
 const EVENT = BASE_URL + "events/";
 
-const GLOBAL_USER = Object.create(User);
+var GLOBAL_USER = Object.create(User);
 class OSCService extends EventEmitter {
 
     constructor() {
         super();
     }
+
+    isSelf(id) {
+        return GLOBAL_USER.id === id;
+    }
+
     getPersonalProjects(uId, page) {
         return this.fetchPromise(USER + uId + "/" + "projects?page=" + page);
     }
@@ -145,6 +150,15 @@ class OSCService extends EventEmitter {
             }).catch(err => {
                 L.info('getUserFromCache err is: ' + err);
             });
+    }
+
+    logout(cb) {
+        GLOBAL_USER = Object.create(User);
+        AsyncStorage.removeItem("_osc_user_");
+
+        cb && cb();
+
+        _OSCService.emit('didLogout');//TODO Test
     }
 
     //如果用户没登陆,但输入了用户名 则user.username也会有值的.

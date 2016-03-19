@@ -33,7 +33,7 @@ const EventCell = React.createClass({
   },
 
   onPressCell() {
-
+      this.props.navigator.push({id: 'repo_detail', obj: this.props.event.project});
   },
 
   openAuthor() {
@@ -143,12 +143,41 @@ const EventCell = React.createClass({
     }
 
     var cp = texts.map((v, i) =>
-        <Text style={[v.style]}>{v.text}</Text>
+        <Text key={"__t_j_" + i} style={[v.style]}>{v.text}</Text>
     );
 
     return <Text numberOfLines={0}>{cp}</Text>;
   },
+  createEventComment() {
+      var event = this.props.event;
+      let commentText;
 
+      let commitsView;
+      if(event.data && event.data.commits) {
+          let _c = event.data.commits.map((commit, i) => {
+              return
+              <Text style={{color:Colors.blue}} key={"commit_key_" + i + "_" + commit.id}>{commit.id}
+                <Text>{commit.author.name} - {commit.message}</Text>
+              </Text>
+          });
+
+          commitsView = <View key="commit_view" style={{flexDirection:"column", padding:5}}>{_c}</View>
+      }
+
+      if(event.events.note && event.events.note.note) {// 评论的内容
+          commentText = event.events.note.note;
+      }
+
+      if(event.events.issue && !event.events.note) {// issue的title
+          commentText = event.events.issue.title;
+      }
+
+      if(event.events.pull_request && !event.events.note) {// pr的title
+          commentText = event.events.pull_request.title;
+      }
+
+      return [commitsView, <Text key="comment_view">{commentText}</Text>];
+  },
   render() {
     const event = this.props.event;
     return (
@@ -170,7 +199,7 @@ const EventCell = React.createClass({
                 </View>
 
                 <View>
-                  <Text style={{margin: 5,marginLeft:0}} numberOfLines={0}>分手的空间很疯狂的时刻发生谁的空间回复开始电话分手的空间很疯狂的时刻发生谁的空间回复开始电话</Text>
+                    {this.createEventComment()}
                 </View>
 
                 <View>
