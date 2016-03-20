@@ -54,16 +54,16 @@ const LoginComponent = React.createClass({
                 </View>
 
                 <TouchableHighlight style={{
-                                        borderWidth: 1,
-                                        height: 38,
-                                        marginLeft: 20,
-                                        marginRight: 20,
-                                        justifyContent: "center",
-                                        borderColor: Colors.red,
-                                        backgroundColor: Colors.red,
-                                        borderRadius: 6,
-                                        marginTop:40
-                                    }}
+                                            borderWidth: 1,
+                                            height: 38,
+                                            marginLeft: 20,
+                                            marginRight: 20,
+                                            justifyContent: "center",
+                                            borderColor: Colors.red,
+                                            backgroundColor: Colors.red,
+                                            borderRadius: 6,
+                                            marginTop:40
+                                        }}
                                     onPress={() => {
                                         OSCService.logout();
                                     }}

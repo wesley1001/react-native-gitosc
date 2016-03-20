@@ -14,11 +14,11 @@ var Uitls = {
 
     } else if (Platform.OS === 'ios') {
       console.log('clear cookies');
-      //DXRNUtils.clearCookies((error, results) => {
-      //  if (error) {
-      //    console.log('clearCookie error occured' + error);
-      //  }
-      //});
+      DXRNUtils.clearCookies((error, results) => {
+        if (error) {
+          console.log('clearCookie error occured' + error);
+        }
+      });
     }
   },
 
@@ -27,7 +27,7 @@ var Uitls = {
 
     } else if (Platform.OS === 'ios') {
       console.log(name + ":" + atr);
-      //DXRNUtils.trackClick(name, atr); //TODO
+      DXRNUtils.trackClick(name, atr); //TODO
     }
   },
 
@@ -35,9 +35,9 @@ var Uitls = {
     if (Platform.OS === 'android') {
       // TODO:
     } else if (Platform.OS === 'ios') {
-      //DXRNUtils.appInfo((info) => {
-      //  cb && cb(info);
-      //});
+      DXRNUtils.appInfo((info) => {
+        cb && cb(info);
+      });
     }
   }
 };

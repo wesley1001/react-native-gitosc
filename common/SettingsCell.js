@@ -33,7 +33,9 @@ const SettingsComponent = React.createClass({
       <TouchableHighlight
         underlayColor={Colors.backGray}
         style={styles.userTouch}
-        onPress={this.props.onPress}>
+        onPress={this.props.onPress}
+          {...this.props}
+        >
         <View style={styles.user}>
           <Icon
             name={this.props.iconName}

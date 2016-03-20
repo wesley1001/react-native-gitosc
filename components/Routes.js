@@ -16,6 +16,8 @@ const LoginComponent = require('../components/LoginComponent');
 const WebComponent = require('../components/WebComponent');
 const PersonalComponent = require('../components/PersonalComponent');
 const MyProfileComponent = require('../components/MyProfileComponent');
+const SettingComponent = require('../components/SettingComponent');
+const FeedbackComponent = require('../components/FeedbackComponent');
 
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -103,6 +105,9 @@ const NavigationBarRouteMapper = {
                             name={'settings'}
                             size={30}
                             color={Colors.blue}
+                            onPress={() => {
+                                navigator.push({id: 'setting'});
+                              }}
                         />
                     </TouchableOpacity>)
             }
@@ -112,6 +117,12 @@ const NavigationBarRouteMapper = {
     Title: function(route, navigator, index, navState) {
         let title = route.id;
         switch (route.id) {
+            case "feedback":
+                title = "意见反馈";
+                break;
+            case "setting":
+                title = "设置";
+                break;
             case "my_profile":
                 title = "我的资料";
                 break;
@@ -181,6 +192,12 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "feedback":
+                cp = <FeedbackComponent navigator={navigator}/>
+                break;
+            case "setting":
+                cp = <SettingComponent navigator={navigator}/>
+                break;
             case "my_profile":
                 cp = <MyProfileComponent navigator={navigator}/>
                 break;

@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8662c63e-056d-4f70-9f28-2fdc18429ad0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/EventCell.js" afterPath="$PROJECT_DIR$/components/EventCell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/OnBoardComponent.js" afterPath="$PROJECT_DIR$/components/OnBoardComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/RootTab.js" afterPath="$PROJECT_DIR$/components/RootTab.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/iosComponents/GFDiskCache.js" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/DXRNUtils.js" afterPath="$PROJECT_DIR$/common/DXRNUtils.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/SettingsCell.js" afterPath="$PROJECT_DIR$/common/SettingsCell.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/MyProfileComponent.js" afterPath="$PROJECT_DIR$/components/MyProfileComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/Routes.js" afterPath="$PROJECT_DIR$/components/Routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/repo/RepoCell2.js" afterPath="$PROJECT_DIR$/components/repo/RepoCell2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.ios.js" afterPath="$PROJECT_DIR$/index.ios.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/OSCService.js" afterPath="$PROJECT_DIR$/service/OSCService.js" />
     </list>
     <ignored path="react-native-gitosc.iws" />
@@ -29,31 +29,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RepoDetailComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/repo/RepoDetailComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OSCService.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="OSCService.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/service/OSCService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="160" column="19" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.35826087">
+              <caret line="88" column="32" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PersonalEventComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/PersonalEventComponent.js">
+      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/Utils.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SettingComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/SettingComponent.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DXRNUtils.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/DXRNUtils.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -63,57 +73,47 @@
         <entry file="file://$PROJECT_DIR$/components/EventCell.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="195" column="61" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="61" />
+              <caret line="41" column="69" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="69" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.ios.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.ios.js">
+      <file leaf-file-name="Ionicons.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/react-native-vector-icons/Ionicons.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.111111">
-              <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+            <state vertical-scroll-proportion="-4.5925927">
+              <caret line="70" column="3" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RootTab.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/RootTab.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OnBoardComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/OnBoardComponent.js">
+      <file leaf-file-name="FeedbackComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/FeedbackComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
+              <caret line="91" column="44" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="44" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyProfileComponent.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/components/MyProfileComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34306568">
-              <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/entity/User.js">
+      <file leaf-file-name="LoginComponent.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/LoginComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="9" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="9" />
+              <caret line="203" column="33" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GFDiskCache.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/common/GFDiskCache.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -123,7 +123,7 @@
         <entry file="file://$PROJECT_DIR$/components/Routes.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
+              <caret line="194" column="26" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -145,7 +145,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/common/Color.js" />
-        <option value="$PROJECT_DIR$/common/DXRNUtils.js" />
         <option value="$PROJECT_DIR$/config.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/components/OnboardComponent.js" />
@@ -159,7 +158,6 @@
         <option value="$PROJECT_DIR$/components/ExploreCell.js" />
         <option value="$PROJECT_DIR$/index.android.js" />
         <option value="$PROJECT_DIR$/components/RepoCell2.js" />
-        <option value="$PROJECT_DIR$/common/SettingsCell.js" />
         <option value="$PROJECT_DIR$/common/CommonComponents.js" />
         <option value="$PROJECT_DIR$/common/WebComponent.js" />
         <option value="$PROJECT_DIR$/components/LoginComponent.js" />
@@ -180,12 +178,17 @@
         <option value="$PROJECT_DIR$/components/PersonalComponent.js" />
         <option value="$PROJECT_DIR$/components/repo/RepoCell2.js" />
         <option value="$PROJECT_DIR$/components/EventCell.js" />
-        <option value="$PROJECT_DIR$/components/Routes.js" />
-        <option value="$PROJECT_DIR$/service/OSCService.js" />
         <option value="$PROJECT_DIR$/components/OnBoardComponent.js" />
         <option value="$PROJECT_DIR$/components/RootTab.js" />
         <option value="$PROJECT_DIR$/index.ios.js" />
+        <option value="$PROJECT_DIR$/common/SettingsCell.js" />
+        <option value="$PROJECT_DIR$/common/DXRNUtils.js" />
         <option value="$PROJECT_DIR$/components/MyProfileComponent.js" />
+        <option value="$PROJECT_DIR$/components/LeaveMessageComponent.js" />
+        <option value="$PROJECT_DIR$/components/Routes.js" />
+        <option value="$PROJECT_DIR$/components/SettingComponent.js" />
+        <option value="$PROJECT_DIR$/service/OSCService.js" />
+        <option value="$PROJECT_DIR$/components/FeedbackComponent.js" />
       </list>
     </option>
   </component>
@@ -304,32 +307,14 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="repo" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-native-gitosc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-native-gitosc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="common" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -341,14 +326,14 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/components/repo" />
+      <recent name="$PROJECT_DIR$/components" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/components" />
       <recent name="$PROJECT_DIR$/common" />
       <recent name="$PROJECT_DIR$/iosComponents" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/components/repo" />
-      <recent name="$PROJECT_DIR$/components" />
     </key>
   </component>
   <component name="RunManager">
@@ -455,31 +440,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-refreshable-listview/lib/RefreshableListView.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5320624">
-          <caret line="54" column="19" selection-start-line="54" selection-start-column="19" selection-end-line="54" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-refreshable-listview/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/RefreshListView.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="29" column="3" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/iosComponents/GFDiskCache.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.19584055">
-          <caret line="4" column="21" selection-start-line="4" selection-start-column="21" selection-end-line="4" selection-end-column="21" />
         </state>
       </provider>
     </entry>
@@ -522,13 +486,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.779896">
           <caret line="60" column="16" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/common/DXRNUtils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19410746">
-          <caret line="20" column="11" selection-start-line="16" selection-start-column="5" selection-end-line="20" selection-end-column="11" />
         </state>
       </provider>
     </entry>
@@ -632,13 +589,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/SettingsCell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="67" column="25" selection-start-line="67" selection-start-column="25" selection-end-line="67" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/WebComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -701,14 +651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/react-native-vector-icons/Ionicons.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.2037036">
-          <caret line="459" column="11" selection-start-line="459" selection-start-column="3" selection-end-line="459" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/repo/RepoCell2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -717,43 +659,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/common/Utils.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22782609">
-          <caret line="274" column="10" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/entity/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="9" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/LoginComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.79130435">
-          <caret line="206" column="5" selection-start-line="197" selection-start-column="9" selection-end-line="206" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/events/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4173913">
           <caret line="21" column="9" selection-start-line="21" selection-start-column="9" selection-end-line="21" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="28" selection-start-line="41" selection-start-column="28" selection-end-line="41" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,35 +674,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/components/EventCell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="195" column="61" selection-start-line="195" selection-start-column="52" selection-end-line="195" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/service/OSCService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="160" column="19" selection-start-line="160" selection-start-column="19" selection-end-line="160" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/components/ProjectComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.20869565">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/repo/RepoDetailComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -801,14 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321739">
           <caret line="15" column="9" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/OnBoardComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="86" column="55" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="55" />
           <folding />
         </state>
       </provider>
@@ -823,16 +699,128 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.ios.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.111111">
+        <state vertical-scroll-proportion="0.0">
           <caret line="64" column="48" selection-start-line="64" selection-start-column="48" selection-end-line="64" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/entity/User.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="9" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/repo/RepoDetailComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="290" column="26" selection-start-line="278" selection-start-column="24" selection-end-line="290" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/SettingsCell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1111112">
+          <caret line="2" column="52" selection-start-line="2" selection-start-column="52" selection-end-line="2" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/DXRNUtils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/EventCell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="41" column="69" selection-start-line="41" selection-start-column="6" selection-end-line="41" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/components/MyProfileComponent.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34306568">
-          <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
+        <state vertical-scroll-proportion="0.66086954">
+          <caret line="65" column="42" selection-start-line="56" selection-start-column="44" selection-end-line="65" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/react-native-vector-icons/Ionicons.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.5925927">
+          <caret line="70" column="3" selection-start-line="70" selection-start-column="3" selection-end-line="70" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/OnBoardComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.49565217">
+          <caret line="104" column="14" selection-start-line="96" selection-start-column="11" selection-end-line="104" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/Utils.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/common/GFDiskCache.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="194" column="26" selection-start-line="194" selection-start-column="18" selection-end-line="194" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/SettingComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="130" column="0" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/LoginComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="203" column="33" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/FeedbackComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="91" column="44" selection-start-line="91" selection-start-column="44" selection-end-line="91" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/service/OSCService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35826087">
+          <caret line="88" column="32" selection-start-line="88" selection-start-column="26" selection-end-line="88" selection-end-column="32" />
           <folding />
         </state>
       </provider>

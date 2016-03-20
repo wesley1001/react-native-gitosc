@@ -82,6 +82,17 @@ class OSCService extends EventEmitter {
         return this.fetchPromise(PROJECTS + id);
     }
 
+    feedback(title, message) {
+        let param = {
+            description : message,
+            title : title,
+            assignee_id : 355540,
+            milestone_id : "",
+        };
+
+        return this.fetchPromise(PROJECTS + "142148/issues", "GET", param);
+    }
+
     onBoard(name) {
         Object.assign(GLOBAL_USER, {name:name, username: name});
         this.__saveUser2Disk();
@@ -93,9 +104,7 @@ class OSCService extends EventEmitter {
     login(name, pwd) {
         pwd = "qwe6583381";
         let param = {email: name, password: pwd};
-        console.log(Utils.JsonUtils.encode(param));
-        let path = BASE_URL + "session?" + Utils.JsonUtils.encode(param);
-        return this.fetchPromise(path, "POST")
+        return this.fetchPromise(BASE_URL + "session", "POST", param)
             .then(json => {
                 Object.assign(GLOBAL_USER, json);
                 this.__saveUser2Disk();
@@ -111,7 +120,11 @@ class OSCService extends EventEmitter {
 
         return path;
     }
-    fetchPromise(path, method="GET") {
+    fetchPromise(path, method="GET", param) {
+        if(param) {
+            path += (path.indexOf("?") > -1 ? "&" : "?");
+            path += Utils.JsonUtils.encode(param);
+        }
         let url = this.packagePathWithToken(path);
         L.debug("准备请求地址:{}", url);
         return fetch(url, {
