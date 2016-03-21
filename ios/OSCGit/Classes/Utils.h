@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "RCTBridgeModule.h"
 
-@interface DXRNUtils : NSObject<RCTBridgeModule>
+@interface Utils : NSObject<RCTBridgeModule>
 
 @end

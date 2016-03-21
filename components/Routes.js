@@ -5,10 +5,10 @@ const React = require('react-native');
 const Icon = require('react-native-vector-icons/Ionicons');
 const cssVar = require('cssVar');
 const Colors = require('../common/Colors');
-const L = require('../common/Log');
+const L = require('../utils/Log');
 const OSCService = require('../service/OSCService');
 const Dimensions = require('Dimensions');
-const DXRNUtils = require('../common/DXRNUtils');
+const DXRNUtils = require('../utils/DXRNUtils');
 const Platform = require('Platform');
 const ProjectComponent = require('../components/ProjectComponent');
 const RepoDetailComponent = require('../components/repo/RepoDetailComponent');
@@ -16,8 +16,9 @@ const LoginComponent = require('../components/LoginComponent');
 const WebComponent = require('../components/WebComponent');
 const PersonalComponent = require('../components/PersonalComponent');
 const MyProfileComponent = require('../components/MyProfileComponent');
-const SettingComponent = require('../components/SettingComponent');
+const SettingsComponent = require('../components/SettingsComponent');
 const FeedbackComponent = require('../components/FeedbackComponent');
+const ShakeComponent = require('../components/ShakeComponent');
 
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -106,7 +107,7 @@ const NavigationBarRouteMapper = {
                             size={30}
                             color={Colors.blue}
                             onPress={() => {
-                                navigator.push({id: 'setting'});
+                                navigator.push({id: "settings"});
                               }}
                         />
                     </TouchableOpacity>)
@@ -117,10 +118,13 @@ const NavigationBarRouteMapper = {
     Title: function(route, navigator, index, navState) {
         let title = route.id;
         switch (route.id) {
+            case "shake":
+                title = "摇一摇";
+                break;
             case "feedback":
                 title = "意见反馈";
                 break;
-            case "setting":
+            case "settings":
                 title = "设置";
                 break;
             case "my_profile":
@@ -192,11 +196,14 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "shake":
+                cp = <ShakeComponent navigator={navigator}/>
+                break;
             case "feedback":
                 cp = <FeedbackComponent navigator={navigator}/>
                 break;
-            case "setting":
-                cp = <SettingComponent navigator={navigator}/>
+            case "settings":
+                cp = <SettingsComponent navigator={navigator}/>
                 break;
             case "my_profile":
                 cp = <MyProfileComponent navigator={navigator}/>

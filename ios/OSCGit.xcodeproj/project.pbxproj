@@ -27,11 +27,9 @@
 		BA2620A81C9537E30024645B /* GFWebResourceInterceptor.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620A01C9537E30024645B /* GFWebResourceInterceptor.m */; };
 		BA2620A91C9537E30024645B /* GFWebResourceInterceptorSettings.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620A31C9537E30024645B /* GFWebResourceInterceptorSettings.m */; };
 		BA2620AA1C9537E30024645B /* GFWebResourceURLProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620A51C9537E30024645B /* GFWebResourceURLProtocol.m */; };
-		BA2620C31C95380D0024645B /* DXFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620B81C95380D0024645B /* DXFileManager.m */; };
-		BA2620C41C95380D0024645B /* DXRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620BA1C95380D0024645B /* DXRefreshControl.m */; };
-		BA2620C51C95380D0024645B /* DXRNUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620BC1C95380D0024645B /* DXRNUtils.m */; };
+		BA2620C51C95380D0024645B /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620BC1C95380D0024645B /* Utils.m */; };
 		BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C01C95380D0024645B /* GFDiskCacheManager.m */; };
-		BA2620C81C95380E0024645B /* DXTextCategoryMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C21C95380D0024645B /* DXTextCategoryMenu.m */; };
+		BA5E0E5F1C9FD2CA0058F8FA /* libRNShakeEvent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */; };
 		BAAF95C51C946507009653C5 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C41C9464DB009653C5 /* libRNVectorIcons.a */; };
 		BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C61C94655E009653C5 /* libz.tbd */; };
 		BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95B01C945045009653C5 /* libCodePush.a */; };
@@ -128,6 +126,13 @@
 			remoteGlobalIDString = 58B5119B1A9E6C1200147676;
 			remoteInfo = RCTText;
 		};
+		BA5E0E5D1C9FD2B20058F8FA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNShakeEvent;
+		};
 		BAAF95AF1C945045009653C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */;
@@ -178,16 +183,11 @@
 		BA2620A31C9537E30024645B /* GFWebResourceInterceptorSettings.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFWebResourceInterceptorSettings.m; sourceTree = "<group>"; };
 		BA2620A41C9537E30024645B /* GFWebResourceURLProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GFWebResourceURLProtocol.h; sourceTree = "<group>"; };
 		BA2620A51C9537E30024645B /* GFWebResourceURLProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GFWebResourceURLProtocol.m; sourceTree = "<group>"; };
-		BA2620B71C95380D0024645B /* DXFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXFileManager.h; path = OSCGit/Classes/DXFileManager.h; sourceTree = "<group>"; };
-		BA2620B81C95380D0024645B /* DXFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXFileManager.m; path = OSCGit/Classes/DXFileManager.m; sourceTree = "<group>"; };
-		BA2620B91C95380D0024645B /* DXRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRefreshControl.h; path = OSCGit/Classes/DXRefreshControl.h; sourceTree = "<group>"; };
-		BA2620BA1C95380D0024645B /* DXRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRefreshControl.m; path = OSCGit/Classes/DXRefreshControl.m; sourceTree = "<group>"; };
-		BA2620BB1C95380D0024645B /* DXRNUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXRNUtils.h; path = OSCGit/Classes/DXRNUtils.h; sourceTree = "<group>"; };
-		BA2620BC1C95380D0024645B /* DXRNUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXRNUtils.m; path = OSCGit/Classes/DXRNUtils.m; sourceTree = "<group>"; };
+		BA2620BB1C95380D0024645B /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = OSCGit/Classes/Utils.h; sourceTree = "<group>"; };
+		BA2620BC1C95380D0024645B /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = OSCGit/Classes/Utils.m; sourceTree = "<group>"; };
 		BA2620BF1C95380D0024645B /* GFDiskCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFDiskCacheManager.h; path = OSCGit/Classes/GFDiskCacheManager.h; sourceTree = "<group>"; };
 		BA2620C01C95380D0024645B /* GFDiskCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GFDiskCacheManager.m; path = OSCGit/Classes/GFDiskCacheManager.m; sourceTree = "<group>"; };
-		BA2620C11C95380D0024645B /* DXTextCategoryMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DXTextCategoryMenu.h; path = OSCGit/Classes/NavigationCategory/DXTextCategoryMenu.h; sourceTree = "<group>"; };
-		BA2620C21C95380D0024645B /* DXTextCategoryMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DXTextCategoryMenu.m; path = OSCGit/Classes/NavigationCategory/DXTextCategoryMenu.m; sourceTree = "<group>"; };
+		BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShakeEvent.xcodeproj; path = "../node_modules/react-native-shake-event-ios/RNShakeEvent.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95C61C94655E009653C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -218,6 +218,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA5E0E5F1C9FD2CA0058F8FA /* libRNShakeEvent.a in Frameworks */,
 				BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */,
 				BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */,
 				BAAF95C51C946507009653C5 /* libRNVectorIcons.a in Frameworks */,
@@ -364,6 +365,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */,
 				BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */,
 				BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -443,18 +445,20 @@
 		BA2620C91C9538150024645B /* BridgeNativeClass */ = {
 			isa = PBXGroup;
 			children = (
-				BA2620B71C95380D0024645B /* DXFileManager.h */,
-				BA2620B81C95380D0024645B /* DXFileManager.m */,
-				BA2620B91C95380D0024645B /* DXRefreshControl.h */,
-				BA2620BA1C95380D0024645B /* DXRefreshControl.m */,
-				BA2620BB1C95380D0024645B /* DXRNUtils.h */,
-				BA2620BC1C95380D0024645B /* DXRNUtils.m */,
+				BA2620BB1C95380D0024645B /* Utils.h */,
+				BA2620BC1C95380D0024645B /* Utils.m */,
 				BA2620BF1C95380D0024645B /* GFDiskCacheManager.h */,
 				BA2620C01C95380D0024645B /* GFDiskCacheManager.m */,
-				BA2620C11C95380D0024645B /* DXTextCategoryMenu.h */,
-				BA2620C21C95380D0024645B /* DXTextCategoryMenu.m */,
 			);
 			name = BridgeNativeClass;
+			sourceTree = "<group>";
+		};
+		BA5E0E5A1C9FD2B20058F8FA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		BAAF95AC1C945044009653C5 /* Products */ = {
@@ -680,6 +684,10 @@
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
 				{
+					ProductGroup = BA5E0E5A1C9FD2B20058F8FA /* Products */;
+					ProjectRef = BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */;
+				},
+				{
 					ProductGroup = BAAF95C01C9464DB009653C5 /* Products */;
 					ProjectRef = BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */;
 				},
@@ -761,6 +769,13 @@
 			fileType = archive.ar;
 			path = libRCTText.a;
 			remoteRef = 832341B41AAA6A8300B99B32 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNShakeEvent.a;
+			remoteRef = BA5E0E5D1C9FD2B20058F8FA /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		BAAF95B01C945045009653C5 /* libCodePush.a */ = {
@@ -886,15 +901,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				BA2620A61C9537E30024645B /* NSString+GFAdditions.m in Sources */,
-				BA2620C31C95380D0024645B /* DXFileManager.m in Sources */,
 				BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				BA2620A81C9537E30024645B /* GFWebResourceInterceptor.m in Sources */,
 				BA2620A71C9537E30024645B /* GFWebResourceCache.m in Sources */,
 				BA2620AA1C9537E30024645B /* GFWebResourceURLProtocol.m in Sources */,
-				BA2620C41C95380D0024645B /* DXRefreshControl.m in Sources */,
-				BA2620C81C95380E0024645B /* DXTextCategoryMenu.m in Sources */,
-				BA2620C51C95380D0024645B /* DXRNUtils.m in Sources */,
+				BA2620C51C95380D0024645B /* Utils.m in Sources */,
 				BA2620A91C9537E30024645B /* GFWebResourceInterceptorSettings.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);

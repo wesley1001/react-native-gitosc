@@ -4,8 +4,8 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../common/DXRNUtils');
-const Utils = require('../common/Utils');
+const DXRNUtils = require('../utils/DXRNUtils');
+const Utils = require('../utils/Utils');
 const OSCService = require('../service/OSCService');
 
 const {

@@ -4,9 +4,9 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../common/DXRNUtils');
-const Utils = require('../common/Utils');
-const GFDiskCache = require('../common/GFDiskCache');
+const DXRNUtils = require('../utils/DXRNUtils');
+const Utils = require('../utils/Utils');
+const GFDiskCache = require('../utils/GFDiskCache');
 const OSCService = require('../service/OSCService');
 const CommonComponents = require('../common/CommonComponents');
 const SettingsCell = require('../common/SettingsCell');
@@ -92,17 +92,15 @@ const SettingComponent = React.createClass({
                         iconColor={Colors.blue}
                         settingName={"摇一摇"}
                         onPress = {() => {
-
-                            }}
+                            this.props.navigator.push({id: 'shake'});
+                        }}
                     />
 
                     <SettingsCell
                         iconName={'android-delete'}
                         iconColor={Colors.blue}
                         settingName={cachedSize}
-                        onPress={() => {
-                            this.clearCache
-                          }} />
+                        onPress={this.clearCache} />
 
                     <SettingsCell
                         iconName={'share'}
@@ -116,8 +114,8 @@ const SettingComponent = React.createClass({
                         iconColor={Colors.blue}
                         settingName={"意见反馈"}
                         onPress = {() => {
-                                this.props.navigator.push({id: 'feedback'});
-                            }}
+                            this.props.navigator.push({id: 'feedback'});
+                        }}
                     />
 
                     <SettingsCell
@@ -125,8 +123,8 @@ const SettingComponent = React.createClass({
                         iconColor={Colors.blue}
                         settingName={"关于作者"}
                         onPress = {() => {
-                                this.props.navigator.push({id: 'personal', obj: OSCService.GLOBAL_USER});
-                            }}
+                            this.props.navigator.push({id: 'personal', obj: OSCService.GLOBAL_USER});
+                        }}
                     />
 
                     <TouchableHighlight style={{

@@ -10,7 +10,8 @@ const OnBoardComponent = require("./components/OnBoardComponent");
 const RootTab = require("./components/RootTab");
 const CommonComponents = require("./common/CommonComponents");
 const OSCService = require("./service/OSCService");
-const L = require('./common/Log');
+const L = require('./utils/Log');
+const ShakeComponent = require('./components/ShakeComponent');
 
 const {
     AppRegistry,
@@ -69,6 +70,7 @@ const OSCGit = React.createClass({
         break;
       case LoginState.onBoard:
         cp = <RootTab />;
+        //  cp = <ShakeComponent />
         break;
       case LoginState.unOnBoard:
         //cp = <RootTab forceSelectedTab={0} />;

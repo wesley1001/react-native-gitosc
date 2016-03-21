@@ -1,5 +1,5 @@
 const React = require('react-native');
-const L = require('../common/Log');
+const L = require('../utils/Log');
 const CommonComponents = require('../common/CommonComponents');
 const RefreshListView = require('../common/RefreshListView');
 const PropTypes = React.PropTypes;

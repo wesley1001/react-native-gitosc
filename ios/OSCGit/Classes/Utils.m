@@ -6,11 +6,11 @@
 //  Copyright © 2015年 Facebook. All rights reserved.
 //
 
-#import "DXRNUtils.h"
+#import "Utils.h"
 
 static NSString * const kAppId = @"1079873993";
 
-@implementation DXRNUtils
+@implementation Utils
 
 @synthesize bridge = _bridge;
 

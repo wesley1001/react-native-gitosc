@@ -3,7 +3,7 @@ const Platform = require('Platform');
 
 var {
   NativeModules: {
-    DXRNUtils,
+      Utils,
   }
 } = React;
 
@@ -14,7 +14,7 @@ var Uitls = {
 
     } else if (Platform.OS === 'ios') {
       console.log('clear cookies');
-      DXRNUtils.clearCookies((error, results) => {
+      Utils.clearCookies((error, results) => {
         if (error) {
           console.log('clearCookie error occured' + error);
         }
@@ -27,7 +27,7 @@ var Uitls = {
 
     } else if (Platform.OS === 'ios') {
       console.log(name + ":" + atr);
-      DXRNUtils.trackClick(name, atr); //TODO
+      Utils.trackClick(name, atr); //TODO
     }
   },
 
@@ -35,7 +35,7 @@ var Uitls = {
     if (Platform.OS === 'android') {
       // TODO:
     } else if (Platform.OS === 'ios') {
-      DXRNUtils.appInfo((info) => {
+      Utils.appInfo((info) => {
         cb && cb(info);
       });
     }

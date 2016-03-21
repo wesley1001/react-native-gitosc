@@ -3,7 +3,7 @@
  */
 const React = require('react-native');
 const Routes = require('../components/Routes');
-const Utils = require('../common/Utils');
+const Utils = require('../utils/Utils');
 const Icon = require('react-native-vector-icons/Ionicons');
 
 const TabBarDic = ["project", "famous", "personal"];//

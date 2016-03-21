@@ -11,7 +11,6 @@
 #import "RCTConvert.h"
 #import "GFWebResourceInterceptor.h"
 #import "GFWebResourceCache.h"
-#import "DXFileManager.h"
 
 @implementation GFDiskCacheManager
 

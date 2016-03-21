@@ -2,7 +2,6 @@ const React = require('react-native');
 const Platform = require('Platform');
 
 const {
-  DeviceEventEmitter,
   NativeModules: {
     GFDiskCacheManager,
   }
@@ -12,8 +11,6 @@ const GFDiskCache = {
   getDiskCacheCost(cb) {
     if (Platform.OS === 'android') {
       // TODO:
-
-       
     } else if (Platform.OS === 'ios') {
       GFDiskCacheManager.diskCacheCost((size) => {
         console.log('get diskCacheCost', size);
@@ -25,7 +22,6 @@ const GFDiskCache = {
   clearDiskCache(cb) {
     if (Platform.OS === 'android') {
       // TODO:
-
     } else if (Platform.OS === 'ios') {
       GFDiskCacheManager.clearDiskCache((size) => {
         cb && cb(this.bytesToSize(size));

@@ -3,7 +3,7 @@
  */
 const React = require('react-native');
 const Colors = require('../common/Colors');
-const L = require('../common/Log');
+const L = require('../utils/Log');
 const OSCService = require('../service/OSCService');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
 const EventCell = require('../components/EventCell');

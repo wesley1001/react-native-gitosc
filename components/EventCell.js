@@ -2,7 +2,7 @@ const React = require('react-native');
 const CommonComponents = require('../common/CommonComponents');
 const Icon = require('react-native-vector-icons/Ionicons');
 const Colors = require('../common/Colors');
-const Utils = require('../common/Utils');
+const Utils = require('../utils/Utils');
 
 const {
     View,

@@ -4,10 +4,10 @@
 const config = require("../config");
 const {EventEmitter} = require("events");
 const React = require('react-native');
-const DXRNUtils = require('../common/DXRNUtils');
+const DXRNUtils = require('../utils/DXRNUtils');
 const base64 = require('base-64');
-const Utils = require('../common/Utils');
-const L = require('../common/Log');
+const Utils = require('../utils/Utils');
+const L = require('../utils/Log');
 const User = require('../entity/User');
 //const crypto = require('crypto');
 //const Buffer = require('Buffer');
@@ -36,7 +36,9 @@ class OSCService extends EventEmitter {
     isSelf(id) {
         return GLOBAL_USER.id === id;
     }
-
+    getRandomProject() {
+        return this.fetchPromise(PROJECTS + "random", "GET", {luck: 1})
+    }
     getPersonalProjects(uId, page) {
         return this.fetchPromise(USER + uId + "/" + "projects?page=" + page);
     }
@@ -171,7 +173,7 @@ class OSCService extends EventEmitter {
 
         cb && cb();
 
-        _OSCService.emit('didLogout');//TODO Test
+        this.emit('didLogout');//TODO Test
     }
 
     //如果用户没登陆,但输入了用户名 则user.username也会有值的.
