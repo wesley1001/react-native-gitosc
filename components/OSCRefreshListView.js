@@ -33,7 +33,9 @@ const OSCRefreshListView = React.createClass({
                 this.setState({lastError: {isReloadError: true, error: err.message}});
             });
     },
-
+    forceRefresh() {
+        this.refs[LISTVIEW_REF] && this.refs[LISTVIEW_REF].forceRefresh();
+    },
 
     render() {
         if (this.state.lastError.isReloadError) {

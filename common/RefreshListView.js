@@ -55,10 +55,16 @@ module.exports = React.createClass({
   renderRow: function(row){
     return this.state.renderRow(row);
   },
+  forceRefresh() {
+    //this._listview._postRefresh([], {external: true});
+    this._listview._refresh();
+  },
   render: function(){
     return(
         <View style={[styles.container, {backgroundColor: this.state.backgroundColor}, this.props.style]}>
-          <GiftedListView rowView={this.renderRow}
+          <GiftedListView
+                          ref={(c) => this._listview = c}
+                          rowView={this.renderRow}
                           onFetch={this.onRefresh}
                           paginationAllLoadedView={this.renderPaginationAllLoadedView}
                           paginationWaitingView={this.renderPaginationWaitingView}

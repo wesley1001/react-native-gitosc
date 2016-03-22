@@ -36,6 +36,31 @@ class OSCService extends EventEmitter {
     isSelf(id) {
         return GLOBAL_USER.id === id;
     }
+    /**
+     * 获取语言列表
+     * {
+     * "created_at": "2013-08-01T22:39:56+08:00",
+        "detail": null,
+        "id": 5,
+        "ident": "Java",
+        "name": "Java",
+        "order": 4,
+        "parent_id": 1,
+        "projects_count": 43479,
+        "updated_at": "2013-08-01T22:39:56+08:00"
+     * }
+     */
+    getLanguageList() {
+        return this.fetchPromise(PROJECTS + "languages");
+    }
+    /**
+     * 根据语言的ID获得项目的列表
+     */
+    getLanguageProjectList(languageId, page) {
+        let url = PROJECTS + "languages/" + languageId + "?page=" + page;
+        return this.fetchPromise(url);
+    }
+
     getRandomProject() {
         return this.fetchPromise(PROJECTS + "random", "GET", {luck: 1})
     }

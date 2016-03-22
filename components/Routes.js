@@ -19,6 +19,7 @@ const MyProfileComponent = require('../components/MyProfileComponent');
 const SettingsComponent = require('../components/SettingsComponent');
 const FeedbackComponent = require('../components/FeedbackComponent');
 const ShakeComponent = require('../components/ShakeComponent');
+const FamousComponent = require('../components/FamousComponent');
 
 const ScreenWidth = Dimensions.get('window').width;
 
@@ -118,6 +119,9 @@ const NavigationBarRouteMapper = {
     Title: function(route, navigator, index, navState) {
         let title = route.id;
         switch (route.id) {
+            case "famous":
+                title = "Famous";
+                break;
             case "shake":
                 title = "摇一摇";
                 break;
@@ -196,6 +200,9 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "famous":
+                cp = <FamousComponent navigator={navigator}/>
+                break;
             case "shake":
                 cp = <ShakeComponent navigator={navigator}/>
                 break;

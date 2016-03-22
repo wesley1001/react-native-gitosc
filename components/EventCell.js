@@ -154,14 +154,12 @@ const EventCell = React.createClass({
 
       let commitsView;
       if(event.data && event.data.commits) {
-          let _c = event.data.commits.map((commit, i) => {
-              return
+          let _c = event.data.commits.map((commit, i) =>
               <Text style={{color:Colors.blue}} key={"commit_key_" + i + "_" + commit.id}>{commit.id}
                 <Text>{commit.author.name} - {commit.message}</Text>
               </Text>
-          });
-
-          commitsView = <View key="commit_view" style={{flexDirection:"column", padding:5}}>{_c}</View>
+          );
+          commitsView = <View key="commit_view" style={{flexDirection:"column", padding:5, marginTop:5, backgroundColor:Colors.backGray, borderRadius:6}}>{_c}</View>
       }
 
       if(event.events.note && event.events.note.note) {// 评论的内容
