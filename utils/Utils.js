@@ -308,13 +308,13 @@ const ObjUtils = {
     }
 }
 
-module.exports.StringUtils = StringUtils;
-module.exports.BooleanUtils = BooleanUtils;
-module.exports.JsonUtils = JsonUtils;
-module.exports.CollectionUtils = CollectionUtils;
-module.exports.NullUtils = NullUtils;
-module.exports.NumberUtils = NumberUtils;
-module.exports.StringUtils = StringUtils;
-module.exports.TextUtils = TextUtils;
-module.exports.DateUtils = DateUtils;
-module.exports.ObjUtils = ObjUtils;
+exports.StringUtils = StringUtils;
+exports.BooleanUtils = BooleanUtils;
+exports.JsonUtils = JsonUtils;
+exports.CollectionUtils = CollectionUtils;
+exports.NullUtils = NullUtils;
+exports.NumberUtils = NumberUtils;
+exports.StringUtils = StringUtils;
+exports.TextUtils = TextUtils;
+exports.DateUtils = DateUtils;
+exports.ObjUtils = ObjUtils;

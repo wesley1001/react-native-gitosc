@@ -4,19 +4,16 @@ const config = require('../config');
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../utils/DXRNUtils');
 const OSCService = require('../service/OSCService');
 
 const {
   StyleSheet,
-  ActivityIndicatorIOS,
   View,
   Text,
   TouchableHighlight,
   TextInput,
   Image,
   ScrollView,
-  ProgressBarAndroid,
 } = React;
 
 const OnBoardComponent = React.createClass({

@@ -4,9 +4,9 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../utils/DXRNUtils');
 const StringUtils = require('../utils/Utils').StringUtils;
 const OSCService = require('../service/OSCService');
+const CommonStyles = require('../common/CommonStyles');
 
 const {
     View,
@@ -17,15 +17,17 @@ const {
     Alert,
     } = React;
 
-const FeedbackComponent = React.createClass({
+const CreateIssueComponent = React.createClass({
     PropTypes: {},
     getInitialState() {
-        return {text: ""}
+        return {title:"", description: ""}
     },
-    doLeaveMessage() {
-        if(StringUtils.isNotBlank(this.state.text)) {
-            OSCService.feedback("留言", this.state.text)
-                .then((d) => {
+    doSubmit() {
+        if(StringUtils.isNotBlank(this.state.text) && StringUtils.isNotBlank(this.state.title)) {
+            var repo = this.props.repo;
+            let assignee_id = repo.owner.id;
+            OSCService.pubCreateIssue(repo.id,this.state.title,this.state.description,assignee_id, "")
+                .then((json) => {
                     Alert.alert(
                         "成功",
                         '操作成功:',
@@ -44,13 +46,17 @@ const FeedbackComponent = React.createClass({
         } else {
             Alert.alert(
                 "Oops",
-                '请输入一些内容吧.'
+                '输入完整的信息.'
             );
         }
     },
-    onTextChange(text){
-        this.setState({text:text});
+    onTextChange(description){
+        this.setState({description:description});
     },
+    onTitleChange(title){
+        this.setState({title:title});
+    },
+
     render() {
         let paddingTop = 64;
         if (Platform.OS == 'android') {
@@ -60,43 +66,40 @@ const FeedbackComponent = React.createClass({
             <View style={{flexDirection:"column", flex:1, padding:5, paddingTop:paddingTop}}>
                 <ScrollView>
                 <View style={{flexDirection:"row",marginTop:10}}>
-                    <Text style={{fontWeight:"bold",}}>{"请写下你对OSChina的意见"}</Text>
+                    <Text style={{fontWeight:"bold",}}>{"标题"}</Text>
+                </View>
+                <View style={{marginTop:10}}>
+                    <TextInput
+                        returnKeyType={'next'}
+                        defaultValue={this.state.title}
+                        style = {CommonStyles.textInput}
+                        placeholder={'标题'}
+                        onChangeText={this.onTitleChange}
+                    />
+                </View>
+
+                <View style={{flexDirection:"row",marginTop:10}}>
+                    <Text style={{fontWeight:"bold",}}>{"请写下你对OSChina的意见."}</Text>
                 </View>
                 <View style={{marginTop:10}}>
                     <TextInput
                         autoCapitalize={'none'}
+                        defaultValue={this.state.description}
                         autoCorrect={false}
-                        style={{
-                            fontSize: 15,
-                            borderWidth: 3,
+                        style={[CommonStyles.textInput, {
                             height: 250,
-                            marginTop: 5,
-                            marginBottom: 10,
-                            borderRadius: 4,
-                            padding: 5,
-                            borderColor: Colors.green,
-                        }}
+                        }]}
                         maxLength={1024}
                         returnKeyType={'done'}
                         onChangeText={this.onTextChange}
                         onSubmitEditing={this.doLeaveMessage}
                         multiline={true}
-                        placeholder={'请写下你对OSChina的意见.'}
+                        placeholder={'请写下你对该项目的意见.'}
                     />
                 </View>
 
-                <TouchableHighlight style={{
-                                            borderWidth: 1,
-                                            height: 38,
-                                            marginLeft: 20,
-                                            marginRight: 20,
-                                            justifyContent: "center",
-                                            borderColor: Colors.green,
-                                            backgroundColor: Colors.green,
-                                            borderRadius: 6,
-                                            marginTop:40
-                                        }}
-                                    onPress={this.doLeaveMessage}
+                <TouchableHighlight style={CommonStyles.btn}
+                                    onPress={this.doSubmit}
                                     underlayColor={Colors.backGray}
                                     >
                     <Text style={[{color: Colors.white, fontWeight: "bold",textAlign:"center"}]}> 发表意见 </Text>
@@ -106,4 +109,4 @@ const FeedbackComponent = React.createClass({
         );
     }
 });
-module.exports = FeedbackComponent;
+module.exports = CreateIssueComponent;

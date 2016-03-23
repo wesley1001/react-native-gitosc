@@ -2,17 +2,9 @@
  * Created by rplees on 3/8/16.
  */
 const React = require('react-native');
-const Colors = require('../common/Colors');
-const L = require('../utils/Log');
 const OSCService = require('../service/OSCService');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
-const RepoCell = require('../components/repo/RepoCell');
 const RepoCell2 = require('../components/repo/RepoCell2');
-
-const {
-    View,
-    Text,
-    } = React;
 
 const PersonalProjectComponent = React.createClass({
     reloadPath(page = 1) {

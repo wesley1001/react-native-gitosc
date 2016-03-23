@@ -10,7 +10,6 @@ const Utils = require('../utils/Utils');
 const L = require('../utils/Log');
 const User = require('../entity/User');
 //const crypto = require('crypto');
-//const Buffer = require('Buffer');
 const {
     AsyncStorage,
     Navigator,
@@ -36,6 +35,14 @@ class OSCService extends EventEmitter {
     isSelf(id) {
         return GLOBAL_USER.id === id;
     }
+
+    /**
+    * 创建一个issue
+    */
+    pubCreateIssue(projectId, title, description, assignee_id, milestone_id) {
+        return this.fetchPromise(PROJECTS + projectId + "/issues", "POST", {description: description, title: title, assignee_id:assignee_id,milestone_id:milestone_id});
+    }
+
     /**
      * 获取语言列表
      * {
@@ -81,7 +88,6 @@ class OSCService extends EventEmitter {
     getPersonalWatchProjects(uId, page) {
         return this.fetchPromise(USER + uId + "/watched_projects?page=" + page);
     }
-
 
     starProject(projectId){
         return this.fetchPromise(PROJECTS + projectId + "/star", "POST");
@@ -147,6 +153,7 @@ class OSCService extends EventEmitter {
 
         return path;
     }
+
     fetchPromise(path, method="GET", param) {
         if(param) {
             path += (path.indexOf("?") > -1 ? "&" : "?");
@@ -195,10 +202,8 @@ class OSCService extends EventEmitter {
     logout(cb) {
         GLOBAL_USER = Object.create(User);
         AsyncStorage.removeItem("_osc_user_");
-
         cb && cb();
-
-        this.emit('didLogout');//TODO Test
+        this.emit('didLogout');
     }
 
     //如果用户没登陆,但输入了用户名 则user.username也会有值的.

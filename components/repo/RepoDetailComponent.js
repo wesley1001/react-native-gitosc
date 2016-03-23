@@ -5,11 +5,11 @@ const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../../common/Colors');
 const L = require('../../utils/Log');
-const Utils = require('../../utils/Utils');
+const DateUtils = require('../../utils/Utils').DateUtils;
 const CommonComponents = require('../../common/CommonComponents');
 const SettingsCell = require('../../common/SettingsCell');
 const OSCService = require('../../service/OSCService');
-const Icon = require('react-native-vector-icons/Ionicons');
+const FontAwesome = require('react-native-vector-icons/FontAwesome');
 
 const {
     Navigator,
@@ -118,7 +118,7 @@ const RepoDetailComponent = React.createClass({
                     </View>
 
                     <Text style={{marginTop:5,fontSize:12, fontWeight:'bold',color:Colors.backGray}}>更新于
-                        <Text style={{fontSize:11, color:Colors.backGray}}>{Utils.DateUtils.formatDiff(repo.last_push_at)}</Text>
+                        <Text style={{fontSize:11, color:Colors.backGray}}>{DateUtils.formatDiff(repo.last_push_at)}</Text>
                     </Text>
                     <View style = {{marginTop:5}}>{CommonComponents.renderSepLine()}</View>
                     <Text style={{marginTop:5, fontSize:14, color:Colors.black}} numberOfLines={0}>
@@ -131,24 +131,24 @@ const RepoDetailComponent = React.createClass({
                                 paddingBottom: 0}}>
 
                         <View style={{flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
-                            <Icon.Button style={{width:150, justifyContent:"center"}}
-                                         color={Colors.black} name="ios-star-outline"
+                            <FontAwesome.Button style={{width:150, justifyContent:"center"}}
+                                         color={Colors.black} name="star"
                                          backgroundColor={Colors.green}
                                          onPress={this.star}>
                                 {this.state.repo.stared? "Unstar": "Star"}
-                            </Icon.Button>
+                            </FontAwesome.Button>
                             <Text style={{height:20,margin:5, fontSize:13}}>
                                 {"[ " + repo.stars_count +" stars ]"}
                             </Text>
                         </View>
                         <View style={{width:150,flexDirection: "column",alignItems:"center",backgroundColor:Colors.lineGray,borderRadius:8}}>
-                            <Icon.Button style={{width:150, justifyContent:"center"}}
+                            <FontAwesome.Button style={{width:150, justifyContent:"center"}}
                                          color={Colors.black}
-                                         name="happy-outline"
+                                         name="eye"
                                          backgroundColor={Colors.green}
                                          onPress={this.watch}>
                                 {this.state.repo.watched?"Unwatch": "Watch"}
-                            </Icon.Button>
+                            </FontAwesome.Button>
                             <Text style={{height:20, margin:5, fontSize:13}}>
                                 {"[ " + repo.watches_count +" watches ]"}
                             </Text>
@@ -159,24 +159,24 @@ const RepoDetailComponent = React.createClass({
                         <View style={{flexDirection:"row"}}>
 
                             <View style={styles.user}>
-                                <Icon
-                                    name={"ios-time"}
+                                <FontAwesome
+                                    name={"clock-o"}
                                     size={20}
                                     style={styles.arrow}
-                                    color={Colors.blue}/>
+                                    color={Colors.black}/>
                                 <View style={styles.nameInfo}>
                                     <Text style={styles.name}>
-                                        {Utils.DateUtils.formatDiff(repo.last_push_at)}
+                                        {DateUtils.formatDiff(repo.last_push_at? repo.last_push_at : repo.created_at)}
                                     </Text>
                                 </View>
                             </View>
                             <View style={{flex: 1}}>{cp}</View>
                             <View style={styles.user}>
-                                <Icon
-                                    name={"fork"}
+                                <FontAwesome
+                                    name={"code-fork"}
                                     size={20}
                                     style={styles.arrow}
-                                    color={Colors.blue}/>
+                                    color={Colors.black}/>
                                 <View style={styles.nameInfo}>
                                     <Text style={styles.name}>
                                         {repo.forks_count}
@@ -189,11 +189,11 @@ const RepoDetailComponent = React.createClass({
                         <View style={{flexDirection:"row"}}>
 
                             <View style={styles.user}>
-                                <Icon
-                                    name={repo.public?"ios-unlocked" : "ios-locked"}
+                                <FontAwesome
+                                    name={repo.public?"unlock" : "lock"}
                                     size={20}
                                     style={styles.arrow}
-                                    color={Colors.blue}/>
+                                    color={Colors.black}/>
                                 <View style={styles.nameInfo}>
                                     <Text style={styles.name}>
                                         {repo.public?"Public":"Private"}
@@ -202,11 +202,11 @@ const RepoDetailComponent = React.createClass({
                             </View>
                             <View style={{flex: 1}}></View>
                             <View style={styles.user}>
-                                <Icon
-                                    name={"ios-pricetag"}
+                                <FontAwesome
+                                    name={"tag"}
                                     size={20}
                                     style={styles.arrow}
-                                    color={Colors.blue}/>
+                                    color={Colors.black}/>
                                 <View style={styles.nameInfo}>
                                     <Text style={styles.name}>
                                         {repo.language}
@@ -222,7 +222,7 @@ const RepoDetailComponent = React.createClass({
                                 padding: 5,
                                 paddingBottom: 0}}>
                         <SettingsCell
-                            iconName={'ios-person'}
+                            iconName={'user'}
                             iconColor={Colors.blue}
                             settingName={"拥有者 " + repo.owner.username}
                             onPress = {() => {
@@ -230,7 +230,7 @@ const RepoDetailComponent = React.createClass({
                             }}
                             />
                         <SettingsCell
-                            iconName={'document-text'}
+                            iconName={'file-text-o'}
                             iconColor={Colors.blue}
                             settingName={"readme"}
                             onPress = {() => {
@@ -256,7 +256,7 @@ const RepoDetailComponent = React.createClass({
                             }}
                         />
                         <SettingsCell
-                            iconName={'ios-at'}
+                            iconName={'question'}
                             iconColor={Colors.blue}
                             settingName={"问题"}
                             onPress = {() => {
@@ -265,19 +265,12 @@ const RepoDetailComponent = React.createClass({
                                     title:repo.name + " Issues",
                                     data:repo,
                                     t:"issues",
-                                    pressNewIssues: function(navigator){
-                                        navigator.push({
-                                            id: 'login',
-                                            sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
-                                            title: 'Action need login',
-                                        });
-                                    }
                                 };
                                this.props.navigator.push({id: 'web', obj: obj});
                             }}
                         />
                         <SettingsCell
-                            iconName={'quote'}
+                            iconName={'quote-left'}
                             iconColor={Colors.blue}
                             settingName={"提交"}
                             onPress = {() => {

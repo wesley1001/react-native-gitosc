@@ -4,8 +4,9 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
+const CommonStyles = require('../common/CommonStyles');
 const DXRNUtils = require('../utils/DXRNUtils');
-const Utils = require('../utils/Utils');
+const ObjUtils = require('../utils/Utils').ObjUtils;
 const OSCService = require('../service/OSCService');
 
 const {
@@ -56,7 +57,7 @@ const LoginComponent = React.createClass({
 
         OSCService.login(this.state.username, this.state.password)
         .then(user => {
-            console.log("login :" + Utils.ObjUtils.toString(user));
+            console.log("login :" + ObjUtils.toString(user));
             this.setState({
                 logining: false,
                 loginError: "",
@@ -115,7 +116,7 @@ const LoginComponent = React.createClass({
                     <TextInput
                         returnKeyType={'next'}
                         defaultValue={this.state.username}
-                        style = {styles.textInput}
+                        style = {CommonStyles.textInput}
                         placeholder={'username (NOT EMAIL!)'}
                         onChangeText={this.onUserNameChanged}
                     />
@@ -124,13 +125,13 @@ const LoginComponent = React.createClass({
                         returnKeyType={'done'}
                         onSubmitEditing={this.doLogin}
                         defaultValue={this.state.password}
-                        style = {styles.textInput}
+                        style = {CommonStyles.textInput}
                         secureTextEntry={true}
                         placeholder={'password!)'}
                         onChangeText={this.onPwdChanged}
                     />
 
-                    <TouchableHighlight style = {styles.btn}
+                    <TouchableHighlight style = {CommonStyles.btn}
                                         onPress={this.doLogin}
                                         underlayColor = {Colors.backGray}
                         >
@@ -149,7 +150,7 @@ const styles = StyleSheet.create({
     },
 
     loginContainer: {
-        height: 270,
+        height: 300,
         marginTop: 64,
         margin: 10,
         borderWidth: 1,
@@ -194,16 +195,6 @@ const styles = StyleSheet.create({
         borderRadius: 4,
         padding: 3,
         borderColor: Colors.blue,
-    },
-    btn: {
-        borderWidth: 1,
-        height: 38,
-        marginLeft: 20,
-        marginRight: 20,
-        justifyContent: "center",
-        borderColor: Colors.blue,
-        backgroundColor: Colors.blue,
-        borderRadius: 6
     }
 });
 module.exports = LoginComponent;

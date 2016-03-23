@@ -61,7 +61,7 @@ const WebComponent = React.createClass({
     },
 
     onNavigationStateChange(e) {
-        console.log(e.url + 'loading takes' + (Date.now() - this._debugTime) / 1000 + 's');
+        console.log(e.url + ' ,loading takes' + (Date.now() - this._debugTime) / 1000 + 's');
         this._debugTime = Date.now();
 
         const title = e.title;
@@ -109,7 +109,7 @@ const WebComponent = React.createClass({
     },
 
     render() {
-        console.log('render web');
+        console.log('render web.');
         let topInset = 64;
         let webToolBar;
         if (this.state.backAble || this.state.forwardAble) {

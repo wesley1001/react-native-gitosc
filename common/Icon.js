@@ -1,61 +1,26 @@
 const React = require('react-native');
-const CommonComponents = require('../common/CommonComponents');
-const Colors = require('../common/Colors');
-const DXRNUtils = require('../utils/DXRNUtils');
-const Platform = require('Platform');
+var _ = require('lodash');
+var IconList = require('./IconList');
+var Entypo = require('react-native-vector-icons/Entypo');
+var EvilIcons = require('react-native-vector-icons/EvilIcons');
+var FontAwesome = require('react-native-vector-icons/FontAwesome');
+var Foundation = require('react-native-vector-icons/Foundation');
+var Ionicons = require('react-native-vector-icons/Ionicons');
+var MaterialIcons = require('react-native-vector-icons/MaterialIcons');
+var Octicons = require('react-native-vector-icons/Octicons');
+var Zocial = require('react-native-vector-icons/Zocial');
+
 const {
   View,
   Text,
-  TouchableHighlight,
   StyleSheet,
   TouchableOpacity,
   Picker,
 } = React;
 
-const LISTVIEWREF = 'listview';
-const CONTAINERREF = 'container';
-
-const LanguageComponent = React.createClass({
-  propTypes: {
-    toggleOn: React.PropTypes.bool,
-    languageList: React.PropTypes.array,
-    onSelectLanguage: React.PropTypes.func,
-    currentLanguage: React.PropTypes.string,
-  },
-
-  getDefaultProps() {
-    return {
-      languageList: [],
-      toggleOn: false,
-      currentLanguage: 'All Languages',
-    }
-  },
-
-  getInitialState() {
-    return {
-      toggleOn: this.props.toggleOn,
-      currentLanguage: this.props.currentLanguage,
-    }
-  },
-
-  onSelectLanguage(selectedLanguage) {
-    DXRNUtils.trackClick('clickLan', {name: 'Explore 打开语言选择'});
-    if (this.state.currentLanguage == selectedLanguage) {
-      this.setState({
-        toggleOn: false,
-      });
-
-      return;
-    }
-
-    this.setState({
-      toggleOn: false,
-      currentLanguage: selectedLanguage,
-    });
-    this.props.onSelectLanguage(selectedLanguage);
-  },
-
+const Icon = React.createClass({
   render() {
+
     const languageList = this.props.languageList;
     const selectedLanguage = this.state.currentLanguage || languageList[0];
 
@@ -154,4 +119,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = LanguageComponent;
+module.exports = Icon;

@@ -1,6 +1,6 @@
 const React = require('react-native');
 const CommonComponents = require('../common/CommonComponents');
-const Icon = require('react-native-vector-icons/Ionicons');
+const Icon = require('react-native-vector-icons/FontAwesome');
 const Colors = require('../common/Colors');
 
 const {
@@ -48,7 +48,7 @@ const SettingsComponent = React.createClass({
             </Text>
           </View>
           <Icon
-            name='ios-arrow-right'
+            name='angle-right'
             size={20}
             iconStyle={styles.arrow}
             color={Colors.textGray}/>

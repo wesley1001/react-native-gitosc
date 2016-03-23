@@ -2,7 +2,7 @@
  * Created by rplees on 3/13/16.
  */
 const React = require('react-native');
-const Icon = require('react-native-vector-icons/Ionicons');
+const FontAwesome = require('react-native-vector-icons/FontAwesome');
 const cssVar = require('cssVar');
 const Colors = require('../common/Colors');
 const L = require('../utils/Log');
@@ -20,8 +20,7 @@ const SettingsComponent = require('../components/SettingsComponent');
 const FeedbackComponent = require('../components/FeedbackComponent');
 const ShakeComponent = require('../components/ShakeComponent');
 const FamousComponent = require('../components/FamousComponent');
-
-const ScreenWidth = Dimensions.get('window').width;
+const CreateIssueComponent = require('../components/CreateIssueComponent');
 
 const {
     Navigator,
@@ -33,6 +32,7 @@ const {
     View,
     Image,
     BackAndroid,
+    ActionSheetIOS,
     } = React;
 
 const NavigationBarRouteMapper = {
@@ -60,26 +60,26 @@ const NavigationBarRouteMapper = {
             }
 
             return null;
-        } else if(route.id == 'editprofile') {
-            return (
-                <TouchableOpacity onPress={route.pressCancel}>
-                    <Text style={[styles.navBarText, {marginRight: 10,marginLeft:10}]}>
-                        Cancel
-                    </Text>
-                </TouchableOpacity>
-            );
         }
 
+        //let routes = navigator.getCurrentRoutes();
+        //let preTitleCcp;
+        //
+        //if(routes && routes.length > 0) {
+        //    preTitleCcp = <Text>{this._getTitle(routes[routes.length - 1])}</Text>
+        //}
+        // {preTitleCcp}
         return (
             <TouchableOpacity
                 onPress={() => navigator.pop()}
                 style={styles.navBarLeftButton}>
-                <Icon
-                    name='ios-arrow-back'
+                <FontAwesome
+                    name='angle-left'
                     size={30}
                     style={{marginTop: 8}}
                     color={Colors.blue}
                 />
+
             </TouchableOpacity>
         );
     },
@@ -87,11 +87,15 @@ const NavigationBarRouteMapper = {
         if(route.id === "web") {
             if(route.obj.t === "issues") {
                return(
-                <TouchableOpacity underlayColor={Colors.lineGray} style={ {marginTop: 8,marginRight: 10}} onPress={route.obj.pressNewIssues.bind(null, navigator)}>
-                    <Icon
-                        name={'ios-plus'}
-                        size={30}
-                        color={Colors.blue}
+                <TouchableOpacity underlayColor={Colors.lineGray} style={ {marginTop: 8,marginRight: 10}}
+                                  onPress={ () => {
+                                    navigator.push({id: 'create_issue', obj: route.obj.data,});
+                                }
+                }>
+                    <FontAwesome
+                        name={'plus-circle'}
+                        size={20}
+                        color={Colors.black}
                     />
                 </TouchableOpacity>)
             }
@@ -103,22 +107,37 @@ const NavigationBarRouteMapper = {
                                       onPress={() => {
                                         navigator.push({id: 'settings', obj: route.obj});
                                       }}>
-                        <Icon
-                            name={'settings'}
-                            size={30}
-                            color={Colors.blue}
-                            onPress={() => {
-                                navigator.push({id: "settings"});
-                              }}
+                        <FontAwesome
+                            name={'gear'}
+                            size={20}
+                            color={Colors.black}
                         />
                     </TouchableOpacity>)
             }
+        } else if(route.id === "repo_detail") {//分享
+           return (<TouchableOpacity underlayColor={Colors.lineGray}
+                              style={{marginTop: 8,marginRight: 10}}
+                              onPress={() => {
+                                var message = '[OSC GIT 分享] 项目' + route.obj.path_with_namespace;
+                                ActionSheetIOS.showShareActionSheetWithOptions({
+                                        message: message,
+                                        url: 'https://git.oschina.net/' + route.obj.path_with_namespace,
+                                    },
+                                    function() {},
+                                    function() {});
+                              }}>
+                            <Text style={{fontWeight:"bold", fontSize:13}}>. . .</Text>
+            </TouchableOpacity>);
         }
         return null;
     },
-    Title: function(route, navigator, index, navState) {
+
+    _getTitle(route) {
         let title = route.id;
         switch (route.id) {
+            case "create_issue":
+                title = "创建Issue";
+                break;
             case "famous":
                 title = "Famous";
                 break;
@@ -144,12 +163,16 @@ const NavigationBarRouteMapper = {
                 title = "Project";
                 break;
             case "repo_detail":
-            title = route.obj.path_with_namespace;
-            break;
+                title = route.obj.path_with_namespace;
+                break;
             case "web":
                 title = route.obj.title ? route.obj.title : "web";
                 break;
         }
+        return title;
+    },
+    Title: function(route, navigator, index, navState) {
+        let title = this._getTitle(route);
         return (
             <Text style={[styles.navBarText,
                       styles.navBarTitleText,
@@ -200,6 +223,9 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "create_issue":
+                cp = <CreateIssueComponent navigator={navigator} repo={route.obj}/>
+                break;
             case "famous":
                 cp = <FamousComponent navigator={navigator}/>
                 break;

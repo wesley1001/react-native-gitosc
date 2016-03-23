@@ -2,7 +2,7 @@ const React = require('react-native');
 const CommonComponents = require('../common/CommonComponents');
 const Icon = require('react-native-vector-icons/Ionicons');
 const Colors = require('../common/Colors');
-const Utils = require('../utils/Utils');
+const DateUtils = require('../utils/Utils').DateUtils;
 
 const {
     View,
@@ -201,7 +201,7 @@ const EventCell = React.createClass({
                 </View>
 
                 <View>
-                  <Text style={styles.text_desc}>{Utils.DateUtils.formatDiff(event.created_at)}</Text>
+                  <Text style={styles.text_desc}>{DateUtils.formatDiff(event.created_at)}</Text>
                 </View>
               </View>
             </View>

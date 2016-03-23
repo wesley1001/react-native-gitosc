@@ -3,7 +3,7 @@
  */
 const React = require('react-native');
 const Routes = require('../components/Routes');
-const Utils = require('../utils/Utils');
+const NullUtils = require('../utils/Utils').NullUtils;
 const Icon = require('react-native-vector-icons/Ionicons');
 
 const TabBarDic = ["project", "famous", "personal"];//
@@ -18,9 +18,7 @@ const RootTab = React.createClass({
         }
     },
     componentDidMount() {
-        console.log("RootTab.componentDidMount");
-        if(Utils.NullUtils.isNotNull(this.props.forceSelectedTab)) {
-            console.log("RootTab.componentDidMountddddd");
+        if(NullUtils.isNotNull(this.props.forceSelectedTab)) {
             this.setState({selectedTab: TabBarDic[this.props.forceSelectedTab]});
         }
     },
