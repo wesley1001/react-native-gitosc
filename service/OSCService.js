@@ -36,6 +36,10 @@ class OSCService extends EventEmitter {
         return GLOBAL_USER.id === id;
     }
 
+    searchProjects(query, page) {
+        return this.fetchPromise(PROJECTS + "search/" + encodeURI(query) + "?page=" + page);
+    }
+
     /**
     * 创建一个issue
     */

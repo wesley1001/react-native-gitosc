@@ -21,7 +21,8 @@ const FeedbackComponent = require('../components/FeedbackComponent');
 const ShakeComponent = require('../components/ShakeComponent');
 const FamousComponent = require('../components/FamousComponent');
 const CreateIssueComponent = require('../components/CreateIssueComponent');
-
+const SearchComponent = require('../components/SearchComponent');
+const ScreenWidth = Dimensions.get('window').width;
 const {
     Navigator,
     TouchableOpacity,
@@ -128,6 +129,19 @@ const NavigationBarRouteMapper = {
                               }}>
                             <Text style={{fontWeight:"bold", fontSize:13}}>. . .</Text>
             </TouchableOpacity>);
+        } else if(route.id === "project") {
+            return(
+                <TouchableOpacity underlayColor={Colors.lineGray}
+                                  style={{marginTop: 8,marginRight: 10}}
+                                  onPress={() => {
+                                    navigator.push({id: 'search'});
+                                  }}>
+                    <FontAwesome
+                        name={'search'}
+                        size={20}
+                        color={Colors.black}
+                    />
+                </TouchableOpacity>)
         }
         return null;
     },
@@ -135,6 +149,9 @@ const NavigationBarRouteMapper = {
     _getTitle(route) {
         let title = route.id;
         switch (route.id) {
+            case "search":
+                title = "搜索项目";
+                break;
             case "create_issue":
                 title = "创建Issue";
                 break;
@@ -173,6 +190,52 @@ const NavigationBarRouteMapper = {
     },
     Title: function(route, navigator, index, navState) {
         let title = this._getTitle(route);
+        let searchPlaceholder = "Search users, repos.";
+        if(route.id === "famous") {
+            return <TouchableOpacity
+                style={[styles.searchBar, {justifyContent: 'center'}]}
+                onPress={() => {
+                     navigator.push({id: 'search'});
+                }}>
+                <FontAwesome
+                    name={'search'}
+                    size={20}
+                    style={styles.searchIcon}
+                    color={Colors.black}
+                />
+                <Text style={[styles.textInput, {alignSelf: 'center', flex: 0}]}>
+                    {searchPlaceholder}
+                </Text>
+            </TouchableOpacity>
+        } else if(route.id === "search") {
+
+            let fontSize = 14;
+            if (Platform.OS == 'android') {
+                fontSize = 12;
+            }
+            return (
+                <View style={[styles.searchBar, {width: ScreenWidth - 40, marginLeft: 40}]}>
+                    <FontAwesome
+                        name={'search'}
+                        size={20}
+                        style={styles.searchIcon}
+                        color={Colors.black}
+                    />
+                    <TextInput
+                        style={[styles.textInput, {fontSize: fontSize}]}
+                        placeholder={searchPlaceholder}
+                        autoCapitalize={"none"}
+                        autoCorrect={false}
+                        returnKeyType={'search'}
+                        autoFocus={true}
+                        blurOnSubmit={true}
+                        onChangeText={route.sp.onChangeText}
+                        onSubmitEditing={route.sp.onSubmitEditing}
+                        clearButtonMode={'while-editing'}
+                    />
+                </View>
+            )
+        }
         return (
             <Text style={[styles.navBarText,
                       styles.navBarTitleText,
@@ -223,6 +286,9 @@ const routes = {
 
         let cp;
         switch (route.id) {
+            case "search":
+                cp = <SearchComponent navigator={navigator} route={route}/>
+                break;
             case "create_issue":
                 cp = <CreateIssueComponent navigator={navigator} repo={route.obj}/>
                 break;
@@ -285,6 +351,30 @@ const styles = StyleSheet.create({
         color: cssVar('fbui-bluegray-60'),
         fontWeight:"bold",
         marginVertical:10,
+    },
+    searchBar: {
+        padding: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        width: ScreenWidth - 10,
+        height: 35,
+        // borderWidth: 1,
+        // borderColor: Colors.borderColor,
+        borderRadius: 4,
+        margin: 5,
+        backgroundColor: Colors.backGray,
+    },
+    searchIcon: {
+        marginLeft: 3,
+        marginRight: 3,
+        width: 20,
+        height: 20
+    },
+    textInput: {
+        fontSize: 14,
+        alignSelf: 'stretch',
+        flex: 1,
+        color: Colors.black,
     },
 });
 module.exports = routes;
