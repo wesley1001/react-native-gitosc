@@ -273,7 +273,7 @@ Date.prototype.format = function(fmt) { //author: meizz
 }
 const DateUtils = {
     format: function(dateTimeStamp){
-        return DateUtils.formatDate("yyyy-MM-dd hh:mm:ss");
+        return DateUtils.formatDate(dateTimeStamp, "yyyy-MM-dd hh:mm:ss");
     },
 
     formatDate: function(dateTimeStamp, f){

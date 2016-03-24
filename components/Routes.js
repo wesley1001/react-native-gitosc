@@ -3,6 +3,7 @@
  */
 const React = require('react-native');
 const FontAwesome = require('react-native-vector-icons/FontAwesome');
+const Ionicons = require('react-native-vector-icons/Ionicons');
 const cssVar = require('cssVar');
 const Colors = require('../common/Colors');
 const L = require('../utils/Log');
@@ -22,13 +23,17 @@ const ShakeComponent = require('../components/ShakeComponent');
 const FamousComponent = require('../components/FamousComponent');
 const CreateIssueComponent = require('../components/CreateIssueComponent');
 const SearchComponent = require('../components/SearchComponent');
+const constant = require('../config').constant;
 const ScreenWidth = Dimensions.get('window').width;
+var _ = require('lodash');
+
 const {
     Navigator,
     TouchableOpacity,
     StyleSheet,
     PixelRatio,
     Text,
+    Alert,
     TextInput,
     View,
     Image,
@@ -38,17 +43,17 @@ const {
 
 const NavigationBarRouteMapper = {
     LeftButton: function(route, navigator, index, navState) {
-        L.debug("index:{}", index);
+        L.debug("NavigationBarRouteMapper层级数:{}", index);
 
-        if (index === 0 || route.id === 'login') {
+        if (index === 0 || route.id === constant.scene.login.key) {
 
-            if (route.id === "personal") {
+            if (route.id === constant.scene.personal.key) {
                 if(!route.obj || OSCService.isSelf(route.obj.id)) {//自己的账号
                     return (
                         <TouchableOpacity underlayColor={Colors.lineGray}
                                           style={{marginTop: 8,marginLeft:10}}
                                           onPress={() => {
-                                            navigator.push({id: 'my_profile'});
+                                            navigator.push({id: constant.scene.my_profile.key});
                                           }}>
                             <Image
                                 source={{uri: OSCService.GLOBAL_USER.new_portrait}}
@@ -85,12 +90,16 @@ const NavigationBarRouteMapper = {
         );
     },
     RightButton: function(route, navigator, index, navState) {
-        if(route.id === "web") {
+        if(route.id === constant.scene.web.key) {
             if(route.obj.t === "issues") {
                return(
                 <TouchableOpacity underlayColor={Colors.lineGray} style={ {marginTop: 8,marginRight: 10}}
                                   onPress={ () => {
-                                    navigator.push({id: 'create_issue', obj: route.obj.data,});
+                                      if(route.obj.data.issues_enabled) {
+                                        navigator.push({id: constant.scene.create_issue.key, obj: route.obj.data,});
+                                      } else {
+                                        Alert.alert("OOps", "该项目已关闭创建Issues功能.");
+                                      }
                                 }
                 }>
                     <FontAwesome
@@ -100,13 +109,13 @@ const NavigationBarRouteMapper = {
                     />
                 </TouchableOpacity>)
             }
-        } else if(route.id === "personal") {
+        } else if(route.id === constant.scene.personal.key) {
             if(!route.obj || OSCService.isSelf(route.obj.id)) {//自己的账号
                 return(
                     <TouchableOpacity underlayColor={Colors.lineGray}
                                       style={{marginTop: 8,marginRight: 10}}
                                       onPress={() => {
-                                        navigator.push({id: 'settings', obj: route.obj});
+                                        navigator.push({id: constant.scene.settings.key, obj: route.obj});
                                       }}>
                         <FontAwesome
                             name={'gear'}
@@ -115,7 +124,7 @@ const NavigationBarRouteMapper = {
                         />
                     </TouchableOpacity>)
             }
-        } else if(route.id === "repo_detail") {//分享
+        } else if(route.id === constant.scene.repo_detail.key) {//分享
            return (<TouchableOpacity underlayColor={Colors.lineGray}
                               style={{marginTop: 8,marginRight: 10}}
                               onPress={() => {
@@ -127,14 +136,18 @@ const NavigationBarRouteMapper = {
                                     function() {},
                                     function() {});
                               }}>
-                            <Text style={{fontWeight:"bold", fontSize:13}}>. . .</Text>
+                               <Ionicons
+                                   name={'more'}
+                                   size={20}
+                                   color={Colors.black}
+                               />
             </TouchableOpacity>);
-        } else if(route.id === "project") {
+        } else if(route.id === constant.scene.project.key) {
             return(
                 <TouchableOpacity underlayColor={Colors.lineGray}
                                   style={{marginTop: 8,marginRight: 10}}
                                   onPress={() => {
-                                    navigator.push({id: 'search'});
+                                    navigator.push({id: constant.scene.search.key});
                                   }}>
                     <FontAwesome
                         name={'search'}
@@ -147,55 +160,50 @@ const NavigationBarRouteMapper = {
     },
 
     _getTitle(route) {
-        let title = route.id;
+        let title;
+
         switch (route.id) {
-            case "search":
-                title = "搜索项目";
+            case constant.scene.login.key:
+                if(route.title) {
+                    title = route.title;
+                }
                 break;
-            case "create_issue":
-                title = "创建Issue";
-                break;
-            case "famous":
-                title = "Famous";
-                break;
-            case "shake":
-                title = "摇一摇";
-                break;
-            case "feedback":
-                title = "意见反馈";
-                break;
-            case "settings":
-                title = "设置";
-                break;
-            case "my_profile":
-                title = "我的资料";
-                break;
-            case "personal":
+
+            case constant.scene.personal.key:
                 title = "Me";
                 if(route.obj && route.obj.name) {
                     title = route.obj.name;
                 }
                 break;
-            case "project":
-                title = "Project";
-                break;
-            case "repo_detail":
+            case constant.scene.repo_detail.key:
                 title = route.obj.path_with_namespace;
                 break;
-            case "web":
-                title = route.obj.title ? route.obj.title : "web";
+            case constant.scene.web.key:
+                if(route.obj.title) {
+                    title = route.obj.title;
+                }
                 break;
         }
+
+        if(!title) {
+            let k = _.findKey(constant.scene, {key:route.id});
+            if(k) {
+                title = constant.scene[k].value;
+            } else {
+                L.warn("找不到config.constant.scene 的{}的配置,请检查.", route.id);
+                title = route.id;
+            }
+        }
+
         return title;
     },
     Title: function(route, navigator, index, navState) {
-        let title = this._getTitle(route);
         let searchPlaceholder = "Search users, repos.";
-        if(route.id === "famous") {
+        if(route.id === constant.scene.famous.key) {
             return <TouchableOpacity
                 style={[styles.searchBar, {justifyContent: 'center'}]}
                 onPress={() => {
-                     navigator.push({id: 'search'});
+                     navigator.push({id: constant.scene.search.key});
                 }}>
                 <FontAwesome
                     name={'search'}
@@ -207,7 +215,7 @@ const NavigationBarRouteMapper = {
                     {searchPlaceholder}
                 </Text>
             </TouchableOpacity>
-        } else if(route.id === "search") {
+        } else if(route.id === constant.scene.search.key) {
 
             let fontSize = 14;
             if (Platform.OS == 'android') {
@@ -241,16 +249,13 @@ const NavigationBarRouteMapper = {
                       styles.navBarTitleText,
                       {width: 250, height: 40, textAlign: 'center',textAlignVertical:"center"}]}
                     numberOfLines={1}>
-                {title}
+                {this._getTitle(route)}
             </Text>
         );
     }
 }
 
 const routes = {
-    dic() {
-        return ["project"];
-    },
     navigator(initialRoute) {
         return (
             <Navigator
@@ -286,41 +291,41 @@ const routes = {
 
         let cp;
         switch (route.id) {
-            case "search":
+            case constant.scene.search.key:
                 cp = <SearchComponent navigator={navigator} route={route}/>
                 break;
-            case "create_issue":
+            case constant.scene.create_issue.key:
                 cp = <CreateIssueComponent navigator={navigator} repo={route.obj}/>
                 break;
-            case "famous":
+            case constant.scene.famous.key:
                 cp = <FamousComponent navigator={navigator}/>
                 break;
-            case "shake":
+            case constant.scene.shake.key:
                 cp = <ShakeComponent navigator={navigator}/>
                 break;
-            case "feedback":
+            case constant.scene.feedback.key:
                 cp = <FeedbackComponent navigator={navigator}/>
                 break;
-            case "settings":
+            case constant.scene.settings.key:
                 cp = <SettingsComponent navigator={navigator}/>
                 break;
-            case "my_profile":
+            case constant.scene.my_profile.key:
                 cp = <MyProfileComponent navigator={navigator}/>
                 break;
-            case "personal":
+            case constant.scene.personal.key:
                 cp = <PersonalComponent navigator={navigator} obj={route.obj} />
                 break;
-            case "project":
+            case constant.scene.project.key:
                 cp = <ProjectComponent navigator={navigator}/>
                 break;
-            case "repo_detail":
+            case constant.scene.repo_detail.key:
                 cp = <RepoDetailComponent navigator={navigator} repo={route.obj} />
                 break;
-            case "login":
+            case constant.scene.login.key:
                 cp = <LoginComponent navigator={navigator} nextPromise={route.nextPromiseFunc} />
                 break;
-            case "web":
-                cp =   <WebComponent
+            case constant.scene.web.key:
+                cp = <WebComponent
                         webURL={route.obj.html}
                         param={route.obj}
                         navigator={navigator}

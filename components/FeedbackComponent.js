@@ -6,6 +6,7 @@ const Platform = require('Platform');
 const Colors = require('../common/Colors');
 const DXRNUtils = require('../utils/DXRNUtils');
 const StringUtils = require('../utils/Utils').StringUtils;
+const DateUtils = require('../utils/Utils').DateUtils;
 const OSCService = require('../service/OSCService');
 
 const {
@@ -24,7 +25,7 @@ const FeedbackComponent = React.createClass({
     },
     doLeaveMessage() {
         if(StringUtils.isNotBlank(this.state.text)) {
-            OSCService.feedback("留言", this.state.text)
+            OSCService.feedback("RN-OSCGIT留言反馈" + DateUtils.format(new Date()), this.state.text)
                 .then((d) => {
                     Alert.alert(
                         "成功",
@@ -60,7 +61,7 @@ const FeedbackComponent = React.createClass({
             <View style={{flexDirection:"column", flex:1, padding:5, paddingTop:paddingTop}}>
                 <ScrollView>
                 <View style={{flexDirection:"row",marginTop:10}}>
-                    <Text style={{fontWeight:"bold",}}>{"请写下你对OSChina的意见"}</Text>
+                    <Text style={{fontWeight:"bold",}}>{"请写下你对该项目的意见"}</Text>
                 </View>
                 <View style={{marginTop:10}}>
                     <TextInput
@@ -81,7 +82,7 @@ const FeedbackComponent = React.createClass({
                         onChangeText={this.onTextChange}
                         onSubmitEditing={this.doLeaveMessage}
                         multiline={true}
-                        placeholder={'请写下你对OSChina的意见.'}
+                        placeholder={'请写下你对该项目的意见.'}
                     />
                 </View>
 

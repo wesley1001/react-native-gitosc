@@ -112,12 +112,12 @@ const LoginComponent = React.createClass({
                 </View>
 
                 <View style = {[styles.down]}>
-                    <Text style = {[styles.textNP]}>Username(not email.)</Text>
+                    <Text style = {[styles.textNP]}>Username</Text>
                     <TextInput
                         returnKeyType={'next'}
                         defaultValue={this.state.username}
                         style = {CommonStyles.textInput}
-                        placeholder={'username (NOT EMAIL!)'}
+                        placeholder={'username'}
                         onChangeText={this.onUserNameChanged}
                     />
                     <Text style = {[styles.textNP]}>Password</Text>
@@ -131,7 +131,7 @@ const LoginComponent = React.createClass({
                         onChangeText={this.onPwdChanged}
                     />
 
-                    <TouchableHighlight style = {CommonStyles.btn}
+                    <TouchableHighlight style = {[CommonStyles.btn, {marginTop:10}]}
                                         onPress={this.doLogin}
                                         underlayColor = {Colors.backGray}
                         >
@@ -150,11 +150,11 @@ const styles = StyleSheet.create({
     },
 
     loginContainer: {
-        height: 300,
+        height: 270,
         marginTop: 64,
         margin: 10,
         borderWidth: 1,
-        borderRadius: 2,
+        borderRadius: 8,
         borderColor: Colors.blue,
     },
 
@@ -167,8 +167,8 @@ const styles = StyleSheet.create({
         backgroundColor:Colors.blue,
         flexDirection:"row",
         height: 38.0,
-        borderRadius: 2,
         alignItems:"center",
+        borderRadius: 6,
     },
 
     introText:{

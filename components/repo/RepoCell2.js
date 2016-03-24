@@ -4,11 +4,11 @@ const FontAwesome = require('react-native-vector-icons/FontAwesome');
 const Colors = require('../../common/Colors');
 const Dimensions = require('Dimensions');
 const DateUtils = require('../../utils/Utils').DateUtils;
+const constant = require("../../config").constant;
 
 const {
     View,
     Text,
-    Alert,
     StyleSheet,
     TouchableHighlight,
     Image,
@@ -24,17 +24,21 @@ const RepoCell2 = React.createClass({
 
   onPressCell() {//打开项目详情
     let repo = this.props.repo;
-    this.props.navigator.push({id: 'repo_detail', obj: repo});
+    this.props.navigator.push({id: constant.scene.repo_detail.key, obj: repo});
   },
 
   openAuthor() {
     const repo = this.props.repo;
     const user = repo.owner;
-    this.props.navigator.push({id: 'personal', obj: user});
+    this.props.navigator.push({id: constant.scene.personal.key, obj: user});
   },
 
   render() {
     const repo = this.props.repo;
+    let recommCP;
+    if(repo.recomm) {
+      recommCP = <Text style={{color:Colors.red, fontWeight:"bold", fontSize:11}}>荐 </Text>;
+    }
     return (
       <TouchableHighlight underlayColor={Colors.lineGray} onPress={this.onPressCell}>
         <View style={{flexDirection: 'column',flex: 1,}}>
@@ -49,7 +53,7 @@ const RepoCell2 = React.createClass({
               <View style={{flexDirection:"row",  justifyContent: 'center', justifyContent: 'space-between', width:320}}>
                 <View>
                   <Text style={styles.username} onPress={this.onPressCell}>
-                    {repo.path_with_namespace}
+                    {recommCP}{repo.path_with_namespace}
                   </Text>
                 </View>
                 <View style={{flexDirection:"row",padding:4, justifyContent: 'center'}}>

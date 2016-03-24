@@ -23,7 +23,7 @@ const CreateIssueComponent = React.createClass({
         return {title:"", description: ""}
     },
     doSubmit() {
-        if(StringUtils.isNotBlank(this.state.text) && StringUtils.isNotBlank(this.state.title)) {
+        if(StringUtils.isNotBlank(this.state.description) && StringUtils.isNotBlank(this.state.title)) {
             var repo = this.props.repo;
             let assignee_id = repo.owner.id;
             OSCService.pubCreateIssue(repo.id,this.state.title,this.state.description,assignee_id, "")

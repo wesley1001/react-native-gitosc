@@ -10,6 +10,9 @@ const CommonComponents = require('../../common/CommonComponents');
 const SettingsCell = require('../../common/SettingsCell');
 const OSCService = require('../../service/OSCService');
 const FontAwesome = require('react-native-vector-icons/FontAwesome');
+const constant = require("../../config").constant;
+
+var _ = require('lodash');
 
 const {
     Navigator,
@@ -101,6 +104,40 @@ const RepoDetailComponent = React.createClass({
         });
         OSCService.checkNeedLoginWithPromise(promise, this.props.navigator);
         this.setState({isLoading:true});
+    },
+    readme() {
+        var repo = this.props.repo;
+        var obj = {
+            html : 'https://git.oschina.net//' + repo.path_with_namespace + '/blob/master/README.md',
+            title:repo.name + " README.md",
+            data:repo
+        };
+
+        OSCService.getProjectCodeTree(repo.id)
+            .then(arr => {
+                //查询是readme还是 README 还是Readme
+                var readmes = _.filter(arr, (o) => o.name.toLowerCase().indexOf("readme.md") > -1);
+                if(readmes.length < 1) {
+                    Alert.alert("Oops.","没有找到README文件,点确定后将跳转到该项目主页面.", [{
+                        text:"确定", onPress: () => {
+                            let obj = {
+                                html : OSCService.packagePathWithToken('https://git.oschina.net//' + repo.path_with_namespace + ''),
+                                title:repo.name + " Code",
+                                data:repo,
+                            };
+                            this.props.navigator.push({id: constant.scene.web.key, obj: obj});
+                        }
+                    }]);
+                } else {
+                    obj.html = 'https://git.oschina.net//' + repo.path_with_namespace + '/blob/master/' + readmes[0].name;
+                    obj.title = repo.name + " " + readmes[0].name;
+                    this.props.navigator.push({id: constant.scene.web.key, obj: obj});
+                }
+            })
+            .catch(err => {
+                L.warn("reame err:{}", err);
+                this.props.navigator.push({id: constant.scene.web.key, obj: obj});
+            });
     },
     render() {
         var repo = this.state.repo;
@@ -226,21 +263,14 @@ const RepoDetailComponent = React.createClass({
                             iconColor={Colors.blue}
                             settingName={"拥有者 " + repo.owner.username}
                             onPress = {() => {
-                                this.props.navigator.push({id: 'personal', obj: repo.owner});
+                                this.props.navigator.push({id: constant.scene.personal.key, obj: repo.owner});
                             }}
                             />
                         <SettingsCell
                             iconName={'file-text-o'}
                             iconColor={Colors.blue}
                             settingName={"readme"}
-                            onPress = {() => {
-                                let obj = {
-                                    html : 'https://git.oschina.net//' + repo.path_with_namespace + '/blob/master/README.md',
-                                    title:repo.name + " READNE.md",
-                                    data:repo
-                                };
-                               this.props.navigator.push({id: 'web', obj: obj});
-                            }}
+                            onPress = {this.readme}
                         />
                         <SettingsCell
                             iconName={'code'}
@@ -252,7 +282,7 @@ const RepoDetailComponent = React.createClass({
                                     title:repo.name + " Code",
                                     data:repo,
                                 };
-                               this.props.navigator.push({id: 'web', obj: obj});
+                               this.props.navigator.push({id: constant.scene.web.key, obj: obj});
                             }}
                         />
                         <SettingsCell
@@ -266,7 +296,7 @@ const RepoDetailComponent = React.createClass({
                                     data:repo,
                                     t:"issues",
                                 };
-                               this.props.navigator.push({id: 'web', obj: obj});
+                               this.props.navigator.push({id: constant.scene.web.key, obj: obj});
                             }}
                         />
                         <SettingsCell
@@ -279,7 +309,7 @@ const RepoDetailComponent = React.createClass({
                                     title:repo.name + " Commits",
                                     data:repo,
                                 };
-                               this.props.navigator.push({id: 'web', obj: obj});
+                               this.props.navigator.push({id: constant.scene.web.key, obj: obj});
                             }}
                         />
                     </View>

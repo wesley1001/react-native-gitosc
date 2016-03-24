@@ -10,12 +10,15 @@ const OSCService = require('../service/OSCService');
 const CommonComponents = require('../common/CommonComponents');
 const SettingsCell = require('../common/SettingsCell');
 const CommonStyles = require('../common/CommonStyles');
+const constant = require('../config').constant;
+const Toast = require('@remobile/react-native-toast');
 
 const {
     TouchableHighlight,
     ActionSheetIOS,
     Text,
     View,
+    Alert,
     ScrollView
     } = React;
 
@@ -63,8 +66,10 @@ const SettingComponent = React.createClass({
 
     clearCache() {
         GFDiskCache.clearDiskCache((size) => {
+            console.log("清空缓存:{}", size);
+            Toast.showLongBottom("已经清空缓存:" + size);
             this.setState({
-                cachedSize: size,
+                cachedSize: 0,
             })
         });
     },
@@ -73,7 +78,7 @@ const SettingComponent = React.createClass({
         let currentVersion = "分享这款App! v: " + this.state.appVersion;
         currentVersion += ' b: ' + this.state.appBuild;
 
-        let cachedSize = this.state.cachedSize ? this.state.cachedSize : '...';
+        let cachedSize = this.state.cachedSize;
         cachedSize = '清空缓存, 当前: ' + cachedSize;
 
         let paddingTop = 64;
@@ -89,7 +94,7 @@ const SettingComponent = React.createClass({
                         iconColor={Colors.blue}
                         settingName={"摇一摇"}
                         onPress = {() => {
-                            this.props.navigator.push({id: 'shake'});
+                            this.props.navigator.push({id: constant.scene.shake.key});
                         }}
                     />
 
@@ -111,7 +116,7 @@ const SettingComponent = React.createClass({
                         iconColor={Colors.blue}
                         settingName={"意见反馈"}
                         onPress = {() => {
-                            this.props.navigator.push({id: 'feedback'});
+                            this.props.navigator.push({id: constant.scene.feedback.key});
                         }}
                     />
 
@@ -120,7 +125,7 @@ const SettingComponent = React.createClass({
                         iconColor={Colors.blue}
                         settingName={"关于作者"}
                         onPress = {() => {
-                            this.props.navigator.push({id: 'personal', obj:
+                            this.props.navigator.push({id: constant.scene.personal.key, obj:
                                      {"name":"rplees","username":"rplees","id":95171}
                                 });
                         }}
@@ -128,7 +133,14 @@ const SettingComponent = React.createClass({
 
                     <TouchableHighlight style={[CommonStyles.btn, {backgroundColor:Colors.red,borderColor:Colors.red}]}
                                         onPress={() => {
-                                            OSCService.logout();
+                                            Alert.alert(
+                                                "确认操作",
+                                                '确定要退出登陆么?',
+                                                [
+                                                    {text:"确定", onPress: function(){ OSCService.logout(); }},
+                                                    {text:"不了", onPress: function(){}},
+                                                ]
+                                            );
                                         }}
                                         underlayColor={Colors.backGray}
                     >

@@ -30,6 +30,7 @@
 		BA2620C51C95380D0024645B /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620BC1C95380D0024645B /* Utils.m */; };
 		BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C01C95380D0024645B /* GFDiskCacheManager.m */; };
 		BA5E0E5F1C9FD2CA0058F8FA /* libRNShakeEvent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */; };
+		BA65E5E21CA3E19E00EDE98F /* libRCTToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA65E5E11CA3E18E00EDE98F /* libRCTToast.a */; };
 		BAAF95C51C946507009653C5 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C41C9464DB009653C5 /* libRNVectorIcons.a */; };
 		BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C61C94655E009653C5 /* libz.tbd */; };
 		BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95B01C945045009653C5 /* libCodePush.a */; };
@@ -133,6 +134,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RNShakeEvent;
 		};
+		BA65E5E01CA3E18E00EDE98F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA65E5DC1CA3E18E00EDE98F /* RCTToast.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 327633421BFAAD7E004DA88E;
+			remoteInfo = RCTToast;
+		};
 		BAAF95AF1C945045009653C5 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */;
@@ -188,6 +196,7 @@
 		BA2620BF1C95380D0024645B /* GFDiskCacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GFDiskCacheManager.h; path = OSCGit/Classes/GFDiskCacheManager.h; sourceTree = "<group>"; };
 		BA2620C01C95380D0024645B /* GFDiskCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GFDiskCacheManager.m; path = OSCGit/Classes/GFDiskCacheManager.m; sourceTree = "<group>"; };
 		BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShakeEvent.xcodeproj; path = "../node_modules/react-native-shake-event-ios/RNShakeEvent.xcodeproj"; sourceTree = "<group>"; };
+		BA65E5DC1CA3E18E00EDE98F /* RCTToast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTToast.xcodeproj; path = "../node_modules/@remobile/react-native-toast/ios/RCTToast.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95C61C94655E009653C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -218,6 +227,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA65E5E21CA3E19E00EDE98F /* libRCTToast.a in Frameworks */,
 				BA5E0E5F1C9FD2CA0058F8FA /* libRNShakeEvent.a in Frameworks */,
 				BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */,
 				BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */,
@@ -365,6 +375,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				BA65E5DC1CA3E18E00EDE98F /* RCTToast.xcodeproj */,
 				BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */,
 				BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */,
 				BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */,
@@ -457,6 +468,14 @@
 			isa = PBXGroup;
 			children = (
 				BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BA65E5DD1CA3E18E00EDE98F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BA65E5E11CA3E18E00EDE98F /* libRCTToast.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -672,6 +691,10 @@
 					ProjectRef = 832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */;
 				},
 				{
+					ProductGroup = BA65E5DD1CA3E18E00EDE98F /* Products */;
+					ProjectRef = BA65E5DC1CA3E18E00EDE98F /* RCTToast.xcodeproj */;
+				},
+				{
 					ProductGroup = 00C302E01ABCB9EE00DB3ED1 /* Products */;
 					ProjectRef = 00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */;
 				},
@@ -776,6 +799,13 @@
 			fileType = archive.ar;
 			path = libRNShakeEvent.a;
 			remoteRef = BA5E0E5D1C9FD2B20058F8FA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		BA65E5E11CA3E18E00EDE98F /* libRCTToast.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRCTToast.a;
+			remoteRef = BA65E5E01CA3E18E00EDE98F /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		BAAF95B01C945045009653C5 /* libCodePush.a */ = {
@@ -984,6 +1014,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
 				);
 				INFOPLIST_FILE = OSCGit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1005,6 +1036,7 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"$(SRCROOT)/../node_modules/react-native-code-push/**",
 				);
 				INFOPLIST_FILE = OSCGit/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

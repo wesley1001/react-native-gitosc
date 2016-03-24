@@ -6,41 +6,59 @@
 
 const React = require("react-native");
 const LoginComponent = require("./components/LoginComponent");
-const OnBoardComponent = require("./components/OnBoardComponent");
 const RootTab = require("./components/RootTab");
 const CommonComponents = require("./common/CommonComponents");
 const OSCService = require("./service/OSCService");
-const L = require('./utils/Log');
 const ShakeComponent = require('./components/ShakeComponent');
+const codePush = require('react-native-code-push');
+const constant = require('./config').constant;
+const Toast = require('@remobile/react-native-toast');
 
 const {
     AppRegistry,
     } = React;
 
-const LoginState = {
-  pending: 0,
-  onBoard: 1,
-  unOnBoard: 2,
-  needLogin: 3,
-}
-
 const OSCGit = React.createClass({
   getInitialState() {
-    return {loginState: LoginState.pending}
+    return {loading: true}
   },
 
-  componentWillMount() {
+  getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min)) + min;
+  },
+
+  _query() {
     OSCService.getUserFromCache()
-        .then(u => {
-          let state = OSCService.isOnBoard() ? LoginState.onBoard : LoginState.unOnBoard;
-          this.setState({loginState: state});
-        })
+        .then(() => {
+          this.setState({loading: false});
+        });
+  },
+  componentWillMount() {
+    this._query();
 
     OSCService.addListener('didLogout', () => {
-      console.log("didLogout listenered.");
-      this.setState({
-        loginState: LoginState.unOnBoard,
-      });
+      Toast.showLongBottom("用户登出.");
+      this.setState(this.getInitialState());
+      this._query();
+    });
+    const random = this.getRandomInt(1, 10);
+    const cpKey = random % 2 == 0 ? constant.code_push.STAGING_KEY : constant.code_push.PRODUCTION_KEY;
+    // Prompt the user when an update is available
+    // and then display a "downloading" modal
+    //, (status) => {
+    //  switch (status) {
+    //    case codePush.SyncStatus.DOWNLOADING_PACKAGE:
+    //      // Show "downloading" modal
+    //      break;
+    //    case codePush.SyncStatus.INSTALLING_UPDATE:
+    //      // Hide "downloading" modal
+    //      break;
+    //  }
+    //}
+    codePush.sync({
+      updateDialog:{ title: "An update is available!.." },
+      //installMode: codePush.InstallMode.ON_NEXT_RESUME,
+      deploymentKey:cpKey
     });
   },
 
@@ -49,41 +67,15 @@ const OSCGit = React.createClass({
   },
 
   componentWillUnmount: function() {
-    console.log("componentWillUnmount didLogout remove.");
     OSCService.removeListener('didLogout');
   },
 
-  didOnBoard(o, needLogin){
-    let lst = o == null ? LoginState.unOnBoard : LoginState.onBoard;
-    if (needLogin) lst = LoginState.needLogin;
-    this.setState({
-      loginState: lst,
-    });
-  },
-
   render() {
-    let cp;
-    //L.info("render:{}", this.state.loginState)
-    switch (this.state.loginState) {
-      case LoginState.pending:
-        cp = CommonComponents.renderLoadingView();
-        break;
-      case LoginState.onBoard:
-        cp = <RootTab />;
-        //  cp = <ShakeComponent />
-        break;
-      case LoginState.unOnBoard:
-        //cp = <RootTab forceSelectedTab={0} />;
-        cp = <OnBoardComponent didOnBoard={this.didOnBoard}/>;
-        break;
-      case LoginState.needLogin:
-        cp = <LoginComponent didLogin={() => {
-                    this.setState({loginState: LoginState.onBoard});
-                    }}
-        />;
-        break;
+    if(this.state.loading) {
+      return CommonComponents.renderLoadingView();
     }
-    return cp;
+
+    return  <RootTab />;
   }
 });
 AppRegistry.registerComponent('OSCGit', () => OSCGit);

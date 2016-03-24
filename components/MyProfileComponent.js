@@ -11,6 +11,7 @@ const CommonStyles = require('../common/CommonStyles');
 const {
     View,
     Text,
+    Alert,
     TouchableHighlight,
     Image,
     ScrollView
@@ -51,7 +52,14 @@ const LoginComponent = React.createClass({
 
                 <TouchableHighlight style={[CommonStyles.btn, {backgroundColor:Colors.red,borderColor:Colors.red}]}
                                     onPress={() => {
-                                        OSCService.logout();
+                                        Alert.alert(
+                                            "确认操作",
+                                            '确定要退出登陆么?',
+                                            [
+                                                {text:"确定", onPress: function(){ OSCService.logout(); }},
+                                                {text:"不了", onPress: function(){}},
+                                            ]
+                                        );
                                     }}
                                     underlayColor={Colors.backGray}
                                     >
