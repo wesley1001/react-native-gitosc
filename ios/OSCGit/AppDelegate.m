@@ -34,7 +34,7 @@
 
   jsCodeLocation = [NSURL URLWithString:@"http://localhost:8081/index.ios.bundle?platform=ios&dev=true"];
   
-//  jsCodeLocation = [CodePush bundleURLForResource: @"index.ios"];
+  jsCodeLocation = [CodePush bundleURLForResource: @"index.ios"];
   
   /**
    * OPTION 2
@@ -52,6 +52,7 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
+  [NSThread sleepForTimeInterval:1.0f];
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
   return YES;

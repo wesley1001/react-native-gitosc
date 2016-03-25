@@ -56,8 +56,8 @@ const OSCGit = React.createClass({
     //  }
     //}
     codePush.sync({
-      updateDialog:{ title: "An update is available!.." },
-      //installMode: codePush.InstallMode.ON_NEXT_RESUME,
+      updateDialog: true,
+      installMode: codePush.InstallMode.IMMEDIATE,
       deploymentKey:cpKey
     });
   },

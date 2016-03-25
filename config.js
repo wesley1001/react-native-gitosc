@@ -2,11 +2,7 @@
  * Created by rplees on 3/10/16.
  */
 var config = {
-    "urlScheme": 'https:',
-    "clientId": 'YOUR_GITHUB_CLIENTID',
-    'clientSecret': 'YOUR_GITHUB_SECRET',
-    "scopes": ['public_repo', 'user', 'notifications'],
-    'userAgent': 'GITOSC',
+    'userAgent': 'ReactNative GIT@OSC',
 }
 
 const constant = {
@@ -15,7 +11,7 @@ const constant = {
         PRODUCTION_KEY : "bpmwzaJmrsqlu_pMHgmzdep8no7b4k55Guhpl",
     },
     scene: {
-        project: {key: "project", value: "项目"},
+        project: {key: "project", value: "项目*"},
         famous: {key: "famous", value: "发现"},
         personal: {key: "personal", value: "Me"},
         login: {key: "login", value: "登陆"},
@@ -29,5 +25,5 @@ const constant = {
         web: {key: "web", value: "web"},
     }
 }
-module.exports = config
+module.exports = config;
 module.exports.constant = constant;

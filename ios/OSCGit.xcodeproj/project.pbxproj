@@ -31,6 +31,7 @@
 		BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C01C95380D0024645B /* GFDiskCacheManager.m */; };
 		BA5E0E5F1C9FD2CA0058F8FA /* libRNShakeEvent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */; };
 		BA65E5E21CA3E19E00EDE98F /* libRCTToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA65E5E11CA3E18E00EDE98F /* libRCTToast.a */; };
+		BA8763F31CA51A8300397202 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BA8763F01CA51A8300397202 /* index.ios.jsbundle */; };
 		BAAF95C51C946507009653C5 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C41C9464DB009653C5 /* libRNVectorIcons.a */; };
 		BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C61C94655E009653C5 /* libz.tbd */; };
 		BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95B01C945045009653C5 /* libCodePush.a */; };
@@ -42,10 +43,6 @@
 		BAAF96021C946BFD009653C5 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAF95FA1C946BFD009653C5 /* MaterialIcons.ttf */; };
 		BAAF96031C946BFD009653C5 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAF95FB1C946BFD009653C5 /* Octicons.ttf */; };
 		BAAF96041C946BFD009653C5 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BAAF95FC1C946BFD009653C5 /* Zocial.ttf */; };
-		BABA00931C96955300EE3620 /* iTunesArtwork.png in Resources */ = {isa = PBXBuildFile; fileRef = BABA008A1C96955300EE3620 /* iTunesArtwork.png */; };
-		BABA00941C96955300EE3620 /* iTunesArtwork@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BABA008B1C96955300EE3620 /* iTunesArtwork@2x.png */; };
-		BABA00951C96955300EE3620 /* back_chevron.png in Resources */ = {isa = PBXBuildFile; fileRef = BABA00911C96955300EE3620 /* back_chevron.png */; };
-		BABA00961C96955300EE3620 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BABA00921C96955300EE3620 /* index.ios.jsbundle */; };
 		EBF6E1A2DDD8793F7348FCFF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 10C880828691E6CE90549EF7 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -197,6 +194,7 @@
 		BA2620C01C95380D0024645B /* GFDiskCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GFDiskCacheManager.m; path = OSCGit/Classes/GFDiskCacheManager.m; sourceTree = "<group>"; };
 		BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShakeEvent.xcodeproj; path = "../node_modules/react-native-shake-event-ios/RNShakeEvent.xcodeproj"; sourceTree = "<group>"; };
 		BA65E5DC1CA3E18E00EDE98F /* RCTToast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTToast.xcodeproj; path = "../node_modules/@remobile/react-native-toast/ios/RCTToast.xcodeproj"; sourceTree = "<group>"; };
+		BA8763F01CA51A8300397202 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
 		BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95C61C94655E009653C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -208,10 +206,6 @@
 		BAAF95FA1C946BFD009653C5 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		BAAF95FB1C946BFD009653C5 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		BAAF95FC1C946BFD009653C5 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		BABA008A1C96955300EE3620 /* iTunesArtwork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iTunesArtwork.png; sourceTree = "<group>"; };
-		BABA008B1C96955300EE3620 /* iTunesArtwork@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iTunesArtwork@2x.png"; sourceTree = "<group>"; };
-		BABA00911C96955300EE3620 /* back_chevron.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_chevron.png; sourceTree = "<group>"; };
-		BABA00921C96955300EE3620 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
 		E9821749E33B566664D546B1 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -404,7 +398,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				BABA00861C96955300EE3620 /* bundle */,
+				BA8763E81CA51A8300397202 /* bundle */,
 				BAAF95F41C946BE1009653C5 /* Font */,
 				13B07FAE1A68108700A75B9A /* OSCGit */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -480,6 +474,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BA8763E81CA51A8300397202 /* bundle */ = {
+			isa = PBXGroup;
+			children = (
+				BA8763F01CA51A8300397202 /* index.ios.jsbundle */,
+			);
+			path = bundle;
+			sourceTree = "<group>";
+		};
 		BAAF95AC1C945044009653C5 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -509,81 +511,6 @@
 				BAAF95FC1C946BFD009653C5 /* Zocial.ttf */,
 			);
 			name = Font;
-			sourceTree = "<group>";
-		};
-		BABA00861C96955300EE3620 /* bundle */ = {
-			isa = PBXGroup;
-			children = (
-				BABA00871C96955300EE3620 /* assets */,
-				BABA00921C96955300EE3620 /* index.ios.jsbundle */,
-			);
-			path = bundle;
-			sourceTree = "<group>";
-		};
-		BABA00871C96955300EE3620 /* assets */ = {
-			isa = PBXGroup;
-			children = (
-				BABA00881C96955300EE3620 /* icons */,
-				BABA008C1C96955300EE3620 /* node_modules */,
-			);
-			path = assets;
-			sourceTree = "<group>";
-		};
-		BABA00881C96955300EE3620 /* icons */ = {
-			isa = PBXGroup;
-			children = (
-				BABA00891C96955300EE3620 /* ios */,
-			);
-			path = icons;
-			sourceTree = "<group>";
-		};
-		BABA00891C96955300EE3620 /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				BABA008A1C96955300EE3620 /* iTunesArtwork.png */,
-				BABA008B1C96955300EE3620 /* iTunesArtwork@2x.png */,
-			);
-			path = ios;
-			sourceTree = "<group>";
-		};
-		BABA008C1C96955300EE3620 /* node_modules */ = {
-			isa = PBXGroup;
-			children = (
-				BABA008D1C96955300EE3620 /* react-native */,
-			);
-			path = node_modules;
-			sourceTree = "<group>";
-		};
-		BABA008D1C96955300EE3620 /* react-native */ = {
-			isa = PBXGroup;
-			children = (
-				BABA008E1C96955300EE3620 /* Libraries */,
-			);
-			path = "react-native";
-			sourceTree = "<group>";
-		};
-		BABA008E1C96955300EE3620 /* Libraries */ = {
-			isa = PBXGroup;
-			children = (
-				BABA008F1C96955300EE3620 /* CustomComponents */,
-			);
-			path = Libraries;
-			sourceTree = "<group>";
-		};
-		BABA008F1C96955300EE3620 /* CustomComponents */ = {
-			isa = PBXGroup;
-			children = (
-				BABA00901C96955300EE3620 /* NavigationExperimental */,
-			);
-			path = CustomComponents;
-			sourceTree = "<group>";
-		};
-		BABA00901C96955300EE3620 /* NavigationExperimental */ = {
-			isa = PBXGroup;
-			children = (
-				BABA00911C96955300EE3620 /* back_chevron.png */,
-			);
-			path = NavigationExperimental;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -836,19 +763,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BA8763F31CA51A8300397202 /* index.ios.jsbundle in Resources */,
 				BAAF96031C946BFD009653C5 /* Octicons.ttf in Resources */,
 				BAAF96001C946BFD009653C5 /* Foundation.ttf in Resources */,
 				BAAF96011C946BFD009653C5 /* Ionicons.ttf in Resources */,
 				BAAF95FD1C946BFD009653C5 /* Entypo.ttf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				BABA00951C96955300EE3620 /* back_chevron.png in Resources */,
 				BAAF96041C946BFD009653C5 /* Zocial.ttf in Resources */,
-				BABA00931C96955300EE3620 /* iTunesArtwork.png in Resources */,
-				BABA00941C96955300EE3620 /* iTunesArtwork@2x.png in Resources */,
 				BAAF96021C946BFD009653C5 /* MaterialIcons.ttf in Resources */,
 				BAAF95FE1C946BFD009653C5 /* EvilIcons.ttf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				BABA00961C96955300EE3620 /* index.ios.jsbundle in Resources */,
 				BAAF95FF1C946BFD009653C5 /* FontAwesome.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

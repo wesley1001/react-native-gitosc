@@ -2,63 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8662c63e-056d-4f70-9f28-2fdc18429ad0" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/common/Icon.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/components/OnBoardComponent.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/mipmap-hdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/icons/android/mipmap-hdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/mipmap-ldpi/ic_launcher.png" afterPath="$PROJECT_DIR$/icons/android/mipmap-ldpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/mipmap-mdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/icons/android/mipmap-mdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/mipmap-xhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/icons/android/mipmap-xhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/mipmap-xxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/icons/android/mipmap-xxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/mipmap-xxxhdpi/ic_launcher.png" afterPath="$PROJECT_DIR$/icons/android/mipmap-xxxhdpi/ic_launcher.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/android/playstore-icon.png" afterPath="$PROJECT_DIR$/icons/android/playstore-icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon-60.png" afterPath="$PROJECT_DIR$/icons/ios/Icon-60.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon-72.png" afterPath="$PROJECT_DIR$/icons/ios/Icon-72.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon-72@2x.png" afterPath="$PROJECT_DIR$/icons/ios/Icon-72@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon-Small-50.png" afterPath="$PROJECT_DIR$/icons/ios/Icon-Small-50.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon-Small-50@2x.png" afterPath="$PROJECT_DIR$/icons/ios/Icon-Small-50@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon.png" afterPath="$PROJECT_DIR$/icons/ios/Icon.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/Icon@2x.png" afterPath="$PROJECT_DIR$/icons/ios/Icon@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/iTunesArtwork.png" afterPath="$PROJECT_DIR$/icons/ios/iTunesArtwork.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/icons/ios/iTunesArtwork@2x.png" afterPath="$PROJECT_DIR$/icons/ios/iTunesArtwork@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-40.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-40.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-40@2x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-40@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-40@3x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-40@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-60@2x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-60@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-60@3x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-60@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-76.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-76.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-76@2x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-76@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-83.5@2x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-83.5@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-Small.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-Small.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-Small@2x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-Small@2x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-Small@3x.png" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Icon-Small@3x.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/rplees.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/rplees.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/bundle/assets/icons/ios/iTunesArtwork.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/ios/bundle/assets/icons/ios/iTunesArtwork@2x.png" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/LanguageComponent.js" afterPath="$PROJECT_DIR$/common/LanguageComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/common/SettingsCell.js" afterPath="$PROJECT_DIR$/common/SettingsCell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/CreateIssueComponent.js" afterPath="$PROJECT_DIR$/components/CreateIssueComponent.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/EventCell.js" afterPath="$PROJECT_DIR$/components/EventCell.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/FamousComponent.js" afterPath="$PROJECT_DIR$/components/FamousComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/FeedbackComponent.js" afterPath="$PROJECT_DIR$/components/FeedbackComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/LoginComponent.js" afterPath="$PROJECT_DIR$/components/LoginComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/MyProfileComponent.js" afterPath="$PROJECT_DIR$/components/MyProfileComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/RootTab.js" afterPath="$PROJECT_DIR$/components/RootTab.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/Routes.js" afterPath="$PROJECT_DIR$/components/Routes.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/SettingsComponent.js" afterPath="$PROJECT_DIR$/components/SettingsComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/WebComponent.js" afterPath="$PROJECT_DIR$/components/WebComponent.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/repo/RepoCell2.js" afterPath="$PROJECT_DIR$/components/repo/RepoCell2.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/components/repo/RepoDetailComponent.js" afterPath="$PROJECT_DIR$/components/repo/RepoDetailComponent.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.js" afterPath="$PROJECT_DIR$/config.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.ios.js" afterPath="$PROJECT_DIR$/index.ios.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit.xcodeproj/project.pbxproj" afterPath="$PROJECT_DIR$/ios/OSCGit.xcodeproj/project.pbxproj" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/AppDelegate.m" afterPath="$PROJECT_DIR$/ios/OSCGit/AppDelegate.m" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Contents.json" afterPath="$PROJECT_DIR$/ios/OSCGit/Images.xcassets/AppIcon.appiconset/Contents.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Info.plist" afterPath="$PROJECT_DIR$/ios/OSCGit/Info.plist" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/OSCGit/Base.lproj/LaunchScreen.xib" afterPath="$PROJECT_DIR$/ios/OSCGit/Base.lproj/LaunchScreen.xib" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/bundle/index.ios.jsbundle" afterPath="$PROJECT_DIR$/ios/bundle/index.ios.jsbundle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ios/bundle/source.map" afterPath="$PROJECT_DIR$/ios/bundle/source.map" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/service/OSCService.js" afterPath="$PROJECT_DIR$/service/OSCService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/utils/Utils.js" afterPath="$PROJECT_DIR$/utils/Utils.js" />
     </list>
     <ignored path="react-native-gitosc.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -79,61 +34,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="OSCService.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="OSCService.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/service/OSCService.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.69739133">
-              <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+            <state vertical-scroll-proportion="-6.7777777">
+              <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SettingsComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/SettingsComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="54" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MyProfileComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/MyProfileComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="9" selection-start-line="12" selection-start-column="9" selection-end-line="12" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.ios.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.ios.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.ios.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.6296296">
-              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.629562">
+              <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ShakeComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/ShakeComponent.js">
+      <file leaf-file-name="RepoCell2.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/repo/RepoCell2.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="46" column="68" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="68" />
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/WebComponent.js">
+      <file leaf-file-name="EventCell.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/EventCell.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="6" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
+              <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Routes.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/Routes.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="240" column="24" selection-start-line="240" selection-start-column="24" selection-end-line="240" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -143,17 +88,40 @@
         <entry file="file://$PROJECT_DIR$/components/FeedbackComponent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
+              <caret line="82" column="61" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Utils.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils/Utils.js">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-7.448276">
+              <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="MarkdownPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RootTab.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/components/RootTab.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="275" column="74" selection-start-line="275" selection-start-column="74" selection-end-line="275" selection-end-column="74" />
+              <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
               <folding />
             </state>
           </provider>
@@ -164,16 +132,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="119" column="46" selection-start-line="119" selection-start-column="46" selection-end-line="119" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchComponent.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/components/SearchComponent.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
               <folding />
             </state>
           </provider>
@@ -194,7 +152,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/components/RepoCell.js" />
         <option value="$PROJECT_DIR$/components/ExploreCell.js" />
         <option value="$PROJECT_DIR$/index.android.js" />
         <option value="$PROJECT_DIR$/components/RepoCell2.js" />
@@ -232,18 +189,19 @@
         <option value="$PROJECT_DIR$/common/LanguageComponent.js" />
         <option value="$PROJECT_DIR$/components/FamousComponent.js" />
         <option value="$PROJECT_DIR$/common/SettingsCell.js" />
-        <option value="$PROJECT_DIR$/config.js" />
-        <option value="$PROJECT_DIR$/components/RootTab.js" />
         <option value="$PROJECT_DIR$/components/Routes.js" />
         <option value="$PROJECT_DIR$/components/repo/RepoCell2.js" />
         <option value="$PROJECT_DIR$/components/repo/RepoDetailComponent.js" />
-        <option value="$PROJECT_DIR$/components/EventCell.js" />
         <option value="$PROJECT_DIR$/components/LoginComponent.js" />
         <option value="$PROJECT_DIR$/utils/Utils.js" />
         <option value="$PROJECT_DIR$/service/OSCService.js" />
         <option value="$PROJECT_DIR$/components/FeedbackComponent.js" />
         <option value="$PROJECT_DIR$/components/SettingsComponent.js" />
         <option value="$PROJECT_DIR$/components/MyProfileComponent.js" />
+        <option value="$PROJECT_DIR$/components/EventCell.js" />
+        <option value="$PROJECT_DIR$/components/RootTab.js" />
+        <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/index.ios.js" />
       </list>
     </option>
@@ -268,10 +226,16 @@
             <id />
           </State>
           <State>
+            <id>General</id>
+          </State>
+          <State>
             <id>JavaScript</id>
           </State>
           <State>
             <id>JavaScript validity issuesJavaScript</id>
+          </State>
+          <State>
+            <id>XPath</id>
           </State>
         </expanded-state>
         <selected-state>
@@ -307,6 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -335,28 +300,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="service" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-native-gitosc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="react-native-gitosc" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="components" />
+              <option name="myItemId" value="screen" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -364,19 +314,20 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/components" />
-      <recent name="$PROJECT_DIR$/common" />
-      <recent name="$PROJECT_DIR$/iosComponents" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/utils" />
       <recent name="$PROJECT_DIR$/components/repo" />
       <recent name="$PROJECT_DIR$/components" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/screen" />
+      <recent name="$PROJECT_DIR$/components" />
+      <recent name="$PROJECT_DIR$/common" />
+      <recent name="$PROJECT_DIR$/iosComponents" />
     </key>
   </component>
   <component name="RunManager">
@@ -446,23 +397,23 @@
     <frame x="0" y="23" width="1280" height="721" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17235902" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2366958" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283582" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -483,19 +434,10 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/common/CommonComponents.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="33" selection-start-line="45" selection-start-column="17" selection-end-line="45" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/common/ErrorPlacehoderComponent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="22" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -524,9 +466,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.4173913">
           <caret line="15071" column="3" selection-start-line="15071" selection-start-column="3" selection-end-line="15071" selection-end-column="3" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -541,7 +480,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.7777777">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -549,7 +487,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -557,7 +494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -565,7 +501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -573,7 +508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.26086956">
           <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -630,7 +564,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.4444447">
           <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,7 +585,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3652174">
           <caret line="37" column="14" selection-start-line="37" selection-start-column="8" selection-end-line="37" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -660,7 +592,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5408696">
           <caret line="901" column="28" selection-start-line="901" selection-start-column="17" selection-end-line="901" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -668,7 +599,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4472169">
           <caret line="51" column="30" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -676,7 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7037038">
           <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -684,7 +613,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="370" column="4" selection-start-line="370" selection-start-column="4" selection-end-line="370" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -692,23 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321739">
           <caret line="13" column="4" selection-start-line="13" selection-start-column="4" selection-end-line="13" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/repo/RepoCell2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.111111">
-          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -716,7 +627,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="311" column="80" selection-start-line="311" selection-start-column="80" selection-end-line="311" selection-end-column="80" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -724,15 +634,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/EventCell.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="60" selection-start-line="42" selection-start-column="60" selection-end-line="42" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -740,7 +641,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="14" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -748,7 +648,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,7 +655,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="11" column="67" selection-start-line="11" selection-start-column="67" selection-end-line="11" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -764,7 +662,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -772,23 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="24" column="77" selection-start-line="24" selection-start-column="70" selection-end-line="24" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/RootTab.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/Routes.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="258" column="6" selection-start-line="258" selection-start-column="6" selection-end-line="258" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -796,7 +676,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="44" column="45" selection-start-line="44" selection-start-column="45" selection-end-line="44" selection-end-column="45" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,7 +683,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="46" column="68" selection-start-line="46" selection-start-column="32" selection-end-line="46" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,7 +690,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="88" column="6" selection-start-line="88" selection-start-column="6" selection-end-line="88" selection-end-column="6" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,23 +697,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="275" column="74" selection-start-line="275" selection-start-column="74" selection-end-line="275" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/LoginComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="119" column="46" selection-start-line="119" selection-start-column="46" selection-end-line="119" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/components/FeedbackComponent.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="72" column="40" selection-start-line="72" selection-start-column="40" selection-end-line="72" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -844,7 +704,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.44347826">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -864,18 +723,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.ios.js">
+    <entry file="file://$PROJECT_DIR$/components/repo/RepoCell2.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6296296">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="41" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/EventCell.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="11" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/Routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="240" column="24" selection-start-line="240" selection-start-column="24" selection-end-line="240" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/FeedbackComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="61" selection-start-line="82" selection-start-column="61" selection-end-line="82" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/LoginComponent.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="119" column="46" selection-start-line="119" selection-start-column="46" selection-end-line="119" selection-end-column="46" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/service/OSCService.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.69739133">
-          <caret line="202" column="5" selection-start-line="202" selection-start-column="5" selection-end-line="202" selection-end-column="5" />
+        <state vertical-scroll-proportion="-6.7777777">
+          <caret line="168" column="40" selection-start-line="168" selection-start-column="40" selection-end-line="168" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/components/RootTab.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="26" column="46" selection-start-line="26" selection-start-column="46" selection-end-line="26" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.448276">
+          <caret line="72" column="38" selection-start-line="72" selection-start-column="38" selection-end-line="72" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.ios.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.629562">
+          <caret line="58" column="25" selection-start-line="58" selection-start-column="25" selection-end-line="58" selection-end-column="25" />
           <folding />
         </state>
       </provider>
