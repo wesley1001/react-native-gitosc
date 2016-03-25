@@ -108,3 +108,6 @@ android/build
 android/*/build
 local.properties
 *.keystore
+
+# WebStorm
+.idea
