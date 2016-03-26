@@ -11,7 +11,7 @@ const constant = {
         PRODUCTION_KEY : "bpmwzaJmrsqlu_pMHgmzdep8no7b4k55Guhpl",
     },
     scene: {
-        project: {key: "project", value: "项目*"},
+        project: {key: "project", value: "项目^"},
         famous: {key: "famous", value: "发现"},
         personal: {key: "personal", value: "Me"},
         login: {key: "login", value: "登陆"},

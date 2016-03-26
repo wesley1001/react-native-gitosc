@@ -31,7 +31,7 @@
 		BA2620C71C95380E0024645B /* GFDiskCacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BA2620C01C95380D0024645B /* GFDiskCacheManager.m */; };
 		BA5E0E5F1C9FD2CA0058F8FA /* libRNShakeEvent.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA5E0E5E1C9FD2B20058F8FA /* libRNShakeEvent.a */; };
 		BA65E5E21CA3E19E00EDE98F /* libRCTToast.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BA65E5E11CA3E18E00EDE98F /* libRCTToast.a */; };
-		BA8763F31CA51A8300397202 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BA8763F01CA51A8300397202 /* index.ios.jsbundle */; };
+		BAA933DE1CA5343D009D2392 /* index.ios.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = BAA933DB1CA5343D009D2392 /* index.ios.jsbundle */; };
 		BAAF95C51C946507009653C5 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C41C9464DB009653C5 /* libRNVectorIcons.a */; };
 		BAAF95C71C94655E009653C5 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95C61C94655E009653C5 /* libz.tbd */; };
 		BAAF95D41C9465A5009653C5 /* libCodePush.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BAAF95B01C945045009653C5 /* libCodePush.a */; };
@@ -194,7 +194,7 @@
 		BA2620C01C95380D0024645B /* GFDiskCacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GFDiskCacheManager.m; path = OSCGit/Classes/GFDiskCacheManager.m; sourceTree = "<group>"; };
 		BA5E0E591C9FD2B20058F8FA /* RNShakeEvent.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNShakeEvent.xcodeproj; path = "../node_modules/react-native-shake-event-ios/RNShakeEvent.xcodeproj"; sourceTree = "<group>"; };
 		BA65E5DC1CA3E18E00EDE98F /* RCTToast.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTToast.xcodeproj; path = "../node_modules/@remobile/react-native-toast/ios/RCTToast.xcodeproj"; sourceTree = "<group>"; };
-		BA8763F01CA51A8300397202 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
+		BAA933DB1CA5343D009D2392 /* index.ios.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = index.ios.jsbundle; sourceTree = "<group>"; };
 		BAAF95AB1C945044009653C5 /* CodePush.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CodePush.xcodeproj; path = "../node_modules/react-native-code-push/CodePush.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95BF1C9464DB009653C5 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		BAAF95C61C94655E009653C5 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -398,7 +398,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				BA8763E81CA51A8300397202 /* bundle */,
+				BAA933D31CA5343D009D2392 /* bundle */,
 				BAAF95F41C946BE1009653C5 /* Font */,
 				13B07FAE1A68108700A75B9A /* OSCGit */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
@@ -474,10 +474,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		BA8763E81CA51A8300397202 /* bundle */ = {
+		BAA933D31CA5343D009D2392 /* bundle */ = {
 			isa = PBXGroup;
 			children = (
-				BA8763F01CA51A8300397202 /* index.ios.jsbundle */,
+				BAA933DB1CA5343D009D2392 /* index.ios.jsbundle */,
 			);
 			path = bundle;
 			sourceTree = "<group>";
@@ -763,7 +763,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BA8763F31CA51A8300397202 /* index.ios.jsbundle in Resources */,
+				BAA933DE1CA5343D009D2392 /* index.ios.jsbundle in Resources */,
 				BAAF96031C946BFD009653C5 /* Octicons.ttf in Resources */,
 				BAAF96001C946BFD009653C5 /* Foundation.ttf in Resources */,
 				BAAF96011C946BFD009653C5 /* Ionicons.ttf in Resources */,
