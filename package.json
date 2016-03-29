@@ -6,8 +6,10 @@
     "start": "node node_modules/react-native/local-cli/cli.js start"
   },
   "dependencies": {
+    "@remobile/react-native-toast": "^1.0.4",
     "base-64": "^0.1.0",
     "events": "~1.1.0",
+    "lodash": "^4.6.1",
     "react-native": "^0.21.0",
     "react-native-code-push": "~1.7.3-beta",
     "react-native-gifted-listview": "0.0.12",

@@ -1,8 +1,8 @@
 const React = require('react-native');
 const CommonComponents = require('../common/CommonComponents');
-const Icon = require('react-native-vector-icons/Ionicons');
 const Colors = require('../common/Colors');
-const Utils = require('../utils/Utils');
+const DateUtils = require('../utils/Utils').DateUtils;
+const constant = require('../config').constant;
 
 const {
     View,
@@ -14,7 +14,6 @@ const {
     TouchableOpacity,
     } = React;
 
-const ICON_SIZE = 12;
 /** 动态的类型*/
 const EVENT_TYPE_CREATED   = 0x1;// 创建了issue
 const EVENT_TYPE_UPDATED   = 0x2;// 更新项目
@@ -33,13 +32,13 @@ const EventCell = React.createClass({
   },
 
   onPressCell() {
-      this.props.navigator.push({id: 'repo_detail', obj: this.props.event.project});
+      this.props.navigator.push({id: constant.scene.repo_detail.key, obj: this.props.event.project});
   },
 
   openAuthor() {
     let event = this.props.event;
     if (event) {
-      this.props.navigator.push({id: 'personal', obj: event.author});
+      this.props.navigator.push({id: constant.scene.personal.key, obj: event.author});
     }
   },
 
@@ -201,7 +200,7 @@ const EventCell = React.createClass({
                 </View>
 
                 <View>
-                  <Text style={styles.text_desc}>{Utils.DateUtils.formatDiff(event.created_at)}</Text>
+                  <Text style={styles.text_desc}>{DateUtils.formatDiff(event.created_at)}</Text>
                 </View>
               </View>
             </View>

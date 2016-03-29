@@ -1,14 +1,12 @@
 const React = require('react-native');
 const CommonComponents = require('../common/CommonComponents');
-const Config = require('../config');
-const PropTypes = React.PropTypes;
 const Colors = require('../common/Colors');
 const DXRNUtils = require('../utils/DXRNUtils');
 const Platform = require('Platform');
+var _ = require('lodash');
+
 const {
-  ListView,
   View,
-  ActivityIndicatorIOS,
   Text,
   TouchableHighlight,
   StyleSheet,
@@ -19,19 +17,19 @@ const {
 const LISTVIEWREF = 'listview';
 const CONTAINERREF = 'container';
 
-const FloorListView = React.createClass({
+const LanguageComponent = React.createClass({
   propTypes: {
     toggleOn: React.PropTypes.bool,
     languageList: React.PropTypes.array,
     onSelectLanguage: React.PropTypes.func,
-    currentLanguage: React.PropTypes.string,
+    currentLanguage: React.PropTypes.object,
   },
 
   getDefaultProps() {
     return {
       languageList: [],
       toggleOn: false,
-      currentLanguage: 'All Languages',
+      currentLanguage: null,
     }
   },
 
@@ -42,21 +40,22 @@ const FloorListView = React.createClass({
     }
   },
 
-  onSelectLanguage(selectedLanguage) {
+  onSelectLanguage(value) {
     DXRNUtils.trackClick('clickLan', {name: 'Explore 打开语言选择'});
-    if (this.state.currentLanguage == selectedLanguage) {
+    if (this.state.currentLanguage.value == value) {
       this.setState({
         toggleOn: false,
       });
 
       return;
     }
+    var f = _.filter(this.props.languageList, (o) => o.value == value)[0];
 
     this.setState({
       toggleOn: false,
-      currentLanguage: selectedLanguage,
+      currentLanguage: f,
     });
-    this.props.onSelectLanguage(selectedLanguage);
+    this.props.onSelectLanguage(f);
   },
 
   render() {
@@ -72,7 +71,7 @@ const FloorListView = React.createClass({
               toggleOn: true,
             })}>
             <Text style={styles.lan}>
-              {selectedLanguage}
+              {selectedLanguage.label}
             </Text>
           </TouchableOpacity>
         );
@@ -81,13 +80,13 @@ const FloorListView = React.createClass({
         return (
           <View style={{height: pickerHeight}} ref={CONTAINERREF}>
             <Picker
-              selectedValue={selectedLanguage}
+              selectedValue={selectedLanguage.label}
               onValueChange={this.onSelectLanguage}
               mode={'dropdown'}
               >
               {this.props.languageList.map((obj, index) => {
                 return (
-                  <Picker.Item key={index} label={obj} value={obj}/>
+                  <Picker.Item key={index} label={obj.label} value={obj.value}/>
                 );
               })}
             </Picker>
@@ -106,14 +105,14 @@ const FloorListView = React.createClass({
     } else if (Platform.OS == 'android') {
       return (
         <Picker
-          selectedValue={selectedLanguage}
+          selectedValue={selectedLanguage.label}
           onValueChange={this.onSelectLanguage}
           mode={'dropdown'}
           style={{width: 150, alignSelf: 'center', height: 40}}
           >
           {this.props.languageList.map((obj, index) => {
             return (
-              <Picker.Item key={index} label={obj} value={obj}/>
+                <Picker.Item key={index} label={obj.label} value={obj.value}/>
             );
           })}
         </Picker>
@@ -123,28 +122,6 @@ const FloorListView = React.createClass({
 });
 
 const ICON_SIZE = 20;
-
-const LanguageCell = React.createClass({
-  propTypes: {
-    name: React.PropTypes.string,
-    onSelectCell: React.PropTypes.func,
-  },
-
-  onSelectCell() {
-    this.props.onSelectCell && this.props.onSelectCell(this.props.name);
-  },
-
-  render() {
-    return (
-      <TouchableHighlight onPress={this.onSelectCell} underlayColor={'lightGray'}>
-        <View style={styles.cellContentView}>
-          <Text style={styles.userName}>{this.props.name}</Text>
-        </View>
-      </TouchableHighlight>
-    );
-  },
-});
-
 const styles = StyleSheet.create({
   cellContentView: {
     flexDirection: 'row',
@@ -180,4 +157,4 @@ const styles = StyleSheet.create({
   },
 });
 
-module.exports = FloorListView;
+module.exports = LanguageComponent;

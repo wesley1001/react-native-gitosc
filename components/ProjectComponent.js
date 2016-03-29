@@ -4,10 +4,9 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../utils/DXRNUtils');
 const OSCService = require('../service/OSCService');
 const ScrollableTabView = require('react-native-scrollable-tab-view');
-const ProjectCategoryComponent = require('./ProjectCategoryComponent');
+const ProjectCategoryComponent = require('../components/ProjectCategoryComponent');
 
 const {
     View,

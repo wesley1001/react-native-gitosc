@@ -1,5 +1,6 @@
-var React = require('react-native');
+const React = require('react-native');
 const Platform = require('Platform');
+const _ = require('lodash');
 
 var {
   NativeModules: {

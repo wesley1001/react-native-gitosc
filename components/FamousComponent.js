@@ -4,14 +4,13 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../utils/DXRNUtils');
-const Utils = require('../utils/Utils');
 const GFDiskCache = require('../utils/GFDiskCache');
 const OSCService = require('../service/OSCService');
 const CommonComponents = require('../common/CommonComponents');
 const LanguageComponent = require('../common/LanguageComponent');
 const RepoCell2 = require('../components/repo/RepoCell2');
 const OSCRefreshListView = require('../components/OSCRefreshListView');
+var _ = require('lodash');
 
 const {
     View,
@@ -23,38 +22,34 @@ const FamousComponent = React.createClass({
         return {
             languageList:null,
             loadingLanguageList:true,
-            selectedLanguage: "..."
         }
     },
     componentWillMount() {
         OSCService.getLanguageList()
             .then(arr => {
                 let languageList = arr;
+                this.selectedLanguage = this._packLanguageData(languageList[0]);
                 this.setState({
                     loadingLanguageList:false,
                     languageList:languageList,
-                    selectedLanguage:languageList[0].name
                 });
             })
+    },
+    _packLanguageData(o) {
+        //优化//sum可以保存
+        let sum = _.sumBy(this.state.languageList, (o) => o.projects_count);
+        let label = o.name + " [" + o.projects_count + "-" + (o.projects_count / sum * 100).toFixed(2) + "%]";
+        return {label:label, value : o.id};
     },
 
     onSelectLanguage(selectedLanguage) {
         console.log("onSelectLanguage:" + selectedLanguage);
-        this.setState({selectedLanguage: selectedLanguage});
+        this.selectedLanguage = selectedLanguage;
         this._listview.forceRefresh();
     },
 
     reloadPath(page = 1) {
-        let list = this.state.languageList;
-        let lId;
-        for(var i in list) {
-            if(list[i].name === this.state.selectedLanguage) {
-                lId = list[i].id;
-                break;
-            }
-        }
-
-        return OSCService.getLanguageProjectList(lId, page);
+        return OSCService.getLanguageProjectList(this.selectedLanguage.value, page);
     },
 
     renderRow(rowData, sectionID, rowID, highlightRow) {
@@ -70,19 +65,20 @@ const FamousComponent = React.createClass({
         if(this.state.loadingLanguageList) {
             return CommonComponents.renderLoadingView();
         }
-        let languageSimpleList = this.state.languageList.map((d, i) => d.name);
+        //let languageSimpleList = this.state.languageList.map((d, i) => d.name);
+        let languageSimpleList = _.map(this.state.languageList, this._packLanguageData);
 
         return (
             <View style={{flexDirection:"column", flex:1, paddingTop:paddingTop, marginBottom: 49, backgroundColor:Colors.white}}>
                 <LanguageComponent
                     onSelectLanguage={this.onSelectLanguage}
-                    currentLanguage={this.state.selectedLanguage}
                     languageList={languageSimpleList}
+                    currentLanguage={languageSimpleList[0]}
                 />
                 <OSCRefreshListView
-                                    ref={(c) => this._listview=c}
-                                    renderRow={this.renderRow}
-                                    reloadPromise={(page) => this.reloadPath(page)}
+                    ref={(c) => this._listview=c}
+                    renderRow={this.renderRow}
+                    reloadPromise={(page) => this.reloadPath(page)}
                 />
             </View>
         );

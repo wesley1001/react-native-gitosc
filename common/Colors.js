@@ -1,8 +1,7 @@
 /**
  * Created by rplees on 3/8/16.
  */
-
-const colors = {
+const Colors = {
     lightGray:"#F0F0F0",
     lineGray: '#F0F0F0',
     green: '#80BD01',
@@ -19,4 +18,4 @@ const colors = {
     white: "white",
 }
 
-module.exports = colors;
+module.exports = Colors;

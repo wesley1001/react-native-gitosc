@@ -26,6 +26,28 @@ const commonStyles = StyleSheet.create({
     backgroundColor: Colors.backGray,
     height: 0.5,
   },
+
+  textInput: {
+    fontSize: 15,
+    borderWidth: 1,
+    height: 38,
+    marginTop: 5,
+    marginBottom: 10,
+    borderRadius: 4,
+    padding: 3,
+    borderColor: Colors.blue,
+  },
+  btn: {
+    borderWidth: 1,
+    height: 38,
+    marginLeft: 20,
+    marginRight: 20,
+    justifyContent: "center",
+    borderColor: Colors.blue,
+    backgroundColor: Colors.blue,
+    borderRadius: 6,
+    marginTop:40,
+  }
 });
 
 module.exports = commonStyles;

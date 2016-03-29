@@ -4,18 +4,15 @@
 const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
-const DXRNUtils = require('../utils/DXRNUtils');
-const Utils = require('../utils/Utils');
+const DateUtils = require('../utils/Utils').DateUtils;
 const OSCService = require('../service/OSCService');
+const CommonStyles = require('../common/CommonStyles');
 
 const {
-    StyleSheet,
-    ActivityIndicatorIOS,
     View,
     Text,
+    Alert,
     TouchableHighlight,
-    TextInput,
-    ProgressBarAndroid,
     Image,
     ScrollView
     } = React;
@@ -48,24 +45,21 @@ const LoginComponent = React.createClass({
                 </View>
 
                 <View style={{flexDirection:"column",backgroundColor:Colors.white, marginTop:20,borderRadius: 6}}>
-                    <View style={{marginLeft:20, margin:5}}><Text>{"加入时间 : " + Utils.DateUtils.formatDate(user.created_at, "yyyy-MM-dd")}</Text></View>
+                    <View style={{marginLeft:20, margin:5}}><Text>{"加入时间 : " + DateUtils.formatDate(user.created_at, "yyyy-MM-dd")}</Text></View>
                     <View style={{marginLeft:20, margin:5}}><Text>{"微博 : " + (user.weibo? user.weibo : '')}</Text></View>
                     <View style={{marginLeft:20, margin:5}}><Text>{"博客 : " + (user.blog? user.blog : '')}</Text></View>
                 </View>
 
-                <TouchableHighlight style={{
-                                            borderWidth: 1,
-                                            height: 38,
-                                            marginLeft: 20,
-                                            marginRight: 20,
-                                            justifyContent: "center",
-                                            borderColor: Colors.red,
-                                            backgroundColor: Colors.red,
-                                            borderRadius: 6,
-                                            marginTop:40
-                                        }}
+                <TouchableHighlight style={[CommonStyles.btn, {backgroundColor:Colors.red,borderColor:Colors.red}]}
                                     onPress={() => {
-                                        OSCService.logout();
+                                        Alert.alert(
+                                            "确认操作",
+                                            '确定要退出登陆么?',
+                                            [
+                                                {text:"确定", onPress: function(){ OSCService.logout(); }},
+                                                {text:"不了", onPress: function(){}},
+                                            ]
+                                        );
                                     }}
                                     underlayColor={Colors.backGray}
                                     >

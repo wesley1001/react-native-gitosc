@@ -1,12 +1,14 @@
 const React = require('react-native');
 const CommonComponents = require('../../common/CommonComponents');
-const Icon = require('react-native-vector-icons/Ionicons');
+const FontAwesome = require('react-native-vector-icons/FontAwesome');
 const Colors = require('../../common/Colors');
+const Dimensions = require('Dimensions');
+const DateUtils = require('../../utils/Utils').DateUtils;
+const constant = require("../../config").constant;
 
 const {
     View,
     Text,
-    Alert,
     StyleSheet,
     TouchableHighlight,
     Image,
@@ -22,32 +24,24 @@ const RepoCell2 = React.createClass({
 
   onPressCell() {//打开项目详情
     let repo = this.props.repo;
-    this.props.navigator.push({id: 'repo_detail', obj: repo});
+    this.props.navigator.push({id: constant.scene.repo_detail.key, obj: repo});
   },
 
   openAuthor() {
     const repo = this.props.repo;
     const user = repo.owner;
-
-    if (user) {
-      this.props.navigator.push({id: 'personal', obj: user});
-      //const type = user.type;
-      //if (type == 'User') {
-      //
-      //} else {//TODO:不是用户类型的未实现
-      //  Alert.alert(
-      //      "Tips",
-      //      '不是用户类型的视图未实现'
-      //  );
-      //}
-    }
+    this.props.navigator.push({id: constant.scene.personal.key, obj: user});
   },
 
   render() {
     const repo = this.props.repo;
+    let recommCP;
+    if(repo.recomm) {
+      recommCP = <Text style={{color:Colors.red, fontWeight:"bold", fontSize:11}}>荐 </Text>;
+    }
     return (
       <TouchableHighlight underlayColor={Colors.lineGray} onPress={this.onPressCell}>
-        <View style={styles.cellContentView}>
+        <View style={{flexDirection: 'column',flex: 1,}}>
           <View style={styles.cellUp}>
             <TouchableOpacity onPress={this.openAuthor}>
               <Image
@@ -55,21 +49,62 @@ const RepoCell2 = React.createClass({
                 style={styles.avatar}
               />
             </TouchableOpacity>
-            <View style={{flexDirection: 'column'}}>
-              <Text style={styles.username} onPress={this.onPressCell}>
-                {repo.path_with_namespace}
-              </Text>
-              <Text style={styles.createAt}>{repo.language}</Text>
-            </View>
-            <View style={styles.leftAction}>
-              <Icon
-                name={'ios-star'}
-                size={ICON_SIZE}
-                color={Colors.textGray}
-              />
-              <Text style={styles.actionText}>
-                {repo.stars_count}
-              </Text>
+            <View style={{flexDirection: 'column', }}>
+              <View style={{flexDirection:"row",  justifyContent: 'center', justifyContent: 'space-between', width:320}}>
+                <View>
+                  <Text style={styles.username} onPress={this.onPressCell}>
+                    {recommCP}{repo.path_with_namespace}
+                  </Text>
+                </View>
+                <View style={{flexDirection:"row",padding:4, justifyContent: 'center'}}>
+                  <FontAwesome
+                      name={'clock-o'}
+                      size={10}
+                      style={{marginTop:1}}
+                      color={Colors.textGray}
+                  />
+                  <Text style={styles.createAt}>
+                    {DateUtils.formatDiff(repo.last_push_at? repo.last_push_at : repo.created_at)}
+                  </Text>
+                </View>
+
+              </View>
+
+              <View style={{padding:5, flexDirection:"row"}}>
+                <View style={{flexDirection:"row", paddingLeft:10}}>
+                  <FontAwesome
+                      name={"tag"}
+                      size={10}
+                      style={{marginTop:1}}
+                      color={Colors.black}/>
+                  <Text style={styles.createAt}>{repo.language}</Text>
+                </View>
+                <View style={{flexDirection:"row", paddingLeft:10}}>
+                  <FontAwesome
+                      name={"code-fork"}
+                      size={10}
+                      style={{marginTop:1}}
+                      color={Colors.black}/>
+                  <Text style={styles.createAt}>{repo.forks_count}</Text>
+                </View>
+                <View style={{flexDirection:"row", paddingLeft:10}}>
+                  <FontAwesome
+                      name={"star"}
+                      size={10}
+                      style={{marginTop:1}}
+                      color={Colors.black}/>
+                  <Text style={styles.createAt}>{repo.stars_count}</Text>
+                </View>
+                <View style={{flexDirection:"row", paddingLeft:10}}>
+                  <FontAwesome
+                      name={"eye"}
+                      size={10}
+                      style={{marginTop:1}}
+                      color={Colors.black}/>
+                  <Text style={styles.createAt}>{repo.watches_count}</Text>
+                </View>
+
+              </View>
             </View>
           </View>
           <Text style={styles.textActionContainer} numberOfLines={0}>
@@ -86,11 +121,6 @@ var styles = StyleSheet.create({
   /**
    * RepoCell2
    */
-  cellContentView: {
-    flexDirection: 'column',
-    flex: 1,
-    alignItems: 'stretch',
-  },
   cellUp: {
     padding: 10,
     height: 40,
@@ -118,8 +148,7 @@ var styles = StyleSheet.create({
     marginLeft: 10,
   },
   createAt: {
-    marginLeft: 10,
-    marginTop: 2,
+    marginLeft: 4,
     fontSize: 11,
     color: '#BFBFBF',
   },
@@ -130,23 +159,10 @@ var styles = StyleSheet.create({
     marginLeft: 25,
     borderStyle: 'dashed',
   },
-  leftAction: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    padding: 3,
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
+
   rightAction: {
     padding: 3,
     backgroundColor: "white",
-  },
-  actionText: {
-    color: Colors.textGray,
-    fontSize: 12,
-    fontWeight: 'bold',
-    alignSelf: 'center',
   },
 });
 

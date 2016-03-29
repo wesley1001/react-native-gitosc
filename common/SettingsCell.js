@@ -1,6 +1,6 @@
 const React = require('react-native');
 const CommonComponents = require('../common/CommonComponents');
-const Icon = require('react-native-vector-icons/Ionicons');
+const Icon = require('react-native-vector-icons/FontAwesome');
 const Colors = require('../common/Colors');
 
 const {
@@ -32,11 +32,11 @@ const SettingsComponent = React.createClass({
     return (
       <TouchableHighlight
         underlayColor={Colors.backGray}
-        style={styles.userTouch}
+        style={[styles.userTouch]}
         onPress={this.props.onPress}
           {...this.props}
         >
-        <View style={styles.user}>
+        <View style={[styles.user, styles.settings]}>
           <Icon
             name={this.props.iconName}
             size={ICON_SIZE}
@@ -48,7 +48,7 @@ const SettingsComponent = React.createClass({
             </Text>
           </View>
           <Icon
-            name='ios-arrow-right'
+            name='angle-right'
             size={20}
             iconStyle={styles.arrow}
             color={Colors.textGray}/>

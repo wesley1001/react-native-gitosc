@@ -3,10 +3,10 @@
  */
 const React = require('react-native');
 const Routes = require('../components/Routes');
-const Utils = require('../utils/Utils');
-const Icon = require('react-native-vector-icons/Ionicons');
+const Ionicons = require('react-native-vector-icons/Ionicons');
+const constant = require('../config').constant;
 
-const TabBarDic = ["project", "famous", "personal"];//
+const TabBarDic = [constant.scene.project.key, constant.scene.famous.key, constant.scene.personal.key];//
 const {
     TabBarIOS
     } = React;
@@ -18,32 +18,27 @@ const RootTab = React.createClass({
         }
     },
     componentDidMount() {
-        console.log("RootTab.componentDidMount");
-        if(Utils.NullUtils.isNotNull(this.props.forceSelectedTab)) {
-            console.log("RootTab.componentDidMountddddd");
-            this.setState({selectedTab: TabBarDic[this.props.forceSelectedTab]});
-        }
     },
     render() {
         let cp = TabBarDic.map((v, i) => {
             let iconName = "";
             let selectedIconName = "";
             let title = "";
-            if(v === "project") {
-                iconName = "ios-flame-outline";
-                selectedIconName = "ios-flame";
-                title = "Project"
-            } else if(v === "famous") {
-                iconName = "ios-people-outline";
-                selectedIconName = "ios-people";
-                title = "Famous"
-            } else if(v === "personal") {
+            if(v === constant.scene.project.key) {
+                iconName = "ios-book-outline";
+                selectedIconName = "ios-book";
+                title = constant.scene.project.value;
+            } else if(v === constant.scene.famous.key) {
+                iconName = "ios-eye-outline";
+                selectedIconName = "ios-eye";
+                title = constant.scene.famous.value;
+            } else if(v === constant.scene.personal.key) {
                 iconName = "ios-person-outline";
                 selectedIconName = "ios-person";
-                title = "Me"
+                title = constant.scene.personal.value;
             }
 
-            return <Icon.TabBarItem
+            return <Ionicons.TabBarItem
                 key={'iconTabBarItem_' + v}
                 iconName={iconName}
                 selectedIconName={selectedIconName}
@@ -55,7 +50,7 @@ const RootTab = React.createClass({
                     });
                   }}>
                 {Routes.navigator(v)}
-            </Icon.TabBarItem>
+            </Ionicons.TabBarItem>
             }
         );
 

@@ -10,7 +10,6 @@ const Utils = require('../utils/Utils');
 const L = require('../utils/Log');
 const User = require('../entity/User');
 //const crypto = require('crypto');
-//const Buffer = require('Buffer');
 const {
     AsyncStorage,
     Navigator,
@@ -36,6 +35,26 @@ class OSCService extends EventEmitter {
     isSelf(id) {
         return GLOBAL_USER.id === id;
     }
+
+    searchProjects(query, page) {
+        return this.fetchPromise(PROJECTS + "search/" + encodeURI(query) + "?page=" + page);
+    }
+
+    /**
+    * 创建一个issue
+    */
+    pubCreateIssue(projectId, title, description, assignee_id, milestone_id) {
+        return this.fetchPromise(PROJECTS + projectId + "/issues", "POST", {description: description, title: title, assignee_id:assignee_id,milestone_id:milestone_id});
+    }
+
+    getProjectCodeTree(pId, path, refName) {
+        var param = {};
+        if(path && refName) {
+            param = {path: path, ref_name: refName};
+        }
+        return this.fetchPromise(PROJECTS + pId + "/repository/tree", "GET", param);
+    }
+
     /**
      * 获取语言列表
      * {
@@ -82,7 +101,6 @@ class OSCService extends EventEmitter {
         return this.fetchPromise(USER + uId + "/watched_projects?page=" + page);
     }
 
-
     starProject(projectId){
         return this.fetchPromise(PROJECTS + projectId + "/star", "POST");
     }
@@ -109,27 +127,17 @@ class OSCService extends EventEmitter {
         return this.fetchPromise(PROJECTS + id);
     }
 
+    /**
+     * 实际是往rplees/react-native-gitosc创建一个issue
+     * @param title
+     * @param message
+     * @returns {*}
+     */
     feedback(title, message) {
-        let param = {
-            description : message,
-            title : title,
-            assignee_id : 355540,
-            milestone_id : "",
-        };
-
-        return this.fetchPromise(PROJECTS + "142148/issues", "GET", param);
+        return this.pubCreateIssue(834878,title, message, 95171, "");
     }
 
-    onBoard(name) {
-        Object.assign(GLOBAL_USER, {name:name, username: name});
-        this.__saveUser2Disk();
-        //TODO:获取用户的基本信息(头像-用户名等)
-        return new Promise(function(resolve){
-            resolve(GLOBAL_USER);
-        })
-    }
     login(name, pwd) {
-        pwd = "qwe6583381";
         let param = {email: name, password: pwd};
         return this.fetchPromise(BASE_URL + "session", "POST", param)
             .then(json => {
@@ -147,6 +155,7 @@ class OSCService extends EventEmitter {
 
         return path;
     }
+
     fetchPromise(path, method="GET", param) {
         if(param) {
             path += (path.indexOf("?") > -1 ? "&" : "?");
@@ -167,7 +176,8 @@ class OSCService extends EventEmitter {
             if (isValid) {
                 return json;
             } else {
-                if(json.message.indexOf("Unauthorized") > -1) {
+                //TODO:此处应该需要优化,Service接口类持有了UI类Alert
+                if(json.message.indexOf("Unauthorized") > -1 && url.indexOf("api/v3/session") == -1) {//登陆时就不用alert
                     Alert.alert(
                         "Oops",
                         '鉴权失败,请先重新登陆'
@@ -195,19 +205,14 @@ class OSCService extends EventEmitter {
     logout(cb) {
         GLOBAL_USER = Object.create(User);
         AsyncStorage.removeItem("_osc_user_");
-
         cb && cb();
-
-        this.emit('didLogout');//TODO Test
-    }
-
-    //如果用户没登陆,但输入了用户名 则user.username也会有值的.
-    isOnBoard() {
-        return GLOBAL_USER.username.length > 0;
+        this.emit('didLogout');
     }
 
     isLogined() {
-        return this.isOnBoard() && GLOBAL_USER.private_token.length > 0;
+        return GLOBAL_USER
+            && GLOBAL_USER.private_token
+            && GLOBAL_USER.private_token.length > 0;
     }
 
     __saveUser2Disk() {
@@ -220,7 +225,7 @@ class OSCService extends EventEmitter {
             navigator.push({
                 id: 'login',
                 sceneConfig: Navigator.SceneConfigs.FloatFromBottom,
-                title: 'Action need login',
+                title: '该操作需要登陆',
                 nextPromiseFunc: promiseFunc,
             });
         } else {

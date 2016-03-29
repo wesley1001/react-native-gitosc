@@ -8,11 +8,10 @@ const ErrorPlaceholder = require('../common/ErrorPlacehoderComponent');
 const Platform = require('Platform');
 
 const {
-    Navigator,
     StyleSheet,
     } = React;
-const LISTVIEW_REF = 'listview';
 
+const LISTVIEW_REF = 'listview';
 const OSCRefreshListView = React.createClass({
     propTypes: {
         renderRow: PropTypes.func,
@@ -26,7 +25,11 @@ const OSCRefreshListView = React.createClass({
     listViewOnRefresh(page, callback) {
         this.props.reloadPromise(page)
             .then(data => {
-                let allLoaded = data && data.length < 1;
+                let pageSize = this.props.pageSize || 20;
+                if(data.length > pageSize) {//有可能每页显示数量跟服务器返回的不同
+                    L.warn("服务器返回的数据{}长度大于设置的值{},请检查.", data.length, pageSize);
+                }
+                let allLoaded = data && (data.length < pageSize);
                 callback(data, {allLoaded: allLoaded});
             })
             .catch(err => {

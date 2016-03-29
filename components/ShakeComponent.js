@@ -5,24 +5,15 @@ const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
 const DXRNUtils = require('../utils/DXRNUtils');
-const Utils = require('../utils/Utils');
 const OSCService = require('../service/OSCService');
 const RNShakeEventIOS = require('react-native-shake-event-ios');
-const Icon = require('react-native-vector-icons/Ionicons');
+const FontAwesome = require('react-native-vector-icons/FontAwesome');
 const RepoCell2 = require('../components/repo/RepoCell2');
 const Dimensions = require('Dimensions');
 
 const {
-    StyleSheet,
-    ActivityIndicatorIOS,
     View,
-    Text,
-    TouchableHighlight,
-    TextInput,
-    ProgressBarAndroid,
-    Image,
     Alert,
-    ScrollView
     } = React;
 
 const ShakeComponent = React.createClass({
@@ -59,8 +50,8 @@ const ShakeComponent = React.createClass({
         }
         return (
             <View style={{flex:1, marginTop:paddingTop,alignItems:"center",flexDirection:"column"}}>
-                    <Icon style={{flex:1}}
-                        name={'ios-keypad'}
+                    <FontAwesome style={{flex:1}}
+                        name={'search'}
                         size={100}
                         color={Colors.textGray}
                     />

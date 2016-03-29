@@ -5,10 +5,8 @@ const Platform = require('Platform');
 const ErrorPlacehoderComponent = require('./ErrorPlacehoderComponent');
 
 const {
-  StyleSheet,
   View,
   ActivityIndicatorIOS,
-  Text,
   ProgressBarAndroid,
 } = React;
 

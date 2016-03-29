@@ -273,7 +273,7 @@ Date.prototype.format = function(fmt) { //author: meizz
 }
 const DateUtils = {
     format: function(dateTimeStamp){
-        return DateUtils.formatDate("yyyy-MM-dd hh:mm:ss");
+        return DateUtils.formatDate(dateTimeStamp, "yyyy-MM-dd hh:mm:ss");
     },
 
     formatDate: function(dateTimeStamp, f){
@@ -308,13 +308,13 @@ const ObjUtils = {
     }
 }
 
-module.exports.StringUtils = StringUtils;
-module.exports.BooleanUtils = BooleanUtils;
-module.exports.JsonUtils = JsonUtils;
-module.exports.CollectionUtils = CollectionUtils;
-module.exports.NullUtils = NullUtils;
-module.exports.NumberUtils = NumberUtils;
-module.exports.StringUtils = StringUtils;
-module.exports.TextUtils = TextUtils;
-module.exports.DateUtils = DateUtils;
-module.exports.ObjUtils = ObjUtils;
+exports.StringUtils = StringUtils;
+exports.BooleanUtils = BooleanUtils;
+exports.JsonUtils = JsonUtils;
+exports.CollectionUtils = CollectionUtils;
+exports.NullUtils = NullUtils;
+exports.NumberUtils = NumberUtils;
+exports.StringUtils = StringUtils;
+exports.TextUtils = TextUtils;
+exports.DateUtils = DateUtils;
+exports.ObjUtils = ObjUtils;

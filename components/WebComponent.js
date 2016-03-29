@@ -28,12 +28,14 @@ const hideJS = `
     }
   })('top',
      'ui top attached tabular menu',
+     'clearfix',
+     'container',
+     'breadcrumb',
      'breadcrumb blob-breadcrumb',
      'discussion-block-header',
      'discussion-reply-container',
      'discussion-block-header',
      'thread-subscription-status',
-     'clearfix',
      'follow'
      );
 `;
@@ -61,7 +63,7 @@ const WebComponent = React.createClass({
     },
 
     onNavigationStateChange(e) {
-        console.log(e.url + 'loading takes' + (Date.now() - this._debugTime) / 1000 + 's');
+        console.log(e.url + ' ,loading takes' + (Date.now() - this._debugTime) / 1000 + 's');
         this._debugTime = Date.now();
 
         const title = e.title;
@@ -87,9 +89,34 @@ const WebComponent = React.createClass({
     },
 
     componentWillMount() {
-        this._debugTime = Date.now();
+        var navigator = this.props.navigator;
+        var callback = (event) => {
+            console.log(`WebComponent : event ${event.type}`,{
+                    route: JSON.stringify(event.data.route),
+                    target: event.target,
+                    type: event.type,
+                }
+            );
 
+            if(event.data.route.obj
+                && event.data.route.obj.t
+                && event.data.route.obj.t === "issues") {
+                this.webView && this.webView.reload();
+            }
+        };
+
+        // Observe focus change events from this component.
+        this._listeners = [
+            //navigator.navigationContext.addListener('willfocus', callback),
+            navigator.navigationContext.addListener('didfocus', callback),
+        ];
+
+        this._debugTime = Date.now();
         this.props.route.onShare = this.onShare;
+    },
+
+    componentWillUnmount: function() {
+        this._listeners && this._listeners.forEach(listener => listener.remove());
     },
 
     renderLoading() {
@@ -109,7 +136,6 @@ const WebComponent = React.createClass({
     },
 
     render() {
-        console.log('render web');
         let topInset = 64;
         let webToolBar;
         if (this.state.backAble || this.state.forwardAble) {

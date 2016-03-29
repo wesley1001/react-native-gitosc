@@ -4,7 +4,6 @@ const Colors = require('./Colors');
 const {
   StyleSheet,
   View,
-  ActivityIndicatorIOS,
   Text,
   TouchableOpacity,
 } = React;

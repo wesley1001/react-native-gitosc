@@ -5,22 +5,20 @@ const React = require('react-native');
 const Platform = require('Platform');
 const Colors = require('../common/Colors');
 const DXRNUtils = require('../utils/DXRNUtils');
-const Utils = require('../utils/Utils');
 const GFDiskCache = require('../utils/GFDiskCache');
 const OSCService = require('../service/OSCService');
 const CommonComponents = require('../common/CommonComponents');
 const SettingsCell = require('../common/SettingsCell');
+const CommonStyles = require('../common/CommonStyles');
+const constant = require('../config').constant;
+const Toast = require('@remobile/react-native-toast');
 
 const {
-    StyleSheet,
-    ActivityIndicatorIOS,
-    ActionSheetIOS,
-    View,
-    Text,
     TouchableHighlight,
-    TextInput,
-    ProgressBarAndroid,
-    Image,
+    ActionSheetIOS,
+    Text,
+    View,
+    Alert,
     ScrollView
     } = React;
 
@@ -28,7 +26,7 @@ const SettingComponent = React.createClass({
     PropTypes: {},
     getInitialState() {
         return {
-            cachedSize:0,
+            cachedSize:"...",
             appVersion: "",
             appBuild: "",
             appStoreURL: "",
@@ -57,27 +55,31 @@ const SettingComponent = React.createClass({
             return;
         }
 
-        const message = 'This Github app is awesome';
+        const message = '分享这款ReactNative OSCGit客户端,开源的.';
         ActionSheetIOS.showShareActionSheetWithOptions({
                 message: message,
-                url: 'https://appsto.re/cn/jhzxab.i',
+                url: 'https://github.com/rplees/react-native-gitosc',
             },
             () => {},
             () => {});
     },
+
     clearCache() {
         GFDiskCache.clearDiskCache((size) => {
+            console.log("清空缓存:{}", size);
+            Toast.showLongBottom("已经清空缓存:" + size);
             this.setState({
-                cachedSize: size,
+                cachedSize: 0,
             })
         });
     },
+
     render() {
-        let currentVersion = "Share this app! V: " + this.state.appVersion;
+        let currentVersion = "分享这款App! v: " + this.state.appVersion;
         currentVersion += ' b: ' + this.state.appBuild;
 
-        let cachedSize = this.state.cachedSize ? this.state.cachedSize : '...';
-        cachedSize = 'Clear cache, current is: ' + cachedSize;
+        let cachedSize = this.state.cachedSize;
+        cachedSize = '清空缓存, 当前: ' + cachedSize;
 
         let paddingTop = 64;
         if (Platform.OS == 'android') {
@@ -88,16 +90,16 @@ const SettingComponent = React.createClass({
                 <ScrollView>
                     <SettingsCell
                         style={{marginTop:20, marginBottom:20}}
-                        iconName={'quote'}
+                        iconName={'quote-left'}
                         iconColor={Colors.blue}
                         settingName={"摇一摇"}
                         onPress = {() => {
-                            this.props.navigator.push({id: 'shake'});
+                            this.props.navigator.push({id: constant.scene.shake.key});
                         }}
                     />
 
                     <SettingsCell
-                        iconName={'android-delete'}
+                        iconName={'trash'}
                         iconColor={Colors.blue}
                         settingName={cachedSize}
                         onPress={this.clearCache} />
@@ -110,36 +112,35 @@ const SettingComponent = React.createClass({
                     />
 
                     <SettingsCell
-                        iconName={'quote'}
+                        iconName={'comment'}
                         iconColor={Colors.blue}
                         settingName={"意见反馈"}
                         onPress = {() => {
-                            this.props.navigator.push({id: 'feedback'});
+                            this.props.navigator.push({id: constant.scene.feedback.key});
                         }}
                     />
 
                     <SettingsCell
-                        iconName={'university'}
+                        iconName={'info'}
                         iconColor={Colors.blue}
                         settingName={"关于作者"}
                         onPress = {() => {
-                            this.props.navigator.push({id: 'personal', obj: OSCService.GLOBAL_USER});
+                            this.props.navigator.push({id: constant.scene.personal.key, obj:
+                                     {"name":"rplees","username":"rplees","id":95171}
+                                });
                         }}
                     />
 
-                    <TouchableHighlight style={{
-                                            borderWidth: 1,
-                                            height: 38,
-                                            marginLeft: 20,
-                                            marginRight: 20,
-                                            justifyContent: "center",
-                                            borderColor: Colors.red,
-                                            backgroundColor: Colors.red,
-                                            borderRadius: 6,
-                                            marginTop:40
-                                        }}
+                    <TouchableHighlight style={[CommonStyles.btn, {backgroundColor:Colors.red,borderColor:Colors.red}]}
                                         onPress={() => {
-                                            OSCService.logout();
+                                            Alert.alert(
+                                                "确认操作",
+                                                '确定要退出登陆么?',
+                                                [
+                                                    {text:"确定", onPress: function(){ OSCService.logout(); }},
+                                                    {text:"不了", onPress: function(){}},
+                                                ]
+                                            );
                                         }}
                                         underlayColor={Colors.backGray}
                     >
