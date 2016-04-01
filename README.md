@@ -2,7 +2,7 @@
 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](https://github.com/feross/standard)
 
-使用ReactNative仿造的Git@OSC
+使用ReactNative仿造的Git@OSC! (感谢 [xiekw2010](https://github.com/xiekw2010/react-native-gitfeed))
 
 <img src="./screen/project.jpg" alt="..." height="350" width="200">
 <img src="./screen/personal.jpg" alt="..." height="350" width="200">
@@ -57,7 +57,7 @@ Edit xcode project `OSCGit` edit scheme to `debug` mode
 Xcode run!
 
 ## Android
-    - 还未测试.
+    - 还未测试.(下一步准备让android也运行起来,然后再总结.)
 
 ## code-push热更新(可选)
 ### 安装
@@ -70,7 +70,9 @@ Xcode run!
     
     code-push deployment ls RN_OSCGit
     
-    release RN_OSCGit ./ios/bundle 1.0.7 -d Production
+    code-push release-react RN_OSCGit ios --entryFile ./ios/bundle/index.ios.jsbundle
+    
+    #release RN_OSCGit ./ios/bundle 1.0.7 -d Production
     ```
 
 ### Check app status
@@ -86,4 +88,4 @@ Xcode run!
 [一次RN跨平台开发之旅](http://xiekw2010.github.io/2016/02/11/rngitfeed)
 
 ### License
-[GNU](./LICENSE.txt). Copyright (c) [rplees](https://github.com/rplees).
+[GPL](./LICENSE.txt). Copyright (c) [rplees](https://github.com/rplees).

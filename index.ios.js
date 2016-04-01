@@ -41,6 +41,7 @@ const OSCGit = React.createClass({
       this.setState(this.getInitialState());
       this._query();
     });
+
     const random = this.getRandomInt(1, 10);
     const cpKey = random % 2 == 0 ? constant.code_push.STAGING_KEY : constant.code_push.PRODUCTION_KEY;
     // Prompt the user when an update is available
