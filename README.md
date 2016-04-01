@@ -86,4 +86,4 @@ Xcode run!
 [一次RN跨平台开发之旅](http://xiekw2010.github.io/2016/02/11/rngitfeed)
 
 ### License
-[GNU](./LICENSE.txt). Copyright (c) [rplees](https://github.com/rplees).
+[GPL](./LICENSE.txt). Copyright (c) [rplees](https://github.com/rplees).
