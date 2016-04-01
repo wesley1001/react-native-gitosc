@@ -70,7 +70,9 @@ Xcode run!
     
     code-push deployment ls RN_OSCGit
     
-    release RN_OSCGit ./ios/bundle 1.0.7 -d Production
+    code-push release-react RN_OSCGit ios --entryFile ./ios/bundle/index.ios.jsbundle
+    
+    #release RN_OSCGit ./ios/bundle 1.0.7 -d Production
     ```
 
 ### Check app status
